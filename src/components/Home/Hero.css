@@ -1,0 +1,66 @@
+.swiper-button-next,
+.swiper-button-prev {
+  /* background-color: white;
+  background-color: rgba(255, 255, 255, 0.5); */
+  right: 10px;
+  padding: 30px;
+  color: #fff !important;
+  fill: black !important;
+  stroke: black !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: orange !important;
+}
+
+.slide-content.content-right {
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  right: 5%;
+  transform: translateY(-50%);
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@media (max-width: 575.98px) {
+  .slide-content.content-right {
+    left: 15px;
+  }
+}
+* {
+  outline: 0 !important;
+  box-sizing: border-box;
+}
+
+.img_teams:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #0000004d;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0.8);
+  transform: translate(-50%, -50%) scale(0.8);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+}
+.img_teams:hover::before {
+  opacity: 1 !important;
+  visibility: visible !important;
+  -webkit-transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.img_teams:hover > .iconss {
+  display: grid;
+}
