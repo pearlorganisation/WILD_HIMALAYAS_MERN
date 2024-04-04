@@ -23,33 +23,46 @@ const ProfileDropDown = (props) => {
   }, [])
 
   return (
+
     <div className={`relative ${props.class}`}>
-      <div className="flex items-center space-x-4">
-        <button ref={profileRef} className="w-10 h-10 outline-none rounded-full ring-offset-2 ring-gray-200 ring-2 lg:focus:ring-indigo-600"
-          onClick={() => setState(!state)}
-        >
-          <img
-            src="https://randomuser.me/api/portraits/men/46.jpg"
-            className="w-full h-full rounded-full"
-          />
-        </button>
-        <div className="lg:hidden">
-          <span className="block">Micheal John</span>
-          <span className="block text-sm text-gray-500">john@gmail.com</span>
+      {
+        !true ? <div>
+          <div className="flex items-center space-x-4 border border-red-500">
+            <button ref={profileRef} className="w-10 h-10 outline-none rounded-full ring-offset-2 ring-gray-200 ring-2 lg:focus:ring-indigo-600"
+              onClick={() => setState(!state)}
+            >
+              <img
+                src="https://randomuser.me/api/portraits/men/46.jpg"
+                className="w-full h-full rounded-full"
+              />
+            </button>
+            <div className="lg:hidden">
+              <span className="block">Micheal John</span>
+              <span className="block text-sm text-gray-500">john@gmail.com</span>
+            </div>
+          </div>
+          <ul className={`bg-white top-12 border-2 border-y-lime-400 right-0 mt-5 space-y-5 lg:absolute lg:border lg:rounded-md lg:text-sm lg:w-52 lg:shadow-md lg:space-y-0 lg:mt-0 ${state ? '' : 'lg:hidden'}`}>
+            {
+              navigation.map((item, idx) => (
+                <li>
+                  <a key={idx} className="block text-gray-600 lg:hover:bg-gray-50 lg:p-2.5" href={item.path}>
+                    {item.title}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div> : <div className="flex gap-2 font-medium">
+          <Link to='/signIn'>
+            <button className="px-5 py-2 active:scale-95 transition-all border-2 text-black border-black hover:bg-black/10 rounded-md" type="button">SignIn</button>
+          </Link>
+          <Link to='/signUp'>
+            <button className="px-5 py-2 active:scale-95 transition-all bg-black hover:bg-black/80 text-white rounded-md" type="button">SignUp</button>
+          </Link>
         </div>
-      </div>
-      <ul className={`bg-white top-12 right-0 mt-5 space-y-5 lg:absolute lg:border lg:rounded-md lg:text-sm lg:w-52 lg:shadow-md lg:space-y-0 lg:mt-0 ${state ? '' : 'lg:hidden'}`}>
-        {
-          navigation.map((item, idx) => (
-            <li>
-              <a key={idx} className="block text-gray-600 lg:hover:bg-gray-50 lg:p-2.5" href={item.path}>
-                {item.title}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+      }
     </div>
+
   )
 }
 
@@ -109,14 +122,10 @@ const Header = () => {
           </div>
           <div className="flex-1 flex items-center justify-end space-x-2 sm:space-x-6">
 
-            {
-              !true ? <ProfileDropDown
-                class="hidden lg:block"
-              /> : <div className="flex gap-2 font-medium">
-                <button className="px-5 py-2 active:scale-95 transition-all border-2 text-black border-black hover:bg-black/10 rounded-md" type="button">SignIn</button>
-                <button className="px-5 py-2 active:scale-95 transition-all bg-black hover:bg-black/80 text-white rounded-md" type="button">SignUp</button>
-              </div>
-            }
+            <ProfileDropDown
+              class="hidden lg:block"
+            />
+
             <button
               className="outline-none text-gray-400 block lg:hidden"
               onClick={() => setMenuState(!menuState)}
