@@ -1,12 +1,9 @@
-import { useState } from "react";
+import { Suspense, lazy, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home from "./pages/Home/Home";
 import Footer from "./components/layout/Footer";
-import About from "./pages/About/About";
-import Activity from "./pages/Activity/Activity";
 import Checkout from "./pages/Checkout/Checkout";
 import Climbing from "./pages/Climbing/Climbing";
 import Contact from "./pages/Contact/Contact";
@@ -20,6 +17,11 @@ import Trek from "./pages/Trek/Trek";
 import UpcomingTreks from "./pages/UpcomingTreks/UpcomingTreks";
 import HeaderComponent from "./components/layout/Header";
 import Layout from "./components/layout/Layout";
+import Loading from "./components/Loader/Loading";
+
+const Home = lazy(() => import("./pages/Home/Home"))
+const About = lazy(() => import("./pages/About/About"))
+const Activity = lazy(() => import("./pages/Activity/Activity"))
 
 function App() {
   const router = createBrowserRouter([
@@ -29,15 +31,21 @@ function App() {
       children: [
         {
           path: "/",
-          element: <Home />
+          element: <Suspense fallback={<Loading />}>
+            <Home />
+          </Suspense>
         },
         {
           path: "/about",
-          element: <About />,
+          element: <Suspense fallback={<Loading />}>
+            <About />
+          </Suspense>,
         },
         {
           path: "/activities",
-          element: <Activity />,
+          element: <Suspense fallback={<Loading />}>
+            <Activity />
+          </Suspense>,
         },
         {
           path: "/checkout",
@@ -91,9 +99,8 @@ function App() {
   return (
 
 
-    <RouterProvider router={router} >
-      <Layout />
-    </RouterProvider>
+    <RouterProvider router={router} />
+
 
 
   );

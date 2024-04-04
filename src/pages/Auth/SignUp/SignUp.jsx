@@ -1,14 +1,23 @@
 
-import React from "react";
+import { signUp } from "@/features/actions/authActions";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 const SignUp = () => {
+    const dispatch = useDispatch()
+    const { isLoading, authData } = useSelector(state => state.auth)
+    const navigate = useNavigate()
     const {
         register,
         handleSubmit,
         watch,
         formState: { errors },
     } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data) => {
+        console.log("data::", data)
+        dispatch(signUp(data))
+    }
     // Function to generate height options
     const generateHeightOptions = () => {
         const options = [];
@@ -23,6 +32,13 @@ const SignUp = () => {
         }
         return options;
     };
+    useEffect(() => {
+        console.log(authData, '::authData')
+        if (authData?.status) {
+            navigate('/signIn')
+        }
+    }, [authData])
+
 
     return (
         <div className="container mx-auto px-8 py-8 max-w-4xl">
@@ -49,7 +65,7 @@ const SignUp = () => {
                                 type="text"
                                 id="firstName"
                                 className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1"
-                                {...register("firstname", { required: true })}
+                                {...register("firstName", { required: true })}
                             />
                             {errors.firstname && (
                                 <span className="text-red-600">This field is required</span>
@@ -65,11 +81,46 @@ const SignUp = () => {
                             <input
                                 type="text"
                                 id="lastName"
-                                {...register("lastname", { required: true })}
+                                {...register("lastName", { required: true })}
                                 className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outnpm run devfline-none focus:ring-blue-500 focus:ring-1"
                             />
                             {errors.firstname && (
                                 <span className="text-red-600">This field is required </span>
+                            )}
+                        </div>
+
+                        <div className="mb-6">
+                            <label
+                                htmlFor="email"
+                                className="block text-lg font-medium text-gray-700"
+                            >
+                                Email Address
+                            </label>
+                            <input
+                                {...register("email", { required: true })}
+                                type="email"
+                                id="email"
+                                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1"
+                            />
+                            {errors.email && (
+                                <span className="text-red-600">This field is required</span>
+                            )}
+                        </div>
+                        <div className="mb-6">
+                            <label
+                                htmlFor="phone"
+                                className="block text-lg font-medium text-gray-700"
+                            >
+                                Password
+                            </label>
+                            <input
+                                {...register("password", { required: true })}
+                                type="tel"
+                                id="phone"
+                                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1"
+                            />
+                            {errors.password && (
+                                <span className="text-red-600">This field is required</span>
                             )}
                         </div>
                         <div className="mb-6">
@@ -80,6 +131,7 @@ const SignUp = () => {
                                 Gender
                             </label>
                             <select
+                                {...register("gender", { required: true })}
                                 id="gender"
                                 className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1"
                             >
@@ -87,6 +139,9 @@ const SignUp = () => {
                                 <option value="female">Female</option>
                                 <option value="other">Other</option>
                             </select>
+                            {errors.gender && (
+                                <span className="text-red-600">This field is required </span>
+                            )}
                         </div>
                         <div className="mb-6">
                             <label
@@ -113,11 +168,15 @@ const SignUp = () => {
                                 Height
                             </label>
                             <select
+                                {...register("height", { required: true })}
                                 id="height"
                                 className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1"
                             >
                                 {generateHeightOptions()}
                             </select>
+                            {errors.height && (
+                                <span className="text-red-600">This field is required</span>
+                            )}
                         </div>
                         <div className="mb-6">
                             <label
@@ -136,6 +195,7 @@ const SignUp = () => {
                                 <span className="text-red-600">This field is required</span>
                             )}
                         </div>
+
                         <div className="mb-6">
                             <label
                                 htmlFor="phone"
@@ -150,23 +210,6 @@ const SignUp = () => {
                                 className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1"
                             />
                             {errors.number && (
-                                <span className="text-red-600">This field is required</span>
-                            )}
-                        </div>
-                        <div className="mb-6">
-                            <label
-                                htmlFor="email"
-                                className="block text-lg font-medium text-gray-700"
-                            >
-                                Email Address
-                            </label>
-                            <input
-                                {...register("email", { required: true })}
-                                type="email"
-                                id="email"
-                                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1"
-                            />
-                            {errors.email && (
                                 <span className="text-red-600">This field is required</span>
                             )}
                         </div>
