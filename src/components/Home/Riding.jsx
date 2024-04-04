@@ -92,7 +92,7 @@ const Riding = () => {
       <div className="mx-auto container">
         <div>
           <h1 className="text text-center text-xl font-semibold md:text-3xl py-5">
-            Camping
+          Our camps
           </h1>
         </div>
         <div>
@@ -193,7 +193,7 @@ const Riding = () => {
 
         <div>
           <h1 className="text-xl text text-center font-semibold md:text-3xl py-10">
-            Wildlife spotting
+          Mountain climbing expeditions
           </h1>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 ">

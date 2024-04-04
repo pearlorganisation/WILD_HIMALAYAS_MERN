@@ -1,6 +1,7 @@
 import React from "react";
 
 import Bike from "../../assets/images/bike3.jpg";
+import Trekking from  "../../assets/images/trekking.jpg"
 import Camp2 from "../../assets/images/camp2.jpg";
 import Climbing from "../../assets/images/climbing.jpg";
 const Activity = () => {
@@ -9,7 +10,7 @@ const Activity = () => {
       <div className="grid md:grid-cols-2 grid-rows-2 gap-6 place-items-center py-10">
         <div className="max-w-lg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-full">
           <a href="/ourtrek">
-            <img src={Bike} alt="Trekking" />
+            <img src={Trekking} alt="Trekking" />
           </a>
           <div className="p-5">
             <a href="#">
@@ -48,7 +49,7 @@ const Activity = () => {
         <div className="max-w-lg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-full">
           <a href="#">
             <img
-              src={Camp2} alt="Indian Motorcycle Tours"
+              src={Bike} alt="Indian Motorcycle Tours"
               srcset="" />
           </a>
 
