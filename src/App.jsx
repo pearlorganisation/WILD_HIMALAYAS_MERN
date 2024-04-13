@@ -18,6 +18,8 @@ import UpcomingTreks from "./pages/UpcomingTreks/UpcomingTreks";
 import HeaderComponent from "./components/layout/Header";
 import Layout from "./components/layout/Layout";
 import Loading from "./components/Loader/Loading";
+import MountainBiking from "./pages/Mountain_Biking/MountainBiking";
+import EmailVerification from "./pages/Auth/EmailVerification/EmailVerification";
 
 const Home = lazy(() => import("./pages/Home/Home"))
 const About = lazy(() => import("./pages/About/About"))
@@ -94,6 +96,14 @@ function App() {
         {
           path: "/forgetpassword",
           element: <ForgotPassword />,
+        },
+        {
+          path: "/mountainebike",
+          element: <MountainBiking/>,
+        },
+        {
+          path: "/emailverification",
+          element: <EmailVerification/>,
         },
       ]
     },

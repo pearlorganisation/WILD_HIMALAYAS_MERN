@@ -14,7 +14,7 @@ import { ImBasecamp } from "react-icons/im";
 const OurCamp = () => {
     return (
         <>
-            <section className=" border border-red-500">
+            <section className="">
                 <div className="overflow-hidden grid place-items-center">
                     <div className="text-4xl absolute">
                         <h1 className="text text-5xl font-bold text-white">OUR CAMPS</h1>
@@ -161,6 +161,7 @@ const OurCamp = () => {
                         </SwiperSlide>
                         <SwiperSlide>
                             <div className="relative w-[350px] h-[350px]">
+                                
                                 <img
                                     alt="Camping Programme"
                                     className="w-full h-full object-cover"
