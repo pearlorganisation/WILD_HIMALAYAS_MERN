@@ -32,12 +32,7 @@ const SignUp = () => {
         }
         return options;
     };
-    useEffect(() => {
-        console.log(authData, '::authData')
-        if (authData?.status) {
-            navigate('/signIn')
-        }
-    }, [authData])
+    
 
 
     return (
