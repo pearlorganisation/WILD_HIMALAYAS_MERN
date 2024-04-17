@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { signIn, signUp } from "../actions/authActions";
+import { emailVerification, signIn, signUp } from "../actions/authActions";
 import { toast } from "sonner";
 
 const initialState = {
@@ -46,6 +46,23 @@ const authSlice = createSlice({
         toast.success("Verification email sent! 💌 Check inbox.");
       })
       .addCase(signIn.rejected, (state, action) => {
+        state.isLoading = false;
+        state.errorMessage = action.payload;
+        toast.error(`Uh-oh! ${action.payload}`);
+      })
+      //user verification
+
+      .addCase(emailVerification.pending, (state, action) => {
+        state.isLoading = true;
+        state.errorMessage = "";
+      })
+      .addCase(emailVerification.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.errorMessage = "";
+        state.authData = action.payload;
+        toast.success("Verification Successful");
+      })
+      .addCase(emailVerification.rejected, (state, action) => {
         state.isLoading = false;
         state.errorMessage = action.payload;
         toast.error(`Uh-oh! ${action.payload}`);

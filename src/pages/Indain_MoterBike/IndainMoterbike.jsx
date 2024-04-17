@@ -9,8 +9,8 @@ import "swiper/css/pagination";
 import { IoLocationSharp } from "react-icons/io5";
 import { GiMountainClimbing } from "react-icons/gi";
 import { ImBasecamp } from "react-icons/im";
-import mbike from "../../assets/images/mbike.jpeg";
-const MountainBiking = () => {
+import bike from "../../../src/assets/images/bike4.jpg"
+const IndianMoterBiking = () => {
   return (
     <>
       <div>
@@ -18,13 +18,13 @@ const MountainBiking = () => {
           <div className="overflow-hidden grid place-items-center">
             <div className="text-4xl absolute">
               <h1 className="text-xl  text-center md:text-5xl font-bold text-white">
-                HIMALAYAN MOUNTAIN BIKING TOUR
+              INDIAN MOTORCYCLE TOURS
               </h1>
             </div>
             <img
-              src={mbike}
+              src={bike}
               alt=""
-              className="h-[200px] md:h-[400px] w-full object-cover  bg-slate-50/50 object-bottom"
+              className="h-[200px] md:h-[400px] w-full object-cover  bg-slate-50/50 object-center"
             />
           </div>
         </section>
@@ -58,7 +58,7 @@ const MountainBiking = () => {
         <section>
           <div>
             <h1 className="text-center p-5 text-xl md:text-5xl  font-medium">
-              PACKAGES FOR HIMALAYAN MOUNTAIN BIKING TOUR
+              PACKAGES FOR INDIAN MOTORCYCLE TOURS
             </h1>
           </div>
         </section>
@@ -387,4 +387,4 @@ const MountainBiking = () => {
   );
 };
 
-export default MountainBiking;
+export default IndianMoterBiking;

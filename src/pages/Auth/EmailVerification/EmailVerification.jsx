@@ -1,6 +1,29 @@
-import React from "react";
-import { HiOutlineMailOpen } from "react-icons/hi";
+import { emailVerification } from "@/features/actions/authActions";
+import React, { useEffect } from "react";
+import { CiMail } from "react-icons/ci";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 const EmailVerification = () => {
+  const {authData} = useSelector(state => state.auth)
+  const {token} = useParams()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  useEffect(() => {
+    console.log("token::",token)
+    
+  }, [token])
+  const verifyEmail = ()=>{
+    dispatch(emailVerification({token}))
+    console.log(token)
+
+  }
+  useEffect(() => {
+    if(authData?.success){
+      navigate('/signIn')
+    }
+  }, [])
+  
+  
   return (
     <>
       <div class="min-h-screen flex items-center justify-center">
@@ -11,7 +34,7 @@ const EmailVerification = () => {
             </h2>
             <div className="flex justify-center items-center">
               <div>
-                <HiOutlineMailOpen size={70} />
+                <CiMail size={70} />
               </div>
             </div>
             <p class="text-gray-700 text-center mb-4">
@@ -19,12 +42,12 @@ const EmailVerification = () => {
             </p>
 
             <div class="flex justify-center">
-              <a
-                href="#"
+              <button
+                onClick={verifyEmail}
                 class=" text-white font-semibold py-2 px-6 rounded  focus:outline-none bg-[#000000] "
               >
                 Verify Email
-              </a>
+              </button>
             </div>
           </div>
         </div>
