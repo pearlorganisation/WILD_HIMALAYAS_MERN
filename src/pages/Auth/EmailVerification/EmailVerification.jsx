@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { CiMail } from "react-icons/ci";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+
+
 const EmailVerification = () => {
   const {authData} = useSelector(state => state.auth)
   const {token} = useParams()
@@ -24,6 +26,7 @@ const EmailVerification = () => {
   }, [])
   
   
+  
   return (
     <>
       <div class="min-h-screen flex items-center justify-center">
@@ -33,10 +36,12 @@ const EmailVerification = () => {
               Email Verification
             </h2>
             <div className="flex justify-center items-center">
+
               <div>
                 <CiMail size={70} />
               </div>
             </div>
+
             <p class="text-gray-700 text-center mb-4">
               Click the button below to verify your email address.
             </p>

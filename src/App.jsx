@@ -110,6 +110,10 @@ function App() {
           path: "/IndianMoterBiking",
           element: <IndianMoterBiking/>,
         },
+        {
+          path: "/forgotpassword",
+          element: <ForgotPassword/>,
+        },
       ]
     },
 
