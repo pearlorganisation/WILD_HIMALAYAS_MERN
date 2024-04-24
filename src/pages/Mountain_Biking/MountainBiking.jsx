@@ -10,6 +10,7 @@ import { IoLocationSharp } from "react-icons/io5";
 import { GiMountainClimbing } from "react-icons/gi";
 import { ImBasecamp } from "react-icons/im";
 import mbike from "../../assets/images/mbike.jpeg";
+
 const MountainBiking = () => {
   return (
     <>

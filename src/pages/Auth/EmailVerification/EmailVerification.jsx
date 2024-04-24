@@ -4,29 +4,24 @@ import { CiMail } from "react-icons/ci";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
-
 const EmailVerification = () => {
-  const {authData} = useSelector(state => state.auth)
-  const {token} = useParams()
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const { authData } = useSelector((state) => state.auth);
+  const { token } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   useEffect(() => {
-    console.log("token::",token)
-    
-  }, [token])
-  const verifyEmail = ()=>{
-    dispatch(emailVerification({token}))
-    console.log(token)
-
-  }
+    console.log("token::", token);
+  }, [token]);
+  const verifyEmail = () => {
+    dispatch(emailVerification({ token }));
+    console.log(token);
+  };
   useEffect(() => {
-    if(authData?.success){
-      navigate('/signIn')
+    if (authData?.success) {
+      navigate("/signIn");
     }
-  }, [])
-  
-  
-  
+  }, []);
+
   return (
     <>
       <div class="min-h-screen flex items-center justify-center">
@@ -36,7 +31,6 @@ const EmailVerification = () => {
               Email Verification
             </h2>
             <div className="flex justify-center items-center">
-
               <div>
                 <CiMail size={70} />
               </div>

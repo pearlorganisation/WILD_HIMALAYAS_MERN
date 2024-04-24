@@ -64,7 +64,7 @@ const Login = () => {
               />
               <label
                 htmlFor="remember-me-checkbox"
-                className="relative flex w-5 h-5 bg-white  rounded-md border ring-offset-2  duration-150 peer-active:ring cursor-pointer after:absolute after:inset-x-0 after:top-[3px] after:m-auto after:w-1.5 after:h-2.5 after:border-r-2 after:border-b-2 after:border-white after:rotate-45"
+                className="relative flex w-5 h-5  rounded-md border ring-offset-2  duration-150 peer-active:ring cursor-pointer after:absolute after:inset-x-0 after:top-[3px] after:m-auto after:w-1.5 after:h-2.5 after:border-r-2 after:border-b-2 after:border-white after:rotate-45"
               ></label>
               <span>Remember me</span>
             </div>
@@ -156,7 +156,7 @@ const Login = () => {
                     stroke-width="24"
                   ></line>
                 </svg>
-                <span class="text-lg font-medium text-white">Loading...</span>
+                <span class="text-lg font-medium text-black">Loading...</span>
               </div>
             </button>
           ) : (
@@ -192,7 +192,7 @@ const Login = () => {
             </g>
             <defs>
               <clipPath id="clip0_17_40">
-                <rect width="48" height="48" fill="white" />
+                <rect width="48" height="48"  />
               </clipPath>
             </defs>
           </svg>

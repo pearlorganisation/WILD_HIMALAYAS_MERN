@@ -23,6 +23,7 @@ const Footer = () => {
             </div>
           ))}
         </div>
+
         <div className="w-full px-4 md:w-1/2 lg:px-0" style={{ margin: "0" }}>
           <h1 className="max-w-sm text-3xl font-bold">
             Subscribe to our Newsletter
@@ -56,7 +57,7 @@ const Footer = () => {
             alt=""
           />
 
-          <span className="ml-4 text-lg font-bold">Wild into Himalayas</span>
+          <span className="ml-4 text-lg font-bold"> into Wild Himalayas</span>
         </div>
         <div>
           <img src={PayImg} alt="pay" />

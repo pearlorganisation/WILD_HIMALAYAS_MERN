@@ -111,7 +111,7 @@ function App() {
           element: <IndianMoterBiking/>,
         },
         {
-          path: "/forgotpassword",
+          path: "/forgetpassword",
           element: <ForgotPassword/>,
         },
       ]
