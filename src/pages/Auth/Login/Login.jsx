@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Logo from "../../../assets/images/WildLogo.png";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,19 +19,27 @@ const Login = () => {
     console.log("data::", data);
     dispatch(signIn(data));
   };
+
+  useEffect(() => {
+    if (authData?.status) {
+      navigate("/");
+    }
+  }, [authData]);
+
+  console.log(authData, "data .........");
   return (
     <main className="w-full h-screen flex flex-col items-center justify-center px-4">
       <div className="max-w-sm w-full text-gray-600 space-y-5">
         <div className="text-center pb-8">
           <img src={Logo} width={150} className="mx-auto" />
-          
+
           <div className="mt-5">
-            <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">
+            <h3 className="text-gray-800  text-2xl  font-bold sm:text-3xl">
               Log in to your account
             </h3>
           </div>
-
         </div>
+        
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 text-left">
           <div>
             <label className="font-medium">Email</label>
@@ -192,7 +200,7 @@ const Login = () => {
             </g>
             <defs>
               <clipPath id="clip0_17_40">
-                <rect width="48" height="48"  />
+                <rect width="48" height="48" />
               </clipPath>
             </defs>
           </svg>

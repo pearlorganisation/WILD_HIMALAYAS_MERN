@@ -94,10 +94,7 @@ function App() {
           path: "/upcomingTrek",
           element: <UpcomingTreks />,
         },
-        {
-          path: "/forgetpassword",
-          element: <ForgotPassword />,
-        },
+       
         {
           path: "/mountainebike",
           element: <MountainBiking/>,

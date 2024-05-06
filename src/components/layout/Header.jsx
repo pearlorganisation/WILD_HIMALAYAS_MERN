@@ -1,13 +1,16 @@
 import { useState, useRef, useEffect } from "react";
 import Logo from "../../assets/images/WildLogo.png";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logOut } from "@/features/actions/authActions";
 
 // Profile Dropdown
 const ProfileDropDown = (props) => {
   const [state, setState] = useState(false);
   const profileRef = useRef();
-
+  const { isLoading, authData, isUserLoggedIn } = useSelector(
+    (state) => state.auth
+  );
   const navigation = [
     { title: "Dashboard", path: "javascript:void(0)" },
     { title: "Settings", path: "javascript:void(0)" },
@@ -23,8 +26,13 @@ const ProfileDropDown = (props) => {
     document.addEventListener("click", handleDropDown);
   }, []);
   console.log(isLogIn);
+  const dispatch = useDispatch();
+
+  const handelSubmit = () => {
+    dispatch(logOut());
+  };
+
   return (
-    
     <div className={`relative ${props.class}`}>
       {!true ? (
         <div>
@@ -32,7 +40,7 @@ const ProfileDropDown = (props) => {
             <button
               ref={profileRef}
               className="w-10 h-10 outline-none rounded-full ring-offset-2 ring-gray-200 ring-2 lg:focus:ring-indigo-600"
-              onClick={() => setState(!state)} 
+              onClick={() => setState(!state)}
             >
               <img
                 src="https://randomuser.me/api/portraits/men/46.jpg"
@@ -66,8 +74,9 @@ const ProfileDropDown = (props) => {
         </div>
       ) : (
         <div className="flex gap-2 font-medium">
-          {isLogIn ? (
+          {isUserLoggedIn ? (
             <button
+              onClick={handelSubmit}
               className="px-5 py-2 active:scale-95 transition-all border-2 text-black border-black hover:bg-black/10 rounded-md"
               type="button"
             >
@@ -132,6 +141,7 @@ const Header = () => {
             </span>
           </Link>
         </div>
+
         <div className="flex-1 flex items-center justify-between">
           <div
             className={`bg-white absolute z-20 w-full top-16 left-0 p-4 border-b lg:static lg:block lg:border-none ${
@@ -147,6 +157,7 @@ const Header = () => {
             </ul>
             <ProfileDropDown class="mt-5 pt-5 border-t lg:hidden" />
           </div>
+
           <div className="flex-1 flex items-center justify-end space-x-2 sm:space-x-6">
             <ProfileDropDown class="hidden lg:block" />
 

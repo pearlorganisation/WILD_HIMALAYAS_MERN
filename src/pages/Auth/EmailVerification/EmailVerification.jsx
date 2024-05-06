@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
 const EmailVerification = () => {
-  const { authData } = useSelector((state) => state.auth);
+  const { authData,isEmailVerified } = useSelector((state) => state.auth);
   const { token } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -17,10 +17,10 @@ const EmailVerification = () => {
     console.log(token);
   };
   useEffect(() => {
-    if (authData?.success) {
+    if (isEmailVerified) {
       navigate("/signIn");
     }
-  }, []);
+  }, [authData]);
 
   return (
     <>

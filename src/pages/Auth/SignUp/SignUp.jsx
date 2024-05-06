@@ -36,7 +36,7 @@ const SignUp = () => {
 
 
     return (
-        <div className="container mx-auto px-8 py-8 max-w-4xl">
+        <div className="container mx-auto px-8 py-8 max-w-4xl ">
             <div className="max-w-2xl mx-auto shadow-sm rounded-lg overflow-hidden bg-white">
                 <div className="flex items-center justify-center py-4 bg-gray-100 rounded-t-lg">
                     <h1 className="text-xl font-bold text-gray-700">
@@ -57,7 +57,7 @@ const SignUp = () => {
                                 First Name
                             </label>
                             <input
-                                type="text"
+                                type="text" 
                                 id="firstName"
                                 className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1"
                                 {...register("firstName", { required: true })}
@@ -170,7 +170,7 @@ const SignUp = () => {
                                 {generateHeightOptions()}
                             </select>
                             {errors.height && (
-                                <span className="text-red-600">This field is required</span>
+                                <span className="text-red-600">This field is requird</span>
                             )}
                         </div>
                         <div className="mb-6">

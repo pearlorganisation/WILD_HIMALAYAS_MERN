@@ -10,7 +10,12 @@ import { toast } from "sonner";
 const initialState = {
   isLoading: false,
   errorMessage: "",
-  authData: null,
+  isUserLoggedIn: false,
+  isEmailSent: false,
+  isEmailVerified: false,
+  authData: false,
+  isLogInSuccess: false,
+  isLogoutSuccess: false,
 };
 
 const authSlice = createSlice({
@@ -28,6 +33,7 @@ const authSlice = createSlice({
         state.errorMessage = "";
       })
       .addCase(signUp.fulfilled, (state, action) => {
+        state.isEmailSent = true;
         state.isLoading = false;
         state.errorMessage = "";
         state.authData = action.payload;
@@ -48,8 +54,9 @@ const authSlice = createSlice({
       .addCase(signIn.fulfilled, (state, action) => {
         state.isLoading = false;
         state.errorMessage = "";
+        state.isUserLoggedIn = true;
         state.authData = action.payload;
-        toast.success("Verification email sent! 💌 Check inbox.");
+        toast.success("Login Successful...");
       })
       .addCase(signIn.rejected, (state, action) => {
         state.isLoading = false;
@@ -65,9 +72,10 @@ const authSlice = createSlice({
       })
       .addCase(emailVerification.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.isEmailVerified = true;
         state.errorMessage = "";
         state.authData = action.payload;
-        toast.success("Verification Successful");
+        toast.success(`${action?.payload?.message} 💌 Check inbox.`);
       })
       .addCase(emailVerification.rejected, (state, action) => {
         state.isLoading = false;
@@ -84,6 +92,7 @@ const authSlice = createSlice({
       .addCase(logOut.fulfilled, (state, action) => {
         state.isLoading = false;
         state.errorMessage = "";
+        state.isUserLoggedIn = false;
         localStorage.clear();
         sessionStorage.clear();
         state.authData = action.payload;
