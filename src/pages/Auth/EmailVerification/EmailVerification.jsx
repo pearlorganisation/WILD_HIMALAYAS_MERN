@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
 const EmailVerification = () => {
+  
   const { authData,isEmailVerified } = useSelector((state) => state.auth);
   const { token } = useParams();
   const dispatch = useDispatch();

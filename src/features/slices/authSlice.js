@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 import {
   emailVerification,
   logOut,
   signIn,
   signUp,
 } from "../actions/authActions";
+
 import { toast } from "sonner";
 
 const initialState = {
@@ -58,6 +60,7 @@ const authSlice = createSlice({
         state.authData = action.payload;
         toast.success("Login Successful...");
       })
+
       .addCase(signIn.rejected, (state, action) => {
         state.isLoading = false;
         state.errorMessage = action.payload;
