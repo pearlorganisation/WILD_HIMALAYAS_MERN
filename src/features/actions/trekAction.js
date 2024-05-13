@@ -2,7 +2,7 @@ import { instance } from "@/services/instance";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const trekAction = createAsyncThunk(
-  "/api/v1/trek",
+  "api/v1/trek",
   async (payload, { rejectWithValue }) => {
     try {
       const { data } = await instance.get("/trek", {

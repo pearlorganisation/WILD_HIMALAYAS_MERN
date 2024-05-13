@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { activityAction } from "../actions/activityAction";
+import { tourAction } from "../actions/toursAction";
 
 const initialState = {
   isLoading: false,
@@ -8,7 +8,7 @@ const initialState = {
 };
 
 const activitySlice = createSlice({
-  name: "activitySlice",
+  name: "TourSlice",
   initialState,
   reducers: {},
 
@@ -16,16 +16,16 @@ const activitySlice = createSlice({
     builder
 
       //  user signUp
-      .addCase(activityAction.pending, (state, action) => {
+      .addCase(tourAction.pending, (state, action) => {
         state.isLoading = true;
         state.errorMessage = "";
       })
-      .addCase(activityAction.fulfilled, (state, action) => {
+      .addCase(tourAction.fulfilled, (state, action) => {
         state.isLoading = false;
         state.errorMessage = "";
         state.data = action.payload;
       })
-      .addCase(activityAction.rejected, (state, action) => {
+      .addCase(tourAction.rejected, (state, action) => {
         state.isLoading = false;
         state.errorMessage = action.payload;
       });

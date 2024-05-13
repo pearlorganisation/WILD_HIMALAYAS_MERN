@@ -21,10 +21,13 @@ import Loading from "./components/Loader/Loading";
 import MountainBiking from "./pages/Mountain_Biking/MountainBiking";
 import EmailVerification from "./pages/Auth/EmailVerification/EmailVerification";
 import IndianMoterBiking from "./pages/Indain_MoterBike/IndainMoterbike";
+import ProductList from "./components/Home/ProductList";
+import Tours from "./components/Tours/Tours";
+import { T } from "./components/Tours/T";
 
-const Home = lazy(() => import("./pages/Home/Home"))
-const About = lazy(() => import("./pages/About/About"))
-const Activity = lazy(() => import("./pages/Activity/Activity"))
+const Home = lazy(() => import("./pages/Home/Home"));
+const About = lazy(() => import("./pages/About/About"));
+const Activity = lazy(() => import("./pages/Activity/Activity"));
 
 function App() {
   const router = createBrowserRouter([
@@ -34,21 +37,27 @@ function App() {
       children: [
         {
           path: "/",
-          element: <Suspense fallback={<Loading />}>
-            <Home />
-          </Suspense>
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Home />
+            </Suspense>
+          ),
         },
         {
           path: "/about",
-          element: <Suspense fallback={<Loading />}>
-            <About />
-          </Suspense>,
+          element: (
+            <Suspense fallback={<Loading />}>
+              <About />
+            </Suspense>
+          ),
         },
         {
           path: "/activities",
-          element: <Suspense fallback={<Loading />}>
-            <Activity />
-          </Suspense>,
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Activity />
+            </Suspense>
+          ),
         },
         {
           path: "/checkout",
@@ -94,36 +103,36 @@ function App() {
           path: "/upcomingTrek",
           element: <UpcomingTreks />,
         },
-       
+
         {
           path: "/mountainebike",
-          element: <MountainBiking/>,
+          element: <MountainBiking />,
         },
         {
           path: "/emailverification/:token",
-          element: <EmailVerification/>,
+          element: <EmailVerification />,
         },
         {
           path: "/IndianMoterBiking",
-          element: <IndianMoterBiking/>,
+          element: <IndianMoterBiking />,
         },
         {
           path: "/forgetpassword",
-          element: <ForgotPassword/>,
+          element: <ForgotPassword />,
         },
-      ]
+        {
+          path: "/productlist",
+          element: <ProductList />,
+        },
+        {
+          path: "/tours",
+          element: <Tours />,
+        },
+      ],
     },
-
   ]);
 
-  return (
-
-
-    <RouterProvider router={router} />
-
-
-
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

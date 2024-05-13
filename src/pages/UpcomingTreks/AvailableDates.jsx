@@ -27,10 +27,10 @@ const AvailableDates = ({ months }) => {
                     className="flex justify-between  items-center p-0 md:p-2  hover:bg-[#f4f4f4] hover:cursor-pointer  ]"
                   >
                     <span className="md:w-fit px-2 py-1  text text-xsm my-1 rounded">
-                      {el.date}
+                      {el?.date}
                     </span>
 
-                    <Link to="/register">
+                    <Link to="/signUp">
                       <span
                         className={`text-white ${
                           el.isAvailable ? "bg-green-600" : "bg-red-500"
