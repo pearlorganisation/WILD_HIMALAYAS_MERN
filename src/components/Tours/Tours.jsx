@@ -50,21 +50,21 @@ export const Tours = () => {
     }
   };
 
-  const handleCurrencyChange = (currencyName) => {
+  const handleCurrencyChange = (currencyName, price) => {
     setCurrency(currencyName);
 
     switch (currencyName) {
       case "INR":
-        setAmount(oldamount);
+        setAmount(price);
         break;
       case "USD":
-        setAmount(oldamount / exchangeRates.USD);
+        setAmount(price / exchangeRates.USD);
         break;
       case "EUR":
-        setAmount(oldamount / exchangeRates.EUR);
+        setAmount(price / exchangeRates.EUR);
         break;
       case "GBP":
-        setAmount(oldamount / exchangeRates.GBP);
+        setAmount(price / exchangeRates.GBP);
         break;
       default:
         break;
@@ -77,35 +77,21 @@ export const Tours = () => {
     setActiveTab(tabName);
   };
 
-  const renderTabContent = () => {
+  const RenderTabComponent = ({ tabData }) => {
+    console.log("datadata", tabData);
     switch (activeTab) {
       case "ITINERARY":
         return (
-          <div className="bg-gray-100 p-4">
+          <div className=" p-4">
             <div className="container max-w-full grid md:grid-cols-[10%_auto]">
               <div className=" ">
                 <FaWalking size={100} />
               </div>
 
               <div className=" ">
-                <h1 className="text-lg font-medium ">DARCHA PADUM TREK</h1>
-                {Array(6)
-                  .fill(true)
-                  .map((item, index) => {
-                    return (
-                      <div className="border-b-2 p-10">
-                        <h1 className="text font-semibold py-2">
-                          Day {index + 1}
-                        </h1>
-                        <p className="font-semibold ">Arrival in Delhi</p>
-                        <p>
-                          Guests will be received at the airport followed by a
-                          transfer to a hotel, where you will be staying
-                          overnight.
-                        </p>
-                      </div>
-                    );
-                  })}
+                <div className="border-b-2 p-10">
+                  {parse(tabData?.itinerary)}
+                </div>
               </div>
             </div>
           </div>
@@ -115,38 +101,23 @@ export const Tours = () => {
           <div className="p-4">
             <div className="bg-[#323232]">
               <div>
-                <img src="http://www.intowildhimalaya.com/map_picture/darch-padumtrekroutemap.png" />
+                <img src={tabData?.mapLogo} />
               </div>
             </div>
           </div>
         );
       case "INCLUSIONS_AND_EXCLUSIONS":
         return (
-          <div className="bg-gray-100 p-4">
-            <div className="p-5 border-b ">
-              <div>
-                <h1 className="text-lg font-medium ">INCLUSIONS</h1>
+          <div className=" p-4">
+            <div className="container max-w-full grid md:grid-cols-[10%_auto]">
+              <div className=" ">
+                <FaWalking size={100} />
               </div>
-              <div className="p-5">
-                <ul class="list-disc ">
-                  <li>2 nights accommodation in camp.</li>
-                  <li>Meals: Breakfast, Packed Lunch, Dinner.</li>
-                  <li>Transportation to Jalori Pass and back to camp.</li>
-                  <li>A Guide for 3 days to lead the group in the trek.</li>
-                  <li>Entertainment: Bonfire and music in the evening.</li>
-                </ul>
-              </div>
-            </div>
 
-            <div className="p-5">
-              <div>
-                <h1 className="text-lg font-medium">EXCLUSIONS</h1>
-              </div>
-              <div className="">
-                <p>
-                  Package Price does not Include anything which is not mentioned
-                  in the inclusion list.
-                </p>
+              <div className=" ">
+                <div className="border-b-2 p-10">
+                  {parse(tabData?.inclusionsAndExclusions)}
+                </div>
               </div>
             </div>
           </div>
@@ -165,12 +136,12 @@ export const Tours = () => {
               <section>
                 <div
                   className="h-[45vh] bg-cover bg-center opacity-85"
-                  style={{ backgroundImage: `url(${el.banner})` }}
+                  style={{ backgroundImage: `url(${el?.banner})` }}
                 >
                   <div className="flex flex-col  gap-10">
                     <div className="flex  flex-col mt-10 justify-center  gap-10 items-center">
                       <h1 className="font-extrabold  text-white text-[1rem] text-center text-wrap md:text-[2rem] text sedan-sc-regular">
-                        {el.title}
+                        {el?.title}
                       </h1>
                       <p
                         className="font-semibold text-[0.8rem] md:[1.2rem] sedan-sc-regular text-white
@@ -201,7 +172,7 @@ export const Tours = () => {
                   <div className="grid grid-cols-4 py-5">
                     <div
                       className="px-5 py-2.5 w-5 border flex justify-center items-center cursor-pointer rounded"
-                      onClick={() => handleCurrencyChange("INR")}
+                      onClick={() => handleCurrencyChange("INR", el?.price)}
                     >
                       <div>
                         <FaRupeeSign className="text-black" />
@@ -209,7 +180,7 @@ export const Tours = () => {
                     </div>
                     <div
                       className="px-5 py-2.5 w-5 border flex justify-center items-center cursor-pointer rounded"
-                      onClick={() => handleCurrencyChange("USD")}
+                      onClick={() => handleCurrencyChange("USD", el?.price)}
                     >
                       <div>
                         <FaDollarSign className="text-black" />
@@ -217,7 +188,7 @@ export const Tours = () => {
                     </div>
                     <div
                       className="px-5 py-2.5 w-5 flex border justify-center items-center cursor-pointer rounded"
-                      onClick={() => handleCurrencyChange("EUR")}
+                      onClick={() => handleCurrencyChange("EUR", el?.price)}
                     >
                       <div>
                         <FaEuroSign className="text-black" />
@@ -225,7 +196,7 @@ export const Tours = () => {
                     </div>
                     <div
                       className="px-5 py-2.5 w-5 border flex justify-center items-center cursor-pointer rounded"
-                      onClick={() => handleCurrencyChange("GBP")}
+                      onClick={() => handleCurrencyChange("GBP", el?.price)}
                     >
                       <div>
                         <FaPoundSign className="text-black" />
@@ -241,7 +212,7 @@ export const Tours = () => {
                   <div>
                     <h1 className="text-lg font-medium py-5 ">OVERVIEW</h1>
 
-                    <p>{parse(el.description)}</p>
+                    <p>{parse(el?.description)}</p>
                   </div>
 
                   <div className="pt-5">
@@ -266,26 +237,26 @@ export const Tours = () => {
                           <td class="px-6 py-4 text-[#F26925] text-lg ">
                             Trip Duration
                           </td>
-                          <td class="px-6 py-4 text-lg ">{el.tripDuration}</td>
+                          <td class="px-6 py-4 text-lg ">{el?.tripDuration}</td>
                         </tr>
                         <tr class="bg-gray-200 border border-b-white ">
                           <td class="px-6 py-4 text-lg  text-[#F26925]">
                             Trip Grade
                           </td>
-                          <td class="px-6 py-4 text-lg ">{el.difficulty}</td>
+                          <td class="px-6 py-4 text-lg ">{el?.difficulty}</td>
                         </tr>
                         <tr class="bg-gray-200 border border-b-white  ">
                           <td class="px-6 py-4 text-[#F26925] text-lg">
                             Max. Group Size
                           </td>
 
-                          <td class="px-6 py-4 text-lg ">{el.maxGroupSize}</td>
+                          <td class="px-6 py-4 text-lg ">{el?.maxGroupSize}</td>
                         </tr>
                         <tr class="bg-gray-200 rounded  border border-b-white ">
                           <td class="px-6 py-4 text-[#F26925] text-lg ">
                             Highest Point
                           </td>
-                          <td class="px-6 py-4 text-lg ">{el.highestPoint}</td>
+                          <td class="px-6 py-4 text-lg ">{el?.highestPoint}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -317,7 +288,7 @@ export const Tours = () => {
                     aria-label="Selected tab"
                     className="block w-full"
                     value={activeTab}
-                    onChange={(e) => handleTabClick(e.target.value)}
+                    onChange={(e) => handleTabClick(e?.target?.value)}
                   >
                     <option value="ITINERARY">ITINERARY</option>
                     <option value="MAP">MAP</option>
@@ -366,7 +337,7 @@ export const Tours = () => {
                     </nav>
                   </div>
                 </div>
-                {renderTabContent()}
+                <RenderTabComponent tabData={el} />
               </div>
             </section>
           </>

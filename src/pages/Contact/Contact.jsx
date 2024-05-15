@@ -77,7 +77,8 @@ const Contact = () => {
                     <p className="tracking-widest">FOLLOW US</p>
                     <div className="py-5">
                       {" "}
-                      <hr className="w-[80px] text-[#FF6F29] " />{" "}
+                      <hr className="w-[80px] text-[#FF6F29] " />
+                      {""}
                     </div>
                   </div>
                 </div>
