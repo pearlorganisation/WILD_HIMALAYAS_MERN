@@ -6,6 +6,7 @@ import authReducer from "./slices/authSlice";
 import TrekSlice from "./slices/trekSlice";
 import activitySlice from "./slices/activitySlice";
 import ToursSlice from "./slices/ToursSlice";
+
 const reducers = combineReducers({
   auth: authReducer,
   trek: TrekSlice,

@@ -7,8 +7,8 @@ const initialState = {
   data: [],
 };
 
-const activitySlice = createSlice({
-  name: "TourSlice",
+const toursSlice = createSlice({
+  name: "tourSlice",
   initialState,
   reducers: {},
 
@@ -31,5 +31,5 @@ const activitySlice = createSlice({
       });
   },
 });
-export const {} = activitySlice.actions;
-export default activitySlice.reducer;
+export const {} = toursSlice.actions;
+export default toursSlice.reducer;
