@@ -205,7 +205,7 @@ export const Tours = () => {
                   </div>
                   <div className="w-[50%]">
                     <label>
-                      <h1>{amount}</h1>{" "}
+                      <h1>{amount.toFixed(2)}</h1>
                     </label>
                   </div>
 

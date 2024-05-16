@@ -25,7 +25,7 @@ const Activity = () => {
             >
               <a href="/ourtrek">
                 <img
-                  src={el.logo}
+                  src={el?.logo}
                   alt="Trekking"
                   className="h-[284px] object-cover"
                 />
@@ -33,11 +33,11 @@ const Activity = () => {
               <div className="p-5">
                 <a href="#">
                   <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900  dark:text-white">
-                    {el.title}
+                    {el?.title}
                   </h5>
                 </a>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-3">
-                  {el.description}
+                  {el?.description}
                 </p>
 
                 <a

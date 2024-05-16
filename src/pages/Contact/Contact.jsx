@@ -6,7 +6,7 @@ import { SlEnvolopeLetter } from "react-icons/sl";
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import address from "../../assets/images/address.jpg";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -111,13 +111,13 @@ const Contact = () => {
               </div>
             </div>
             <div className="">
-              <img src="https://campic-store-demo.myshopify.com/cdn/shop/files/contact_us1.jpg?v=1691037496" />
+              <img src={address} />
             </div>
           </div>
         </div>
       </section>
 
-      <section>
+      {/* <section>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="container mx-auto grid h-dvh place-items-center p-3">
             <div className="md:w-[80%]">
@@ -165,6 +165,104 @@ const Contact = () => {
                   )}
                   <textarea
                     className="focus:outline-none border border-gray-300 p-3"
+                    name="message"
+                    id="message"
+                    cols="30"
+                    rows="10"
+                    {...register("message", { required: true })}
+                  ></textarea>
+                </div>
+                <div className="grid place-items-center md:col-span-2">
+                  <button
+                    type="submit"
+                    className="w-full bg-black px-12 py-3 font-medium text-white hover:bg-[#FF6F29] sm:w-auto"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section> */}
+      <section>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="container mx-auto grid h-dvh place-items-center p-3 ">
+            <div className="md:w-[80%]">
+              <div className="text-center text-xl md:text-2xl lg:text-3xl font-medium jost text-black">
+                Contact Form
+                <hr className="mx-auto my-4 w-24 text-[#FF6F29]" />
+              </div>
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="flex flex-col">
+                  <label className="font-medium" htmlFor="name">
+                    Name
+                  </label>{" "}
+                  {errors.name && (
+                    <span className="text-red-400">This field is required</span>
+                  )}
+                  <input
+                    className="focus:outline-none border border-gray-300 p-3 rounded"
+                    type="text"
+                    name="name"
+                    id="name"
+                    {...register("name", { required: true })}
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <label className="font-medium" htmlFor="emailAddress">
+                    Email Address
+                  </label>{" "}
+                  {errors.email && (
+                    <span className="text-red-400">This field is required</span>
+                  )}
+                  <input
+                    className="focus:outline-none border border-gray-300 p-3 rounded"
+                    type="text"
+                    name="email"
+                    id="email"
+                    {...register("email", { required: true })}
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <label className="font-medium" htmlFor="number">
+                    Number
+                  </label>{" "}
+                  {errors.number && (
+                    <span className="text-red-400">This field is required</span>
+                  )}
+                  <input
+                    className="focus:outline-none border border-gray-300 p-3 rounded"
+                    type="text"
+                    name="number"
+                    id="number"
+                    {...register("number", { required: true })}
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <label className="font-medium" htmlFor="address">
+                    Address
+                  </label>{" "}
+                  {errors.address && (
+                    <span className="text-red-400">This field is required</span>
+                  )}
+                  <input
+                    className="focus:outline-none border border-gray-300 p-3 rounded"
+                    type="text"
+                    name="address"
+                    id="address"
+                    {...register("address", { required: true })}
+                  />
+                </div>
+                <div className="flex flex-col md:col-span-2">
+                  <label className="font-medium" htmlFor="message">
+                    Your Message
+                  </label>{" "}
+                  {errors.message && (
+                    <span className="text-red-400">This field is required</span>
+                  )}
+                  <textarea
+                    className="focus:outline-none border border-gray-300 p-3 rounded"
                     name="message"
                     id="message"
                     cols="30"
