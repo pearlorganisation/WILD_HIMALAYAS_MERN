@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { trekAction } from "../actions/trekAction";
+import { contactAction } from "../actions/contactAction";
+import { toast } from "sonner";
 
 const initialState = {
   isLoading: false,
@@ -7,31 +8,30 @@ const initialState = {
   data: [],
 };
 
-const trekSlice = createSlice({
-  name: "trekSlice",
+const contactSlice = createSlice({
+  name: "contactSlice",
   initialState,
-  reducers: {
-    clearAuth: (state, action) => {},
-  },
+  reducers: {},
+
   extraReducers: (builder) => {
     builder
 
       //  user signUp
-      .addCase(trekAction.pending, (state, action) => {
+      .addCase(contactAction.pending, (state, action) => {
         state.isLoading = true;
         state.errorMessage = "";
       })
-      .addCase(trekAction.fulfilled, (state, action) => {
+      .addCase(contactAction.fulfilled, (state, action) => {
         state.isLoading = false;
         state.errorMessage = "";
         state.data = action.payload;
+        toast.success("Submit Successfully");
       })
-      .addCase(trekAction.rejected, (state, action) => {
+      .addCase(contactAction.rejected, (state, action) => {
         state.isLoading = false;
         state.errorMessage = action.payload;
       });
   },
 });
 
-export const {} = trekSlice.actions;
-export default trekSlice.reducer;
+export default contactSlice.reducer;

@@ -4,6 +4,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { SlEnvolopeLetter } from "react-icons/sl";
 import React, { useRef, useState } from "react";
+import { IoMdCall } from "react-icons/io";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import address from "../../assets/images/address.jpg";
@@ -15,6 +16,10 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { useForm } from "react-hook-form";
 import { data } from "autoprefixer";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { contactAction } from "@/features/actions/contactAction";
+import { Toaster, toast } from "sonner";
 
 const Contact = () => {
   const {
@@ -24,9 +29,27 @@ const Contact = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    dispatch(contactAction(data));
+    console.log(data);
+  };
 
   console.log(data, "form data");
+
+  const { contact } = useSelector((state) => state);
+
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  // const contactSubmit = () => {
+  //   useEffect(() => {
+  //     dispatch(contactAction());
+  //   }, []);
+  // };
+
+  console.log(contact?.data, "contact data");
+
   return (
     <>
       <section>
@@ -48,9 +71,38 @@ const Contact = () => {
         </div>
       </section>
 
+      <section class="text-center py-16 bg-gray-100">
+        <h2 class="text-4xl font-semibold mb-4">Get in Touch</h2>
+        <div class="border-t-4 border-orange-500 w-16 mx-auto mb-8"></div>
+        <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+          <div class="bg-blue-500 text-white p-6 rounded-lg shadow-lg flex-1">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+              <IoMdCall />
+              <p class="text-lg font-medium">Call for Booking Enquiries</p>
+            </div>
+            <p class="text-xl font-bold">+91-9816098702</p>
+          </div>
+          <div class="bg-indigo-500 text-white p-6 rounded-lg shadow-lg flex-1">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+              <IoMdCall />
+              <p class="text-lg font-medium">Call for Post Booking Questions</p>
+            </div>
+            <p class="text-xl font-bold">+91-9816354380</p>
+          </div>
+          .
+          <div class="bg-teal-500 text-white p-6 rounded-lg shadow-lg flex-1 ">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+              <IoMdCall />
+              <p class="text-lg font-medium">Call for Payment Queries</p>
+            </div>
+            <p class="text-xl font-bold">+91-9816075309</p>
+          </div>
+        </div>
+      </section>
+
       <section>
         <div className="container  ">
-          <div className="grid md:grid-cols-2   w-[80%] mx-auto my-10 bg-[#F7F7F7]">
+          <div className="grid md:grid-cols-2 w-[80%] mx-auto my-10 bg-[#F7F7F7]">
             <div className="">
               <div className="md:p-10 p-5   text-[#494C4F] jost">
                 <p className="tracking-widest">CONTACT INFORMATION</p>
@@ -59,18 +111,22 @@ const Contact = () => {
                   <hr className="w-[80px] text-[#FF6F29] " />{" "}
                 </div>
                 <p className="jost">
-                  We do not sell product from our corporate headquarters in New
-                  York City. If you want to visit, please reach out to our
-                  customer service team first.
+                  Our head office is located in Manali, a small town situated
+                  west of Indian Himalaya, Himachal Pradesh, India.
                 </p>
 
                 <div className="py-2 jost">
-                  <p>1201 Broadway</p>
-                  <p>Suite 600</p>
+                  <p>
+                    VPO - Goshal District - Lahaul Himachal Pradesh Postal code
+                    - 175132 INDIA
+                  </p>
                 </div>
                 <div className="py-5">
-                  <h1 className="text-xl md:text-2xl  lg:text-3xl font-medium jost text-black">
-                    help@example.com
+                  <h1 className="text-xl md:text-2xl  lg:text-3xl font-medium jost text-black p-2">
+                    info@intowildhimalaya.com
+                  </h1>
+                  <h1 className="text-xl md:text-2xl  lg:text-3xl font-medium jost text-black p-2">
+                    intowildhimalaya@gmail.com
                   </h1>
                   <hr className=" w-[200px] md:w-[280px]" />
                   <div className="py-10">
@@ -117,74 +173,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* <section>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="container mx-auto grid h-dvh place-items-center p-3">
-            <div className="md:w-[80%]">
-              <div className="text-center text-xl md:text-2xl lg:text-3xl font-medium jost text-black">
-                Contact Form
-                <hr className="mx-auto my-4 w-24 text-[#FF6F29]" />
-              </div>
-              <div className="grid gap-6 md:grid-cols-2">
-                <div className="flex flex-col">
-                  <label className="font-medium" htmlFor="name">
-                    Name
-                  </label>{" "}
-                  {errors.name && (
-                    <span className="text-red-400">This field is required</span>
-                  )}
-                  <input
-                    className="focus:outline-none border border-gray-300 p-3"
-                    type="text"
-                    name="name"
-                    id="name"
-                    {...register("name", { required: true })}
-                  />
-                </div>
-                <div className="flex flex-col">
-                  <label className="font-medium" htmlFor="emailAddress">
-                    Email Address
-                  </label>{" "}
-                  {errors.email && (
-                    <span className="text-red-400">This field is required</span>
-                  )}
-                  <input
-                    className="focus:outline-none border border-gray-300 p-3"
-                    type="text"
-                    name="email"
-                    id="email"
-                    {...register("email", { required: true })}
-                  />
-                </div>
-                <div className="flex flex-col md:col-span-2">
-                  <label className="font-medium" htmlFor="yourMessage">
-                    Your Message
-                  </label>{" "}
-                  {errors.message && (
-                    <span className="text-red-400">This field is required</span>
-                  )}
-                  <textarea
-                    className="focus:outline-none border border-gray-300 p-3"
-                    name="message"
-                    id="message"
-                    cols="30"
-                    rows="10"
-                    {...register("message", { required: true })}
-                  ></textarea>
-                </div>
-                <div className="grid place-items-center md:col-span-2">
-                  <button
-                    type="submit"
-                    className="w-full bg-black px-12 py-3 font-medium text-white hover:bg-[#FF6F29] sm:w-auto"
-                  >
-                    Submit
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
-      </section> */}
       <section>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="container mx-auto grid h-dvh place-items-center p-3 ">

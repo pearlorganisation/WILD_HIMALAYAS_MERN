@@ -15,6 +15,7 @@ import { trekAction } from "../../features/actions/trekAction";
 
 const UpcomingTreks = () => {
   const { isLoading, data } = useSelector((state) => state.trek);
+
   const navigate = useNavigate();
 
   const handelchange = () => {
@@ -25,132 +26,6 @@ const UpcomingTreks = () => {
     dispatch(trekAction());
   }, []);
   console.log(data, "updata");
-
-  //   {
-  //     trekTitle: "Dhanaulti Trek",
-  //     trekDesc:
-  //       "It is a small town very close to Mussoorie in Uttarakhand. Quaint forest trails, beautiful parks and temples are the popular places to visit in Dhanaulti. Its location is convenient for tourists visiting Mussoorie, Kanatal or taking up Himalayan trekking trails to Kunjapur, Chandrabadani and Surkanda Devi Temple.",
-  //     trekImg:
-  //       "https://offloadmedia.feverup.com/secretlosangeles.com/wp-content/uploads/2022/01/24125341/WordPress-Banner-2023-12-24T125317.780-1024x683.jpg",
-  //     months: [
-  //       {
-  //         id: 1,
-  //         name: "March",
-  //         availableDates: [
-  //           {
-  //             date: "1 March to 7 April",
-  //             isAvailable: true,
-  //           },
-
-  //           {
-  //             date: "8 March to 14 March",
-  //             isAvailable: false,
-  //           },
-  //           {
-  //             date: "15 march to 22 march",
-  //             isAvailable: true,
-  //           },
-  //           {
-  //             date: "23 march to 30 march",
-  //             isAvailable: true,
-  //           },
-  //         ],
-  //       },
-
-  //       {
-  //         id: 2,
-  //         name: "April",
-  //         availableDates: [
-  //           {
-  //             date: "1 April to 7 April",
-  //             isAvailable: true,
-  //           },
-
-  //           {
-  //             date: "8 April to 14 April",
-  //             isAvailable: true,
-  //           },
-  //           {
-  //             date: "15 April to 22 April",
-  //             isAvailable: true,
-  //           },
-  //           {
-  //             date: "23 April to 30 April",
-  //             isAvailable: true,
-  //           },
-  //         ],
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     trekTitle: "Nanital Trek",
-  //     trekDesc:
-  //       " Nainital is a Himalayan resort town in the Kumaon region of India’s Uttarakhand state, at an elevation of roughly 2,000m. Formerly a British hill station, it’s set around Nainital Lake, a popular boating site with Naina Devi Hindu Temple on its north shore. A cable car runs to Snow View observation point (at 2,270m), with vistas over the town and mountains including Nanda Devi, Uttarakhand’s highest peak.",
-  //     trekImg:
-  //       "https://www.stayvista.com/blog/wp-content/uploads/2023/10/18514027699_5719e8d0e1_b.jpg",
-  //     months: [
-  //       {
-  //         id: 1,
-  //         name: "March",
-  //         availableDates: [
-  //           {
-  //             date: "1 march to 7 April",
-  //             isAvailable: false,
-  //           },
-
-  //           {
-  //             date: "8 April to 14 April",
-  //             isAvailable: true,
-  //           },
-  //           {
-  //             date: "15 march to 22 march",
-  //             isAvailable: true,
-  //           },
-  //           {
-  //             date: "23 march to 30 march",
-  //             isAvailable: true,
-  //           },
-  //         ],
-  //       },
-  //       {
-  //         id: 2,
-  //         name: "April",
-  //         availableDates: [
-  //           {
-  //             date: "1 April to 7 April",
-  //             isAvailable: true,
-  //           },
-
-  //           {
-  //             date: "8 April to 14 April",
-  //             isAvailable: true,
-  //           },
-  //           {
-  //             date: "15 April to 22 April",
-  //             isAvailable: true,
-  //           },
-  //           {
-  //             date: "23 April to 30 April",
-  //             isAvailable: true,
-  //           },
-  //         ],
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     trekTitle: "Rishikesh Trek",
-  //     trekDesc:
-  //       " Nainital is a Himalayan resort town in the Kumaon region of India’s Uttarakhand state, at an elevation of roughly 2,000m. Formerly a British hill station, it’s set around Nainital Lake, a popular boating site with Naina Devi Hindu Temple on its north shore. A cable car runs to Snow View observation point (at 2,270m), with vistas over the town and mountains including Nanda Devi, Uttarakhand’s highest peak.",
-  //     trekImg:
-  //       "https://imgcld.yatra.com/ytimages/image/upload/t_yt_blog_c_fill_q_auto:good_f_auto_w_800_h_500/v1530709216/Rishikesh_Blog_New232_1530707947.jpg",
-  //     months: [
-  //       {
-  //         id: 1,
-  //         name: "March",
-  //         availableDates: [
-  //           {
-  //             date: "1 march to 7 April",
-  //             isAvailable: true,
 
   return (
     <>

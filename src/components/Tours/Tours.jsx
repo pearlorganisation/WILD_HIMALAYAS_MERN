@@ -163,6 +163,7 @@ export const Tours = () => {
                 </div>
               </section>
             </section>
+
             <section>
               {" "}
               <div className="grid md:grid-cols-2">

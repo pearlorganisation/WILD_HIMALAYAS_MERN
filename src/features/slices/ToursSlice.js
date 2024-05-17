@@ -16,15 +16,19 @@ const toursSlice = createSlice({
     builder
 
       //  user signUp
+
       .addCase(tourAction.pending, (state, action) => {
         state.isLoading = true;
         state.errorMessage = "";
       })
+
       .addCase(tourAction.fulfilled, (state, action) => {
         state.isLoading = false;
         state.errorMessage = "";
         state.data = action.payload;
+        toast.success("Event has been created");
       })
+
       .addCase(tourAction.rejected, (state, action) => {
         state.isLoading = false;
         state.errorMessage = action.payload;
