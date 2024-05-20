@@ -5,6 +5,7 @@ import { activityAction } from "@/features/actions/activityAction";
 
 const Activity = () => {
   const { isLoading, data } = useSelector((state) => state.activity);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -15,10 +16,10 @@ const Activity = () => {
 
   return (
     <div className="container mx-auto">
-      <div className="grid md:grid-cols-3 grid-rows-2 gap-6 place-items-center py-10 ">
+      <div className="grid md:grid-cols-3 grid-rows-2 gap-6  place-items-center py-10 ">
         {data &&
-          data.data &&
-          data.data.map((el, id) => (
+          data?.data &&
+          data?.data.map((el, id) => (
             <div
               key={id}
               className="max-w-lg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-full"

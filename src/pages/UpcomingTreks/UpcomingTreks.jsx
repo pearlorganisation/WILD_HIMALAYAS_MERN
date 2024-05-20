@@ -87,11 +87,13 @@ const UpcomingTreks = () => {
                         className="h-64 w-full rounded object-cover"
                         src={item?.trekLogo}
                       />
+
                       <div className="mt-6 w-full lg:mt-0">
                         <h1 className="my-4 text-3xl font-semibold text-black">
                           {item?.trekTitle}
                         </h1>
                         <div className="my-4 flex items-center"></div>
+
                         <p className="leading-relaxed line-clamp-4">
                           {parse(item?.description)}
                         </p>

@@ -16,7 +16,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { useForm } from "react-hook-form";
 import { data } from "autoprefixer";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { contactAction } from "@/features/actions/contactAction";
 import { Toaster, toast } from "sonner";
@@ -139,7 +139,7 @@ const Contact = () => {
                   </div>
                 </div>
                 <div className="">
-                  <div className="flex gap-4 text-black">
+                  <div className="flex gap-4 text-black ">
                     <div className="border rounded-full w-[50px] h-[50px] flex items-center justify-center hover:bg-[#FF6F29] hover:text-white">
                       <div>
                         <FaTwitter />
@@ -342,60 +342,77 @@ const Contact = () => {
           className="mySwiper "
         >
           <SwiperSlide>
-            <div className="flex justify-center items-center">
-              <img
-                src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram1.jpg?v=17881531025014822236"
-                className="w-[250px] "
-              />
-            </div>
+            <Link to="/upcomingTrek">
+              <div className="flex justify-center items-center ">
+                <img
+                  src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram1.jpg?v=17881531025014822236"
+                  className="w-[250px] "
+                />
+              </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center items-center">
-              <img
-                src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram2.jpg?v=5404852605928399226"
-                className="w-[250px] "
-              />
-            </div>
+            <Link to="/upcomingTrek">
+              <div className="flex justify-center items-center">
+                <img
+                  src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram2.jpg?v=5404852605928399226"
+                  className="w-[250px] "
+                />
+              </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center items-center">
-              <img
-                src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram3.jpg?v=2508604475887328975"
-                className="w-[250px] "
-              />
-            </div>
+            <Link to="/upcomingTrek">
+              <div className="flex justify-center items-center">
+                <img
+                  src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram3.jpg?v=2508604475887328975"
+                  className="w-[250px] "
+                />
+              </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center items-center">
-              <img
-                src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram4.jpg?v=14697948523138533043"
-                className="w-[250px] "
-              />
-            </div>
+            <Link to="/upcomingTrek">
+              <div className="flex justify-center items-center">
+                <img
+                  src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram4.jpg?v=14697948523138533043"
+                  className="w-[250px] "
+                />
+              </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center items-center">
-              <img
-                src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram5.jpg?v=2443814745766223143"
-                className="w-[250px] "
-              />
-            </div>
+            <Link to="/upcomingTrek">
+              <div
+                className="flex justify-center items-center"
+                href="/upcomingtrek"
+              >
+                <img
+                  src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram5.jpg?v=2443814745766223143"
+                  className="w-[250px] "
+                />
+              </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center items-center">
-              <img
-                src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram6.jpg?v=10385380288537958565"
-                className="w-[250px] "
-              />
-            </div>
+            <Link to="/upcomingTrek">
+              <div className="flex justify-center items-center">
+                <img
+                  src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram6.jpg?v=10385380288537958565"
+                  className="w-[250px] "
+                />
+              </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center items-center">
-              <img
-                src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram7.jpg?v=14633565151895174854"
-                className="w-[250px] "
-              />
-            </div>
+            <Link to="/upcomingTrek">
+              <div className="flex justify-center items-center">
+                <img
+                  src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram7.jpg?v=14633565151895174854"
+                  className="w-[250px] "
+                />
+              </div>
+            </Link>
           </SwiperSlide>
         </Swiper>
       </section>

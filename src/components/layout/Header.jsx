@@ -117,19 +117,23 @@ const Header = () => {
       title: "Home",
       path: "/",
     },
+
     {
       title: "Activities",
       path: "/activities",
     },
+
     {
       title: "About",
       path: "/about",
     },
+
     {
       title: "Contact",
       path: "/contact",
     },
   ];
+
   return (
     <nav className="bg-white border-b">
       <div className="flex items-center space-x-8 px-4 max-w-screen-xl mx-auto md:px-8">
