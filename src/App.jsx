@@ -24,6 +24,8 @@ import IndianMoterBiking from "./pages/Indain_MoterBike/IndainMoterbike";
 import ProductList from "./components/Home/ProductList";
 import Tours from "./components/Tours/Tours";
 import { T } from "./components/Tours/T";
+import BookingCondition from "./components/layout/FooterPages/BookingCondition";
+import RefundPolicy from "./components/layout/FooterPages/RefundPolicy";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const About = lazy(() => import("./pages/About/About"));
@@ -127,6 +129,14 @@ function App() {
         {
           path: "/tours",
           element: <Tours />,
+        },
+        {
+          path: "/bookingcondition",
+          element: <BookingCondition />,
+        },
+        {
+          path: "/refundpolicy",
+          element: <RefundPolicy />,
         },
       ],
     },

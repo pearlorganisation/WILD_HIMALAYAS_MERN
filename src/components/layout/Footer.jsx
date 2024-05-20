@@ -47,10 +47,10 @@ const Footer = () => {
               RESERVATION
             </p>
             <ul className="flex flex-col space-y-4 text-[14px] font-medium text-gray-500">
-              <Link>
+              <Link to="/bookingcondition">
                 <li>Booking Conditions</li>
               </Link>
-              <Link>
+              <Link to="/refundpolicy">
                 <li>Refund Policy</li>
               </Link>
               <Link>
@@ -74,7 +74,7 @@ const Footer = () => {
 
               <li>Your Responsibilities</li>
 
-              <li>info@intowildhimalaya.com.</li>
+              <li>info@intowildhimalaya.com</li>
 
               <li>intowildhimalaya@gmail.com</li>
             </ul>
