@@ -26,9 +26,10 @@ import Tours from "./components/Tours/Tours";
 import { T } from "./components/Tours/T";
 import BookingCondition from "./components/layout/FooterPages/BookingCondition";
 import RefundPolicy from "./components/layout/FooterPages/RefundPolicy";
+import UrResponsibilities from "./components/layout/FooterPages/UrResponsibilities";
 
 const Home = lazy(() => import("./pages/Home/Home"));
-const About = lazy(() => import("./pages/About/About"));
+const About = lazy(() => import("./pages/About/Aboutus"));
 const Activity = lazy(() => import("./pages/Activity/Activity"));
 
 function App() {
@@ -137,6 +138,10 @@ function App() {
         {
           path: "/refundpolicy",
           element: <RefundPolicy />,
+        },
+        {
+          path: "/yourresponsibility",
+          element: <UrResponsibilities />,
         },
       ],
     },

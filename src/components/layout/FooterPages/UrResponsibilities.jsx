@@ -10,6 +10,7 @@ const UrResponsibilities = () => {
               YOUR RESPONSIBILITIES
             </h1>
           </div>
+
           <img
             src={image}
             alt=""
