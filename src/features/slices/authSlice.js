@@ -6,6 +6,7 @@ const initialState = {
   isLoading: true,
   errorMessage: "",
   authData: null,
+  emailVerified:false
 };
 
 const authSlice = createSlice({
@@ -43,7 +44,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.errorMessage = "";
         state.authData = action.payload;
-        toast.success("Verification email sent! 💌 Check inbox.");
+        toast.success("Logged In Successfully ");
       })
       .addCase(signIn.rejected, (state, action) => {
         state.isLoading = false;
@@ -55,17 +56,20 @@ const authSlice = createSlice({
       .addCase(emailVerification.pending, (state, action) => {
         state.isLoading = true;
         state.errorMessage = "";
+        state.emailVerified= false
       })
       .addCase(emailVerification.fulfilled, (state, action) => {
         state.isLoading = false;
         state.errorMessage = "";
         state.authData = action.payload;
+        state.emailVerified= true
         toast.success("Verification Successful");
       })
       .addCase(emailVerification.rejected, (state, action) => {
         state.isLoading = false;
         state.errorMessage = action.payload;
         toast.error(`Uh-oh! ${action.payload}`);
+        state.emailVerified= false
       });
   },
 });
