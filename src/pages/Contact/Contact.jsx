@@ -4,17 +4,52 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { SlEnvolopeLetter } from "react-icons/sl";
 import React, { useRef, useState } from "react";
+import { IoMdCall } from "react-icons/io";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import address from "../../assets/images/address.jpg";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 
 // import required modules
 import { Pagination } from "swiper/modules";
+import { useForm } from "react-hook-form";
+import { data } from "autoprefixer";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { contactAction } from "@/features/actions/contactAction";
+import { Toaster, toast } from "sonner";
 
 const Contact = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    dispatch(contactAction(data));
+    console.log(data);
+  };
+
+  console.log(data, "form data");
+
+  const { contact } = useSelector((state) => state);
+
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  // const contactSubmit = () => {
+  //   useEffect(() => {
+  //     dispatch(contactAction());
+  //   }, []);
+  // };
+
+  console.log(contact?.data, "contact data");
+
   return (
     <>
       <section>
@@ -36,9 +71,38 @@ const Contact = () => {
         </div>
       </section>
 
+      <section class="text-center py-16 bg-gray-100">
+        <h2 class="text-4xl font-semibold mb-4">Get in Touch</h2>
+        <div class="border-t-4 border-orange-500 w-16 mx-auto mb-8"></div>
+        <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+          <div class="bg-blue-500 text-white p-6 rounded-lg shadow-lg flex-1">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+              <IoMdCall />
+              <p class="text-lg font-medium">Call for Booking Enquiries</p>
+            </div>
+            <p class="text-xl font-bold">+91-9816098702</p>
+          </div>
+          <div class="bg-indigo-500 text-white p-6 rounded-lg shadow-lg flex-1">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+              <IoMdCall />
+              <p class="text-lg font-medium">Call for Post Booking Questions</p>
+            </div>
+            <p class="text-xl font-bold">+91-9816354380</p>
+          </div>
+          .
+          <div class="bg-teal-500 text-white p-6 rounded-lg shadow-lg flex-1 ">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+              <IoMdCall />
+              <p class="text-lg font-medium">Call for Payment Queries</p>
+            </div>
+            <p class="text-xl font-bold">+91-9816075309</p>
+          </div>
+        </div>
+      </section>
+
       <section>
         <div className="container  ">
-          <div className="grid md:grid-cols-2   w-[80%] mx-auto my-10 bg-[#F7F7F7]">
+          <div className="grid md:grid-cols-2 w-[80%] mx-auto my-10 bg-[#F7F7F7]">
             <div className="">
               <div className="md:p-10 p-5   text-[#494C4F] jost">
                 <p className="tracking-widest">CONTACT INFORMATION</p>
@@ -47,30 +111,35 @@ const Contact = () => {
                   <hr className="w-[80px] text-[#FF6F29] " />{" "}
                 </div>
                 <p className="jost">
-                  We do not sell product from our corporate headquarters in New
-                  York City. If you want to visit, please reach out to our
-                  customer service team first.
+                  Our head office is located in Manali, a small town situated
+                  west of Indian Himalaya, Himachal Pradesh, India.
                 </p>
 
                 <div className="py-2 jost">
-                  <p>1201 Broadway</p>
-                  <p>Suite 600</p>
+                  <p>
+                    VPO - Goshal District - Lahaul Himachal Pradesh Postal code
+                    - 175132 INDIA
+                  </p>
                 </div>
                 <div className="py-5">
-                  <h1 className="text-xl md:text-2xl  lg:text-3xl font-medium jost text-black">
-                    help@example.com
+                  <h1 className="text-xl md:text-2xl  lg:text-3xl font-medium jost text-black p-2">
+                    info@intowildhimalaya.com
+                  </h1>
+                  <h1 className="text-xl md:text-2xl  lg:text-3xl font-medium jost text-black p-2">
+                    intowildhimalaya@gmail.com
                   </h1>
                   <hr className=" w-[200px] md:w-[280px]" />
                   <div className="py-10">
                     <p className="tracking-widest">FOLLOW US</p>
                     <div className="py-5">
                       {" "}
-                      <hr className="w-[80px] text-[#FF6F29] " />{" "}
+                      <hr className="w-[80px] text-[#FF6F29] " />
+                      {""}
                     </div>
                   </div>
                 </div>
                 <div className="">
-                  <div className="flex gap-4 text-black">
+                  <div className="flex gap-4 text-black ">
                     <div className="border rounded-full w-[50px] h-[50px] flex items-center justify-center hover:bg-[#FF6F29] hover:text-white">
                       <div>
                         <FaTwitter />
@@ -98,130 +167,110 @@ const Contact = () => {
               </div>
             </div>
             <div className="">
-              <img src="https://campic-store-demo.myshopify.com/cdn/shop/files/contact_us1.jpg?v=1691037496" />
+              <img src={address} />
             </div>
           </div>
         </div>
       </section>
 
       <section>
-        <div className="container mx-auto grid h-dvh place-items-center p-3">
-          <div className="md:w-[80%]">
-            <div className="text-center text-xl md:text-2xl  lg:text-3xl font-medium jost text-black">
-              Contact Form
-              <hr className="mx-auto my-4 w-24 text-[#FF6F29]" />
-            </div>
-            <div className="grid gap-6 md:grid-cols-2">
-              <div className="flex flex-col">
-                <label className="font-medium" for="name">
-                  Name
-                </label>{" "}
-                <input
-                  className="focus:outline-none  border border-gray-300  p-3"
-                  type="text"
-                  name=""
-                  id=""
-                  required
-                />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="container mx-auto grid h-dvh place-items-center p-3 ">
+            <div className="md:w-[80%]">
+              <div className="text-center text-xl md:text-2xl lg:text-3xl font-medium jost text-black">
+                Contact Form
+                <hr className="mx-auto my-4 w-24 text-[#FF6F29]" />
               </div>
-              <div className="flex flex-col">
-                <label className="font-medium" for="emailAddress">
-                  Email Address
-                </label>{" "}
-                <input
-                  className="focus:outline-none border border-gray-300 p-3"
-                  type="text"
-                  name=""
-                  id=""
-                  required
-                />
-              </div>
-              <div className="flex flex-col md:col-span-2">
-                <label className="font-medium" for="yourMessage">
-                  Your Message
-                </label>{" "}
-                <textarea
-                  className="focus:outline-none  border border-gray-300 p-3 "
-                  name=""
-                  id=""
-                  cols="30"
-                  rows="10"
-                  required
-                ></textarea>
-              </div>
-              <div className="grid place-items-center md:col-span-2">
-                <button
-                  type="button"
-                  className="w-full bg-black px-12 py-3 font-medium text-white hover:bg-[#FF6F29] sm:w-auto"
-                >
-                  Submit
-                </button>
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="flex flex-col">
+                  <label className="font-medium" htmlFor="name">
+                    Name
+                  </label>{" "}
+                  {errors.name && (
+                    <span className="text-red-400">This field is required</span>
+                  )}
+                  <input
+                    className="focus:outline-none border border-gray-300 p-3 rounded"
+                    type="text"
+                    name="name"
+                    id="name"
+                    {...register("name", { required: true })}
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <label className="font-medium" htmlFor="emailAddress">
+                    Email Address
+                  </label>{" "}
+                  {errors.email && (
+                    <span className="text-red-400">This field is required</span>
+                  )}
+                  <input
+                    className="focus:outline-none border border-gray-300 p-3 rounded"
+                    type="text"
+                    name="email"
+                    id="email"
+                    {...register("email", { required: true })}
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <label className="font-medium" htmlFor="number">
+                    Number
+                  </label>{" "}
+                  {errors.number && (
+                    <span className="text-red-400">This field is required</span>
+                  )}
+                  <input
+                    className="focus:outline-none border border-gray-300 p-3 rounded"
+                    type="text"
+                    name="number"
+                    id="number"
+                    {...register("number", { required: true })}
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <label className="font-medium" htmlFor="address">
+                    Address
+                  </label>{" "}
+                  {errors.address && (
+                    <span className="text-red-400">This field is required</span>
+                  )}
+                  <input
+                    className="focus:outline-none border border-gray-300 p-3 rounded"
+                    type="text"
+                    name="address"
+                    id="address"
+                    {...register("address", { required: true })}
+                  />
+                </div>
+                <div className="flex flex-col md:col-span-2">
+                  <label className="font-medium" htmlFor="message">
+                    Your Message
+                  </label>{" "}
+                  {errors.message && (
+                    <span className="text-red-400">This field is required</span>
+                  )}
+                  <textarea
+                    className="focus:outline-none border border-gray-300 p-3 rounded"
+                    name="message"
+                    id="message"
+                    cols="30"
+                    rows="10"
+                    {...register("message", { required: true })}
+                  ></textarea>
+                </div>
+                <div className="grid place-items-center md:col-span-2">
+                  <button
+                    type="submit"
+                    className="w-full bg-black px-12 py-3 font-medium text-white hover:bg-[#FF6F29] sm:w-auto"
+                  >
+                    Submit
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </form>
       </section>
-
-      {/* <section>
-      <div className="container mx-auto flex flex-col md:flex-row justify-between min-h-[300px] place-items-center p-3 bg-[#C6C6C6]">
-        <div className="md:pl-56 flex flex-col md:flex-row items-center  p-2">
-          <div className="p-2 ">
-            <SlEnvolopeLetter className="text-white h-[100px] w-[100px]" />
-          </div>
-          <div className="border-l text-white p-2  ">
-            <div className="text-3xl font-medium">
-              <h1>OUR</h1>
-            </div>
-            <div className="text-3xl font-medium md:text-center">
-              <h1>NEWSLETTER!</h1>
-            </div>
-            <div className="border-l text-white p-2  ">
-              <div className="text-3xl font-medium">
-                <h1>OUR</h1>
-              </div>
-              <div className="text-3xl font-medium md:text-center">
-                <h1>NEWSLETTER!</h1>
-              </div>
-              <div className="font-medium w-[60%]">
-                <p>
-                  It only takes a second to be the first to find out about our
-                  latest news
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex w-full pr-4 md:pr-16 mt-4 md:mt-0">
-            <input
-              className="border p-4 w-full border-gray-300 focus:outline-none"
-              type="text"
-              name=""
-              id=""
-            />
-            <button
-              type="button"
-              className="bg-black px-12 py-4  font-medium text-white hover:bg-[#FF6F29] sm:w-auto mt-4 md:mt-0"
-            >
-              Submit
-            </button>
-          </div>
-        </div>
-        <div className="flex w-full pr-4 md:pr-16 mt-4 md:mt-0">
-          <input
-            className="border p-4 w-full border-gray-300 focus:outline-none"
-            type="text"
-            name=""
-            id=""
-            
-          />
-          <button
-            type="button"
-            className="bg-black px-12 py-4  font-medium text-white hover:bg-[#FF6F29] sm:w-auto mt-4 md:mt-0"
-          >
-            Submit
-          </button>
-        </div>
-      </div>
-    </section> */}
 
       <section>
         <div className="min-h-[400px] bg-[#C6C6C6] flex justify-around items-center flex-col md:flex-row p-5">
@@ -258,7 +307,7 @@ const Contact = () => {
               />
 
               <button
-                type="button"
+                type="submit"
                 className="bg-black px-12 py-4  font-medium text-white hover:bg-[#FF6F29] sm:w-auto mt-4 md:mt-0"
               >
                 Submit
@@ -293,60 +342,77 @@ const Contact = () => {
           className="mySwiper "
         >
           <SwiperSlide>
-            <div className="flex justify-center items-center">
-              <img
-                src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram1.jpg?v=17881531025014822236"
-                className="w-[250px] "
-              />
-            </div>
+            <Link to="/upcomingTrek">
+              <div className="flex justify-center items-center ">
+                <img
+                  src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram1.jpg?v=17881531025014822236"
+                  className="w-[250px] "
+                />
+              </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center items-center">
-              <img
-                src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram2.jpg?v=5404852605928399226"
-                className="w-[250px] "
-              />
-            </div>
+            <Link to="/upcomingTrek">
+              <div className="flex justify-center items-center">
+                <img
+                  src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram2.jpg?v=5404852605928399226"
+                  className="w-[250px] "
+                />
+              </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center items-center">
-              <img
-                src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram3.jpg?v=2508604475887328975"
-                className="w-[250px] "
-              />
-            </div>
+            <Link to="/upcomingTrek">
+              <div className="flex justify-center items-center">
+                <img
+                  src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram3.jpg?v=2508604475887328975"
+                  className="w-[250px] "
+                />
+              </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center items-center">
-              <img
-                src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram4.jpg?v=14697948523138533043"
-                className="w-[250px] "
-              />
-            </div>
+            <Link to="/upcomingTrek">
+              <div className="flex justify-center items-center">
+                <img
+                  src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram4.jpg?v=14697948523138533043"
+                  className="w-[250px] "
+                />
+              </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center items-center">
-              <img
-                src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram5.jpg?v=2443814745766223143"
-                className="w-[250px] "
-              />
-            </div>
+            <Link to="/upcomingTrek">
+              <div
+                className="flex justify-center items-center"
+                href="/upcomingtrek"
+              >
+                <img
+                  src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram5.jpg?v=2443814745766223143"
+                  className="w-[250px] "
+                />
+              </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center items-center">
-              <img
-                src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram6.jpg?v=10385380288537958565"
-                className="w-[250px] "
-              />
-            </div>
+            <Link to="/upcomingTrek">
+              <div className="flex justify-center items-center">
+                <img
+                  src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram6.jpg?v=10385380288537958565"
+                  className="w-[250px] "
+                />
+              </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="flex justify-center items-center">
-              <img
-                src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram7.jpg?v=14633565151895174854"
-                className="w-[250px] "
-              />
-            </div>
+            <Link to="/upcomingTrek">
+              <div className="flex justify-center items-center">
+                <img
+                  src="https://campic-store-demo.myshopify.com/cdn/shop/files/instagram7.jpg?v=14633565151895174854"
+                  className="w-[250px] "
+                />
+              </div>
+            </Link>
           </SwiperSlide>
         </Swiper>
       </section>

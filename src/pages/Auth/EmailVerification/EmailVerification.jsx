@@ -5,29 +5,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import {ClipLoader} from "react-spinners"
 
-
 const EmailVerification = () => {
-  const {isLoading,emailVerified} = useSelector(state => state.auth)
-  const {token} = useParams()
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  useEffect(() => {
-    console.log("token::",token)
-    
-  }, [token])
-  const verifyEmail = ()=>{
-    dispatch(emailVerification({token}))
-    console.log(token)
 
-  }
+  const { authData,isEmailVerified } = useSelector((state) => state.auth);
+  const { token } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   useEffect(() => {
-    if(emailVerified){
-      navigate('/signIn')
+    console.log("token::", token);
+  }, [token]);
+  const verifyEmail = () => {
+    dispatch(emailVerification({ token }));
+    console.log(token);
+  };
+  useEffect(() => {
+
+    if (isEmailVerified) {
+      navigate("/signIn");
+
     }
-  }, [])
-  
-  
-  
+  }, [authData]);
+
   return (
     <>
       <div class="min-h-screen flex items-center justify-center">
@@ -37,7 +36,6 @@ const EmailVerification = () => {
               Email Verification
             </h2>
             <div className="flex justify-center items-center">
-
               <div>
                 <CiMail size={70} />
               </div>

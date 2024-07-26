@@ -10,6 +10,7 @@ import { IoLocationSharp } from "react-icons/io5";
 import { GiMountainClimbing } from "react-icons/gi";
 import { ImBasecamp } from "react-icons/im";
 import bike from "../../../src/assets/images/bike4.jpg"
+
 const IndianMoterBiking = () => {
   return (
     <>
@@ -205,6 +206,7 @@ const IndianMoterBiking = () => {
                   </div>
                 </div>
               </SwiperSlide>
+              
               <SwiperSlide>
                 <div className="relative w-[350px] h-[350px] ">
                   <img
@@ -263,6 +265,7 @@ const IndianMoterBiking = () => {
                   </div>
                 </div>
               </SwiperSlide>
+
               <SwiperSlide>
                 <div className="relative w-[350px] h-[350px]">
                   <img
@@ -321,6 +324,7 @@ const IndianMoterBiking = () => {
                   </div>
                 </div>
               </SwiperSlide>
+             
               <SwiperSlide>
                 <div className="relative w-[350px] h-[350px]">
                   <img

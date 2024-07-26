@@ -118,21 +118,60 @@ const About = () => {
     <section className="flex flex-col items-center">
       {/* banner section */}
       <div
-        className={` w-full h-[230px] md:h-[403px] bg-cover py-16 flex gap-0 md:gap-7 flex-col justify-center items-center bg-center bg-[url("https://campic-store-demo.myshopify.com/cdn/shop/files/bg_page.jpg?v=1691032098")]`}
+        className={` w-full h-[230px] md:h-[403px] bg-cover py-16 flex gap-0 md:gap-7 flex-col justify-center items-center bg-center bg-[url("about1.jpg")]`}
       >
         <h1 className="text-[35px] lg:text-[46px] font-medium text-white">
           About Us
         </h1>
-        <p className="text-[16px] text-white">Home {" > "} About Us</p>
+        <p className="text-[16px] text-white">DREAM LESS. ADVENTURE MORE.</p>
       </div>
-
+      <div className="p-5 container ">
+        <p className="py-5">
+          Into Wild Himalaya Adventure Tours & Travels is an outdoor adventure
+          tour agency located in Manali, Himachal Pradesh. We essentially
+          operate within the Indian Himalayan range including Manali,
+          Leh/Ladakh, Zanskar, Garhwal, Sikkim, Kinnaur & Spiti Valley.
+        </p>
+        <p className="py-5">
+          Made up of outdoor adventure lovers, we aim to take individuals to
+          outstanding locations and explore off the beaten track but most of all
+          Into Wild Himalaya’s style and soul of travelling is about having fun.
+          We are happy if you are and we will always endeavour to meet the needs
+          of every traveller.
+        </p>
+        <p className="py-5">
+          With over a decade of experience and meticulous planning, our top
+          activities are Himalayan motorbike tours and Himalayan trekking trips,
+          Indian cultural tours and cycling packages, however, it doesn’t stop
+          there. We also offer adventure courses to all levels from beginner to
+          experienced, various outdoor adventure pursuits including paragliding,
+          rappelling and rock climbing, to name a few, as well as offer special
+          yoga and honeymoon packages for those that may want a quiet and
+          therapeutic trip.{" "}
+        </p>
+        <p className="py-5">
+          The Himalaya’s are filled with terrific surroundings and we want to
+          share these places with you, whether it is in Himachal Pradesh,
+          Garhwal, Uttarakhand, Leh/Ladakh, Zanskar, Sikkim or even other
+          locations in India, you choose where you want to go and we will get
+          you there. There are also opportunities to visit areas in Nepal &
+          Tibet.{" "}
+        </p>
+        <p className="py-5">
+          Into Wild Himalaya also has its own camp based in Kalath, Manali, that
+          can accommodate all age groups and offers even more activities such as
+          river rafting, team building exercises and navigational skills. It is
+          a perfect location for school summer adventure programs, families that
+          wish to camp in luxury or even a place for an organised event.
+        </p>
+      </div>
       {/* our story section */}
       <div className="  block md:flex md:flex-row-reverse md:items-center md:px-6 lg:p-14 lg:px-28 ">
         <div className="px-4 flex flex-col gap-5   mt-9 md:w-[50%] ">
           <div className=" flex justify-center lg:p-3">
             <img
-              className="w-full hover:scale-95 hover:duration-500 duration-500"
-              src="https://campic-store-demo.myshopify.com/cdn/shop/files/about1.1.jpg?v=1691030524"
+              className="w-full hover:scale-95 hover:duration-500 duration-500 rounded"
+              src="green.jpg"
               alt="our stroy"
             />
           </div>
@@ -141,10 +180,10 @@ const About = () => {
           <h1
             className={` font-medium leading-10 my-5 text-[30px] lg:text-[40px]`}
           >
-            Our Stroy
+            Green Tourism
           </h1>
           <div className="flex items-center gap-4">
-            <div className="w-5  h-0 border border-orange-500"></div>
+            <div className="w-5  h-0 border border-green-400"></div>
             <h3
               className={`text-[#969696]  font-medium tracking-[3.2px] text-[16px]`}
             >
@@ -153,27 +192,31 @@ const About = () => {
           </div>
           <div className="mt-8">
             <p className={`leading-[1.6] text-[15px]  text-[#969696] my-3`}>
-              Praesent metus tellus, elementum eu, semper a, adipiscing nec,
-              purus. Vestibulum volutpat pretium libero. In ut quam vitae odio
-              lacinia tincidunt. Etiam ut purus mattis mauris sodales aliquam.
-              Aenean massa.
+              Green Tourism or Ecotourism was developed in the 1980s and is
+              usually based on the natural world and only involving small groups
+              of visitors. The strategy also aims to have a low impact on local
+              resources than mass tourism (Byrne et al, 2009).ï¿½Ecotourism is
+              predominantly focused on ecological conservation and educating
+              travellers on local environments and natural surroundings.
+              Specific to a category of vacation such as adventure or cultural,
+              whereas sustainability applies to all types of tourism.
             </p>
             <p className={` my-3 leading-[1.6] text-[15px]  text-[#969696]`}>
-              In dui magna, posuere eget, vestibulum et, tempor auctor, justo.
-              Vivamus consectetuer hendrerit lacus. In hac habitasse platea
-              dictumst. Ut tincidunt tincidunt erat. Lorem ipsum dolor sit amet,
-              consectetuer adipiscing elit.
+              WH tours/packages not only are aimed to purely view and experience
+              the nature surrounding but also to understand the importance of
+              the natural world and in preserving that.
             </p>
           </div>
         </div>
       </div>
       {/* Who We Are ? section */}
+
       <div className="  block md:flex md:flex-row md:items-center md:px-6 lg:p-14 lg:px-28 ">
         <div className="px-4 flex flex-col gap-5   mt-9 md:w-[50%] ">
           <div className=" flex justify-center lg:p-3">
             <img
-              className="w-full hover:scale-95 hover:duration-500 duration-500"
-              src="https://campic-store-demo.myshopify.com/cdn/shop/files/about1.2.jpg?v=1691030524"
+              className="w-full hover:scale-95 hover:duration-500 duration-500 rounded"
+              src="aboutus.jpg"
               alt="our stroy"
             />
           </div>
@@ -182,23 +225,27 @@ const About = () => {
           <h1
             className={` font-medium leading-10 my-5 text-[30px] lg:text-[40px]`}
           >
-            Who We Are ?
+            Our Mission:
           </h1>
           <div className="flex items-center gap-4">
             <div className="w-5  h-0 border border-orange-500"></div>
+
             <h3
               className={`text-[#969696]  font-medium tracking-[3.2px] text-[16px]`}
             >
               THE HIGH STRESS FAVOUTIRE
             </h3>
           </div>
+
           <div className="mt-8">
             <p className={`leading-[1.6] text-[15px]  text-[#969696] my-3`}>
-              Praesent metus tellus, elementum eu, semper a, adipiscing nec,
-              purus. Vestibulum volutpat pretium libero. In ut quam vitae odio
-              lacinia tincidunt. Etiam ut purus mattis mauris sodales aliquam.
-              Aenean massa.
+              To provide tourism in the most remote areas of the Himalayas and
+              giving both domestic and foreign tourists the opportunity to
+              experience and explore various cultures, traditions, religions and
+              environments of India. We also endeavour to benefit local
+              communities and protect the environment in which they live in.
             </p>
+
             <p className={` my-3 leading-[1.6] text-[15px]  text-[#969696]`}>
               In dui magna, posuere eget, vestibulum et, tempor auctor, justo.
               Vivamus consectetuer hendrerit lacus. In hac habitasse platea
@@ -208,6 +255,135 @@ const About = () => {
           </div>
         </div>
       </div>
+
+      <div className="  block md:flex md:flex-row-reverse md:items-center md:px-6 lg:p-14 lg:px-28 ">
+        <div className="px-4 flex flex-col gap-5   mt-9 md:w-[50%] ">
+          <div className=" flex justify-center lg:p-3">
+            <img
+              className="w-full hover:scale-95 hover:duration-500 duration-500 rounded-lg"
+              src="bleif.jpg"
+              alt="our stroy"
+            />
+          </div>
+        </div>
+        <div className="px-4 md:w-[50%]">
+          <h1
+            className={` font-medium leading-10 my-5 text-[30px] lg:text-[40px]`}
+          >
+            OUR BELIEFS:
+          </h1>
+
+          <div className="mt-8">
+            <p className={`leading-[1.6] text-[15px]  text-[#969696] my-3`}>
+              We believe that each small step can make big changes; giving
+              employment to locals, teaching the importance of the environment
+              and how to protect it.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="  block md:flex md:flex-row md:items-center md:px-6 lg:p-14 lg:px-28 ">
+        <div className="px-4 flex flex-col gap-5   mt-9 md:w-[50%] ">
+          <div className=" flex justify-center lg:p-3">
+            <img
+              className="w-full hover:scale-95 hover:duration-500 duration-500 rounded-lg"
+              src="strategy.jpg"
+              alt="our stroy"
+            />
+          </div>
+        </div>
+        <div className="px-4 md:w-[50%]">
+          <h1
+            className={` font-medium leading-10 my-5 text-[30px] lg:text-[40px] rounded-lg`}
+          >
+            OUR STRATEGY:
+          </h1>
+
+          <div className="mt-8">
+            <p className={`leading-[1.6] text-[15px]  text-[#969696] my-3`}>
+              Our strategy is to explore new Himalayan regions, valleys,
+              villages, cultures and create programs which can best suit the
+              needs of both foreign and domestic tourists. ï¿½According to the
+              programs demand we do hire local guides and other required people
+              from the local community to not only help us but to help them in
+              return by raising personal and community economic growth. For the
+              whole trip we do buy all the goods and requirements from small
+              local businesses to ensure sure that the regions we are travelling
+              through, that the money remains within that region so that the
+              economy of the area can get the benefit from us. If local
+              communities start getting good economic development, then they can
+              provide good education to their kids, which will secure their
+              future in many ways.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="  block md:flex md:flex-row-reverse md:items-center md:px-6 lg:p-14 lg:px-28 ">
+        <div className="px-4 flex flex-col gap-5   mt-9 md:w-[50%] ">
+          <div className=" flex justify-center lg:p-3">
+            <img
+              className="w-full hover:scale-95 hover:duration-500 duration-500 rounded-lg"
+              src="Sustainable.jpg"
+              alt="our stroy"
+            />
+          </div>
+        </div>
+        <div className="px-4 md:w-[50%]">
+          <h1
+            className={` font-medium leading-10 my-5 text-[30px] lg:text-[40px]`}
+          >
+            Sustainable Travel
+          </h1>
+
+          <div className="mt-8">
+            <p className={`leading-[1.6] text-[15px]  text-[#969696] my-3`}>
+              Sustainability is often associated with development ‘meeting the
+              needs of the present without compromising the ability of future
+              generations to meet their own needs (1987 UN Convention on
+              Environment and Development). Tourism in mountains has a long
+              history and attracts more and more visitors each year therefore
+              thinking sustainably is becoming an increasing strategy to help
+              preserve.ï¿½ Into Wild Himalaya Adventure Tour & Travels strives
+              for sustainable tourism; focusing on travel that has minimal
+              impact on the environment and local communities as well as
+              benefiting the economy. We ensure that every trek and tour is kept
+              clean, following the Leave No Trace principles, as well as
+              protecting the local nature and biodiversity of the area clients
+              travel through. We also ensure that local communities are
+              benefited in the following ways:
+            </p>
+            <p>
+              {" "}
+              We buy our requirements from local goods and services such as food
+              and equipment. - Hiring experienced locals for IWH organised tours
+              as well as locals within the regions our trips are running
+              through. We also like to ensure your money stays where you spend
+              it. - During the treks we use local resources like vegetables and
+              milk from the villages en route. - On some of our treks we do like
+              to use villagers houses as a home stay, which is a good way to be
+              immersed within their culture and environment without harm. This
+              also benefits the community as a whole by boosting local economic
+              development and protecting the longevity of their culture and
+              traditions. To be sustainable, as mentioned previously, is to not
+              compromise the ability of future generations therefore IWH
+              endeavours to teach youths and raise awareness of the importance
+              of protecting the environment. We believe in the ethics that if
+              you want to see a change, make a change in your child.” In raising
+              awareness and sharing knowledge of the environment we live in,
+              helps to protect it as a child from any nation can make a big
+              change for the present and the future. Therefore we do organise a
+              few activities for school groups below: - Adventure camping
+              programs for school groups which teaches the benefits of tree
+              plantation to prevent deforestation and how this helps the Earth
+              and us. ï¿½ - The importance to not litter and the banning of
+              plastics. - The seven principles of LNT (Leave No Trace)
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* journey , innovation, design section */}
       <div className=' text-white py-16 bg-cover bg-center bg-fixed md:py-32 my-5 w-full bg-[url("https://campic-store-demo.myshopify.com/cdn/shop/files/about1.3.jpg?v=1691030524")] flex gap-5 flex-col md:flex-row md:justify-center'>
         {cardsData.map((data) => {
@@ -246,7 +422,7 @@ const About = () => {
       <div className="w-[50px] text-orange-500 border-b-2 border-orange-500"></div>
       <div className="my-8 grid md:grid-cols-2">
         <div className="cursor-pointer relative img_teams flex flex-col items-center h-[500px]  overflow-hidden">
-          <div className=" gap-3 iconss hidden  absolute  w-full h-full top-0 grid place-items-center ">
+          <div className=" gap-3 iconss   absolute  w-full h-full top-0 grid place-items-center ">
             <div className="flex gap-3 ">
               <FaFacebook
                 className="hover:text-orange-500 z-50 text-white"
@@ -262,14 +438,16 @@ const About = () => {
               />
             </div>
           </div>
-          <div className="w-[300px] h-[400px]  flex justify-center">
+          <div className="w-[300px] h-[400px]  flex justify-center ">
             <img
               className="object-cover w-[300px] h-[400px] object-center "
               src="https://images.unsplash.com/photo-1597698063932-9450882bb1be?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fG1vdW50YWluJTIwY2xpbWJpbmd8ZW58MHx8MHx8fDA%3D"
               alt=""
             />
           </div>
-          <h1 className="text-center text-xl font-medium my-2">Adrian Stone</h1>
+          <h1 className="text-center text-xl font-medium my-2">
+            Adrian Stone{" "}
+          </h1>
           <p className="text-center text-[#969696]">ceo</p>
         </div>
 
@@ -290,6 +468,7 @@ const About = () => {
               />
             </div>
           </div>
+
           <div className="w-[300px] h-[400px]  flex justify-center ">
             <img
               className="object-cover w-[300px] h-[400px]"
@@ -305,15 +484,15 @@ const About = () => {
           <div className=" gap-3 iconss   absolute  w-full h-full top-0 grid place-items-center ">
             <div className="flex gap-3 ">
               <FaFacebook
-                className="hover:text-orange-500 z-50 text-white"
+                className="hover:text-orange-500 z-50 text-white "
                 size={40}
               />
               <FaInstagramSquare
-                className="hover:text-orange-500 z-50 text-white"
+                className="hover:text-orange-500 z-50 text-white "
                 size={40}
               />
               <FaTwitterSquare
-                className="hover:text-orange-500 z-50 text-white"
+                className="hover:text-orange-500 z-50 text-white "
                 size={40}
               />
             </div>

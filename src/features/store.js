@@ -3,9 +3,17 @@ import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
 import authReducer from "./slices/authSlice";
+import TrekSlice from "./slices/trekSlice";
+import activitySlice from "./slices/activitySlice";
+import ToursSlice from "./slices/ToursSlice";
+import contactSlice from "./slices/contactSlice";
 
 const reducers = combineReducers({
   auth: authReducer,
+  trek: TrekSlice,
+  activity: activitySlice,
+  tour: ToursSlice,
+  contact: contactSlice,
 });
 
 const persistConfig = {

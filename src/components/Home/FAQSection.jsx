@@ -41,6 +41,7 @@ const FaqSection = () => {
     },
   ];
   return (
+
     <section className="mx-auto max-w-7xl px-2 py-10 md:px-0">
       <div>
         <SectionHeading mainHeading={"Frequently Asked Questions"} />
@@ -68,6 +69,7 @@ const FaqSection = () => {
         </p>
       </div>
     </section>
+    
   );
 };
 export default FaqSection;

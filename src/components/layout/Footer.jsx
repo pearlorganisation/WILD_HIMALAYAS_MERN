@@ -2,27 +2,85 @@ import { ChevronRight } from "lucide-react";
 import React from "react";
 import PayImg from "../../assets/images/pay_copyright.webp";
 import Logo from "../../assets/images/WildLogo.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer className="w-full pt-5 bg-gray-100 p-3 shadow-full">
       <div className="mx-auto flex max-w-7xl flex-col items-start space-x-8 md:flex-row">
         <div className="mt-8 grid grid-cols-2 gap-6 md:mt-0 lg:w-3/4 lg:grid-cols-3">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className="mb-8 lg:mb-0">
-              <p className="mb-6 text-lg font-semibold text-gray-700 ">
-                Company
-              </p>
-              <ul className="flex flex-col space-y-4 text-[14px] font-medium text-gray-500">
-                <li>About us</li>
-                <li>Company History</li>
-                <li>Our Team</li>
-                <li>Our Vision</li>
-                <li>Press Release</li>
-              </ul>
-            </div>
-          ))}
+          <div className="mb-8 lg:mb-0">
+            <p className="mb-6 text-lg font-semibold text-gray-700 ">
+              DESTINATIONS
+            </p>
+            <ul className="flex flex-col space-y-4 text-[14px] font-medium text-gray-500">
+              <Link>
+                <li>Himachal Pradesh</li>
+              </Link>
+              <Link>
+                <li>Ladakh Zanskar</li>
+              </Link>
+              <Link>
+                <li>Garhwal</li>
+              </Link>
+              <Link>
+                <li>Sikkim</li>
+              </Link>
+              <Link>
+                <li>Rajasthan</li>
+              </Link>
+              <Link>
+                {" "}
+                <li>South India</li>
+              </Link>
+              <Link>
+                <li>Nepal</li>
+              </Link>
+              <Link>
+                <li>Tibet</li>
+              </Link>
+            </ul>
+          </div>
+
+          <div className="mb-8 lg:mb-0">
+            <p className="mb-6 text-lg font-semibold text-gray-700 ">
+              RESERVATION
+            </p>
+            <ul className="flex flex-col space-y-4 text-[14px] font-medium text-gray-500">
+              <Link to="/bookingcondition">
+                <li>Booking Conditions</li>
+              </Link>
+              <Link to="/refundpolicy">
+                <li>Refund Policy</li>
+              </Link>
+              <Link>
+                <li>Your Responsibilities</li>
+              </Link>
+              <Link>
+                <li>F.A.Q.</li>
+              </Link>
+              <Link>
+                <li>Latest update</li>
+              </Link>
+            </ul>
+          </div>
+
+          <div className="mb-8 lg:mb-0">
+            <p className="mb-6 text-lg font-semibold text-gray-700 ">CONTACT</p>
+            <ul className="flex flex-col space-y-4 text-[14px] font-medium text-gray-500">
+              <li>+91-9816098702</li>
+
+              <li>+91-9816354380</li>
+
+              <li>Your Responsibilities</li>
+
+              <li>info@intowildhimalaya.com</li>
+
+              <li>intowildhimalaya@gmail.com</li>
+            </ul>
+          </div>
         </div>
+
         <div className="w-full px-4 md:w-1/2 lg:px-0" style={{ margin: "0" }}>
           <h1 className="max-w-sm text-3xl font-bold">
             Subscribe to our Newsletter
@@ -56,7 +114,7 @@ const Footer = () => {
             alt=""
           />
 
-          <span className="ml-4 text-lg font-bold">Wild into Himalayas</span>
+          <span className="ml-4 text-lg font-bold"> into Wild Himalayas</span>
         </div>
         <div>
           <img src={PayImg} alt="pay" />

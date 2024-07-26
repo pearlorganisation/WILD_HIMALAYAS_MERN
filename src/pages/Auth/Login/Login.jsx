@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../../../assets/images/WildLogo.png";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signIn } from "@/features/actions/authActions";
-
+import { RxEyeOpen } from "react-icons/rx";
+import { RiEyeCloseLine } from "react-icons/ri";
+import { trekAction } from "@/features/actions/trekAction";
 const Login = () => {
   const dispatch = useDispatch();
   const { isLoading, authData } = useSelector((state) => state.auth);
+
+   
+ 
   const navigate = useNavigate();
   const {
     register,
@@ -19,19 +24,27 @@ const Login = () => {
     console.log("data::", data);
     dispatch(signIn(data));
   };
+
+  useEffect(() => {
+    if (authData?.status) {
+      navigate("/");
+    }
+  }, [authData]);
+  const [visibilty, setVisibilty] = useState(false);
+  console.log(authData, "data .........");
   return (
     <main className="w-full h-screen flex flex-col items-center justify-center px-4">
       <div className="max-w-sm w-full text-gray-600 space-y-5">
         <div className="text-center pb-8">
           <img src={Logo} width={150} className="mx-auto" />
-          
+
           <div className="mt-5">
-            <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">
+            <h3 className="text-gray-800  text-2xl  font-bold sm:text-3xl">
               Log in to your account
             </h3>
           </div>
-
         </div>
+
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 text-left">
           <div>
             <label className="font-medium">Email</label>
@@ -45,16 +58,40 @@ const Login = () => {
             )}
           </div>
           <div>
-            <label className="font-medium">Password</label>
-            <input
-              type="password"
-              {...register("password", { required: true })}
-              className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg"
-            />
+          <label className="font-medium ">Password</label>
+<div className="relative mt-2">
+  <input
+    type={visibilty ? "password" : "text"}
+    {...register("password", { required: true })}
+    className="w-full px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg pr-10"
+  />
+  <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+    <span
+      className="cursor-pointer"
+      onClick={() => setVisibilty(!visibilty)}
+    >
+      {visibilty? <RiEyeCloseLine /> : <RxEyeOpen />}
+    </span>
+  </div>
+</div>
+{errors.password && (
+  <span className="text-red-600">This field is required</span>
+)}
+              
+            {/* <label
+              htmlFor="remember-me-checkbox"
+              onClick={() => setVisibilty(!visibilty)}
+              className="relative flex w-5 h-5  rounded-md border ring-offset-2  duration-150 peer-active:ring cursor-pointer after:absolute after:inset-x-0 after:top-[3px] after:m-auto after:w-1.5 after:h-2.5 after:border-r-2 after:border-b-2 after:border-white after:rotate-45"
+            ></label> */}
+
+         
+
             {errors.password && (
               <span className="text-red-600">This field is required</span>
             )}
+
           </div>
+
           <div className="flex items-center justify-between text-sm">
             <div className="flex items-center gap-x-3">
               <input
@@ -62,11 +99,6 @@ const Login = () => {
                 id="remember-me-checkbox"
                 className="checkbox-item peer hidden"
               />
-              <label
-                htmlFor="remember-me-checkbox"
-                className="relative flex w-5 h-5 bg-white  rounded-md border ring-offset-2  duration-150 peer-active:ring cursor-pointer after:absolute after:inset-x-0 after:top-[3px] after:m-auto after:w-1.5 after:h-2.5 after:border-r-2 after:border-b-2 after:border-white after:rotate-45"
-              ></label>
-              <span>Remember me</span>
             </div>
             <a href="javascript:void(0)" className="text-center ">
               Forgot password?
@@ -156,7 +188,7 @@ const Login = () => {
                     stroke-width="24"
                   ></line>
                 </svg>
-                <span class="text-lg font-medium text-white">Loading...</span>
+                <span class="text-lg font-medium text-black">Loading....</span>
               </div>
             </button>
           ) : (
@@ -165,6 +197,7 @@ const Login = () => {
             </button>
           )}
         </form>
+
         <button className="w-full flex items-center justify-center gap-x-3 py-2.5 border rounded-lg text-sm font-medium hover:bg-gray-50 duration-150 active:bg-gray-100">
           <svg
             className="w-5 h-5"
@@ -192,7 +225,7 @@ const Login = () => {
             </g>
             <defs>
               <clipPath id="clip0_17_40">
-                <rect width="48" height="48" fill="white" />
+                <rect width="48" height="48" />
               </clipPath>
             </defs>
           </svg>

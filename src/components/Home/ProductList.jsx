@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SectionHeading from "./SectionHeading";
-
+import parse from "html-react-parser";
 const ProductList = () => {
   const [trekData, setTrekData] = useState([]);
 
@@ -36,11 +36,8 @@ const ProductList = () => {
                 />
               </div>
               <h3 className="mt-4 text-black font-semibold">{product?.name}</h3>
-              <p className="mt-2 text-sm text-gray-700">
-                {product?.description}
-              </p>
-              <p className="mt-1 text-lg font-medium text-gray-900">
-                {product?.price}
+              <p className="mt-2 text-sm text-gray-700 line-clamp-2 overflow-hidden">
+                {parse(product?.description)}
               </p>
             </a>
           ))}

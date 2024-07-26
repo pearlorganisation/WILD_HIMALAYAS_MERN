@@ -10,6 +10,7 @@ import { IoLocationSharp } from "react-icons/io5";
 import { GiMountainClimbing } from "react-icons/gi";
 import { ImBasecamp } from "react-icons/im";
 import mbike from "../../assets/images/mbike.jpeg";
+
 const MountainBiking = () => {
   return (
     <>
@@ -92,7 +93,7 @@ const MountainBiking = () => {
               <SwiperSlide>
                 <div className="relative w-[350px] h-[350px] ">
                   <img
-                    alt="Camping Programme" 
+                    alt="Camping Programme"
                     className="w-full h-full object-cover"
                     height="350"
                     src="http://www.intowildhimalaya.com/tour_packages_img/spiti-bike.jpg"
@@ -177,7 +178,7 @@ const MountainBiking = () => {
                       </h3>
                       <ul className="text-white">
                         <li className="flex items-center mb-1">
-                          <IoLocationSharp 
+                          <IoLocationSharp
                             className="text-white mr-2 "
                             size={25}
                           />
@@ -255,7 +256,7 @@ const MountainBiking = () => {
                       </ul>
                       <button
                         type="button"
-                        className="mt-4 bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded-lg"
+                        className="mt-4 bg-orange-600 hover:bg-orange-700  text-white py-2 px-4 rounded-lg"
                       >
                         Explore
                       </button>
@@ -345,6 +346,7 @@ const MountainBiking = () => {
                         <p className="text-xs font-bold">6 Days</p>
                       </div>
                     </div>
+
                     <div>
                       <h3 className="text-xl font-bold text-white mb-2">
                         CAMPING PROGRAMME IN MANALI

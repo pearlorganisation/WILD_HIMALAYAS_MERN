@@ -50,3 +50,18 @@ export const emailVerification = createAsyncThunk(
     }
   }
 );
+
+export const logOut = createAsyncThunk(
+  "auth/logout",
+  async (payload, { rejectWithValue }) => {
+    try {
+      const { data } = await instance.post("/auth/logout", payload, {
+        withCredentials: true,
+      });
+      return data;
+    } catch (error) {
+      console.log(error.message);
+      return rejectWithValue(error.message);
+    }
+  }
+);
