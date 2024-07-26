@@ -27,6 +27,8 @@ import { T } from "./components/Tours/T";
 import BookingCondition from "./components/layout/FooterPages/BookingCondition";
 import RefundPolicy from "./components/layout/FooterPages/RefundPolicy";
 import UrResponsibilities from "./components/layout/FooterPages/UrResponsibilities";
+import TrekMemory from "./pages/Memory/TrekMemory";
+import MoterBikeMemory from "./pages/Memory/MoterBikeTourMemory";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const About = lazy(() => import("./pages/About/Aboutus"));
@@ -142,6 +144,14 @@ function App() {
         {
           path: "/yourresponsibility",
           element: <UrResponsibilities />,
+        },
+        {
+          path: "/trekmemory",
+          element: <TrekMemory />,
+        },
+        {
+          path: "/motermemory",
+          element: <MoterBikeMemory />,
         },
       ],
     },

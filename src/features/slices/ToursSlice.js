@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { tourAction } from "../actions/toursAction";
+import { toast } from "sonner";
 
 const initialState = {
   isLoading: false,
