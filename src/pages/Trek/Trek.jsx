@@ -109,7 +109,7 @@ const Trek = () => {
                     <p className="text-lg ">{el.altitude}</p>
                   </div>
                 </div>
-                <div className=" flex items-center justify-center w-full">
+                {/* <div className=" flex items-center justify-center w-full">
                   <div>
                     <FaPeopleRobbery className="text-[#a37c62] m-4" size={50} />
                   </div>
@@ -119,7 +119,7 @@ const Trek = () => {
                     </div>
                     <p className="text-lg ">10 to 62 years</p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </section>
 
