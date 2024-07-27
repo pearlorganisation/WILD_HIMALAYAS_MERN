@@ -11,7 +11,7 @@ const Intro = () => {
         <div className="flex h-full items-center px-10 flex-col justify-center">
           <h2 className="text-4xl text-black font-semibold my-10 leading-10">
             Why trekking with{" "}
-            <span className="text-myStyle font-semibold">Will Himalayas</span>{" "}
+            <span className="text-myStyle font-semibold">Wild Himalaya</span>{" "}
             is different
           </h2>
           <p>
