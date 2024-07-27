@@ -114,7 +114,7 @@ const Footer = () => {
             alt=""
           />
 
-          <span className="ml-4 text-lg font-bold"> into Wild Himalaya</span>
+          <span className="ml-4 text-lg font-bold">Into Wild Himalaya</span>
         </div>
         <div>
           <img src={PayImg} alt="pay" />
