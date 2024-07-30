@@ -8,11 +8,11 @@ export const signUp = createAsyncThunk(
       const { data } = await instance.post("/auth/signup", payload, {
         withCredentials: true,
       });
-      console.log("data::", data);
+    
       return data;
     } catch (error) {
-      console.log(error.message);
-      return rejectWithValue(error.message);
+
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -26,8 +26,8 @@ export const signIn = createAsyncThunk(
       });
       return data;
     } catch (error) {
-      console.log(error.message);
-      return rejectWithValue(error.message);
+   
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -45,8 +45,8 @@ export const emailVerification = createAsyncThunk(
       );
       return data;
     } catch (error) {
-      console.log(error.message);
-      return rejectWithValue(error.message);
+    
+      return rejectWithValue(error.response.data.message);
     }
   }
 );

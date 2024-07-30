@@ -4,7 +4,7 @@ import { activityAction } from "@/features/actions/activityAction";
 // import Trekking from "../../assets/images/trekking.jpg";
 
 const Activity = () => {
-  const { isLoading, data } = useSelector((state) => state.activity);
+  const { isLoading, activityData } = useSelector((state) => state.activity);
 
   const dispatch = useDispatch();
 
@@ -12,14 +12,14 @@ const Activity = () => {
     dispatch(activityAction());
   }, []);
 
-  console.log(data, "data");
+  console.log(activityData, "chiimkanda");
 
   return (
     <div className="container mx-auto">
       <div className="grid md:grid-cols-3 grid-rows-2 gap-6  place-items-center py-10 ">
-        {data &&
+        {Array.isArray(activityData) &&
           // data?.data &&
-          data?.data.map((el, id) => (
+          activityData.map((el, id) => (
             <div
               key={id}
               className="max-w-lg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-full"

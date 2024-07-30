@@ -27,7 +27,6 @@ const toursSlice = createSlice({
         state.isLoading = false;
         state.errorMessage = "";
         state.data = action.payload;
-        toast.success("Event has been created");
       })
 
       .addCase(tourAction.rejected, (state, action) => {

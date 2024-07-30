@@ -19,6 +19,7 @@ const AvailableDates = ({ months }) => {
             <AccordionTrigger className="bg-[#f4f4f4] px-2  shadow-lg ">
               {item?.name}
             </AccordionTrigger>
+
             <AccordionContent className="space-y-2 border border-[#dddbdb] p-2">
               {item.availableDates.map((el, index) => {
                 return (

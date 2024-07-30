@@ -7,7 +7,6 @@ import {
   signUp,
 } from "../actions/authActions";
 
-
 import { toast } from "sonner";
 
 const initialState = {
@@ -73,6 +72,7 @@ const authSlice = createSlice({
       .addCase(emailVerification.pending, (state, action) => {
         state.isLoading = true;
         state.errorMessage = "";
+        state.emailVerified = false;
       })
       .addCase(emailVerification.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -86,7 +86,6 @@ const authSlice = createSlice({
         state.errorMessage = action.payload;
         toast.error(`Uh-oh! ${action.payload}`);
       })
-
       //Logout
 
       .addCase(logOut.pending, (state, action) => {
@@ -106,6 +105,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.errorMessage = action.payload;
         toast.error(`Uh-oh! ${action.payload}`);
+        state.emailVerified = false;
       });
   },
 });

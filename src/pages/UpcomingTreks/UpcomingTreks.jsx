@@ -99,6 +99,7 @@ const UpcomingTreks = () => {
                         </p>
                       </div>
                     </div>
+
                     <div>
                       <button
                         type="button"
