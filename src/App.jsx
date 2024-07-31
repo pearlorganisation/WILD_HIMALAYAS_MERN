@@ -29,6 +29,7 @@ import RefundPolicy from "./components/layout/FooterPages/RefundPolicy";
 import UrResponsibilities from "./components/layout/FooterPages/UrResponsibilities";
 import TrekMemory from "./pages/Memory/TrekMemory";
 import MoterBikeMemory from "./pages/Memory/MoterBikeTourMemory";
+import Eligibility from "./pages/Booking/Eligibility";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const About = lazy(() => import("./pages/About/Aboutus"));
@@ -152,6 +153,10 @@ function App() {
         {
           path: "/motermemory",
           element: <MoterBikeMemory />,
+        },
+        {
+          path: "/eligibility",
+          element: <Eligibility />,
         },
       ],
     },

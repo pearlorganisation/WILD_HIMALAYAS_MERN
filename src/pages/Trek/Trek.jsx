@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { GiMountainClimbing } from "react-icons/gi";
+import { FaCheckCircle } from "react-icons/fa";
+import { MdCancel } from "react-icons/md";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -63,15 +65,36 @@ const Trek = () => {
         );
       case "INCLUSIONS_AND_EXCLUSIONS":
         return (
-          <div className=" p-4">
+          <div className="pt-4 md:p-4">
             <div className="container max-w-full grid md:grid-cols-[10%_auto]">
               <div className=" ">
                 <FaWalking size={100} />
               </div>
 
               <div className=" ">
-                <div className="border-b-2 p-10">
-                  {parse(tabData?.inclusionsAndExclusions)}
+                <div className="border-b-2 pt-8 md:pt-0 md:p-10">
+                  {Array.isArray(tabData?.inclusions) &&
+                    tabData?.inclusions.map((item, idx) => (
+                      <div key={idx} className="flex items-center gap-3 ">
+                        {" "}
+                        <div>
+                          <FaCheckCircle size={19} className="text-green-600" />
+                        </div>
+                        <div>{parse(item)}</div>
+                      </div>
+                    ))}
+                </div>
+                <div className="border-b-2 pt-8 md:pt-0 md:p-10">
+                  {Array.isArray(tabData?.inclusions) &&
+                    tabData?.exclusions.map((item, idx) => (
+                      <div key={idx} className="flex items-center gap-3 pt-5">
+                        {" "}
+                        <div className="">
+                          <MdCancel size={19} className="text-red-600" />
+                        </div>
+                        <div>{parse(item)}</div>
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>
