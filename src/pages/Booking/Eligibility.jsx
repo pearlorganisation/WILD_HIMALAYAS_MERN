@@ -4,7 +4,7 @@ const Eligibility = () => {
   return (
     <>
       <div className="max-w-4xl mx-auto bg-white p-6 shadow-lg rounded-lg">
-        <h1 className="text-2xl font-bold text-[#C076C1] mb-4">
+        <h1 className="text-2xl font-bold text-red-400  mb-4">
           Eligibility criteria for Chandrakhani Pass Trek
         </h1>
         <p className="text-gray-700 mb-6">
