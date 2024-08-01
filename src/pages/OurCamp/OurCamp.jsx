@@ -158,6 +158,7 @@ const OurCamp = () => {
                 </div>
               </div>
             </SwiperSlide>
+
             <SwiperSlide>
               <div className="relative w-[350px] h-[350px]">
                 <img
@@ -216,6 +217,7 @@ const OurCamp = () => {
                 </div>
               </div>
             </SwiperSlide>
+
             <SwiperSlide>
               <div className="relative w-[350px] h-[350px] ">
                 <img
@@ -274,6 +276,7 @@ const OurCamp = () => {
                 </div>
               </div>
             </SwiperSlide>
+
             <SwiperSlide>
               <div className="relative w-[350px] h-[350px]">
                 <img

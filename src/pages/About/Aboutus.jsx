@@ -293,7 +293,7 @@ const About = () => {
             />
           </div>
         </div>
-        <div className="px-4 md:w-[50%]">
+        <div className="px-4  md:w-[50%]">
           <h1
             className={` font-medium leading-10 my-5 text-[30px] lg:text-[40px] rounded-lg`}
           >
@@ -330,6 +330,7 @@ const About = () => {
             />
           </div>
         </div>
+
         <div className="px-4 md:w-[50%]">
           <h1
             className={` font-medium leading-10 my-5 text-[30px] lg:text-[40px]`}
@@ -476,6 +477,7 @@ const About = () => {
               alt=""
             />
           </div>
+
           <h1 className="text-center text-xl font-medium my-2">Ferguson</h1>
           <p className="text-center text-[#969696]">Designer</p>
         </div>
@@ -509,7 +511,7 @@ const About = () => {
         </div>
 
         <div className="cursor-pointer relative img_teams flex flex-col items-center h-[500px] max-w-[400px]">
-          <div className=" gap-3 iconss hidden  absolute  w-full h-full top-0 grid place-items-center ">
+          <div className=" gap-3 iconss hidden   absolute  w-full h-full top-0 grid place-items-center ">
             <div className="flex gap-3 ">
               <FaFacebook
                 className="hover:text-orange-500 z-50 text-white"

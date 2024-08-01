@@ -4,7 +4,7 @@ import { activityAction } from "../actions/activityAction";
 const initialState = {
   isLoading: false,
   errorMessage: "",
-  data: [],
+  activityData: [],
 };
 
 const activitySlice = createSlice({
@@ -23,7 +23,7 @@ const activitySlice = createSlice({
       .addCase(activityAction.fulfilled, (state, action) => {
         state.isLoading = false;
         state.errorMessage = "";
-        state.data = action.payload;
+        state.activityData = action.payload.data;
       })
       .addCase(activityAction.rejected, (state, action) => {
         state.isLoading = false;
