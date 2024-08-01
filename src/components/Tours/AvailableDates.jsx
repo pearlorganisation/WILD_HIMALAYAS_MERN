@@ -26,9 +26,14 @@ const AvailableDates = ({ availableDates }) => {
     setVisibleMonth((prevVisibleMonth) => (prevVisibleMonth === month ? null : month));
   };
 
+  // Get sorted months
+  const sortedMonths = Object.keys(datesByMonth).sort((a, b) => {
+    return new Date(a) - new Date(b);
+  });
+
   return (
     <div className="available-dates p-4 border rounded-md">
-      {Object.keys(datesByMonth).map((month) => (
+      {sortedMonths.map((month) => (
         <div key={month}>
           <div 
             className="font-bold text-lg my-2 flex justify-between items-center cursor-pointer"
