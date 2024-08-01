@@ -6,15 +6,16 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
-import AvailableDates from "./AvailableDates";
+
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import parse from "html-react-parser";
-import { trekAction } from "../../features/actions/trekAction";
+import AvailableDates from "@/components/Tours/AvailableDates";
+import { tourAction } from "@/features/actions/toursAction";
 
 const UpcomingTreks = () => {
-  const { isLoading, data } = useSelector((state) => state.trek);
+  const { isLoading, data } = useSelector((state) => state.tour);
 
   const navigate = useNavigate();
 
@@ -23,7 +24,7 @@ const UpcomingTreks = () => {
   };
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(trekAction());
+    dispatch(tourAction());
   }, []);
   console.log(data, "updata");
 
@@ -85,7 +86,7 @@ const UpcomingTreks = () => {
                       <img
                         alt="image"
                         className="h-64 w-full rounded object-cover"
-                        src={item?.trekLogo}
+                        src={Array.isArray(item?.banners) && item?.banners[0]}
                       />
 
                       <div className="mt-6 w-full lg:mt-0">
@@ -99,6 +100,7 @@ const UpcomingTreks = () => {
                         </p>
                       </div>
                     </div>
+
                     <div>
                       <button
                         type="button"
@@ -112,7 +114,7 @@ const UpcomingTreks = () => {
                       <div className=" text-lg py-[1rem] mt-1 border-b-2 border-b-gray-600 font-medium text-gray-900">
                         Available Dates
                       </div>
-                      <AvailableDates months={item?.months} />
+                      <AvailableDates availableDates={item?.availableDates} />
                     </div>
                   </div>
                 </SwiperSlide>

@@ -30,6 +30,7 @@ const contactSlice = createSlice({
       .addCase(contactAction.rejected, (state, action) => {
         state.isLoading = false;
         state.errorMessage = action.payload;
+        toast.error("Submission failed ");
       });
   },
 });

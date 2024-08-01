@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { tourAction } from "../actions/toursAction";
+import { toast } from "sonner";
 
 const initialState = {
   isLoading: false,
@@ -26,7 +27,6 @@ const toursSlice = createSlice({
         state.isLoading = false;
         state.errorMessage = "";
         state.data = action.payload;
-        toast.success("Event has been created");
       })
 
       .addCase(tourAction.rejected, (state, action) => {
