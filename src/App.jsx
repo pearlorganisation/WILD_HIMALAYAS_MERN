@@ -30,6 +30,8 @@ import UrResponsibilities from "./components/layout/FooterPages/UrResponsibiliti
 import TrekMemory from "./pages/Memory/TrekMemory";
 import MoterBikeMemory from "./pages/Memory/MoterBikeTourMemory";
 import Eligibility from "./pages/Booking/Eligibility";
+import TermsAndCondition from "./pages/Booking/TermsAndCondition/TermsAndCondition";
+import AdddTrekMate from "./pages/Booking/AddTrekMate/AddTrekMate";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const About = lazy(() => import("./pages/About/Aboutus"));
@@ -157,6 +159,14 @@ function App() {
         {
           path: "/eligibility",
           element: <Eligibility />,
+        },
+        {
+          path: "/terms",
+          element: <TermsAndCondition />,
+        },
+        {
+          path: "/terms/addtrekmate",
+          element: <AdddTrekMate />,
         },
       ],
     },

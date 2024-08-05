@@ -12,7 +12,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { tourAction } from "@/features/actions/toursAction";
 import AvailableDates from "@/components/Tours/AvailableDates";
 
-
 const Trek = () => {
   const { isLoading, data } = useSelector((state) => state.tour);
   const dispatch = useDispatch();
@@ -100,11 +99,19 @@ const Trek = () => {
           <div>
             <section>
               <div>
-                <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+                <Swiper
+                  navigation={true}
+                  modules={[Navigation]}
+                  className="mySwiper"
+                >
                   {el.banners.map((item, idx) => (
                     <SwiperSlide key={idx}>
                       <div className="relative">
-                        <img src={item} className="w-full max-h-[80vh] h-auto" alt="Banner" />
+                        <img
+                          src={item}
+                          className="w-full max-h-[80vh] h-auto"
+                          alt="Banner"
+                        />
                         <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
                           <h1 className="text-white text-xl md:text-4xl font-bold">
                             {el.title}
@@ -125,7 +132,10 @@ const Trek = () => {
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
                 <div className="flex items-center justify-center w-full">
                   <div>
-                    <GiMountainClimbing className="text-[#826d4e] m-4" size={50} />
+                    <GiMountainClimbing
+                      className="text-[#826d4e] m-4"
+                      size={50}
+                    />
                   </div>
                   <div className="flex flex-col">
                     <div className="text-lg text-black font-bold mb-2">
@@ -203,7 +213,9 @@ const Trek = () => {
                 >
                   <option value="ITINERARY">ITINERARY</option>
                   <option value="MAP">MAP</option>
-                  <option value="INCLUSIONS_AND_EXCLUSIONS">INCLUSIONS AND EXCLUSIONS</option>
+                  <option value="INCLUSIONS_AND_EXCLUSIONS">
+                    INCLUSIONS AND EXCLUSIONS
+                  </option>
                 </select>
               </div>
               <div className="hidden sm:block">
@@ -230,7 +242,9 @@ const Trek = () => {
                       MAP
                     </button>
                     <button
-                      onClick={() => handleTabClick("INCLUSIONS_AND_EXCLUSIONS")}
+                      onClick={() =>
+                        handleTabClick("INCLUSIONS_AND_EXCLUSIONS")
+                      }
                       className={`whitespace-nowrap ml-8 py-4 px-1 border-b-2 border-transparent font-medium text-gray-500 ${
                         activeTab === "INCLUSIONS_AND_EXCLUSIONS"
                           ? "text-gray-700 border-gray-300"
