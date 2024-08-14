@@ -5,15 +5,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import StepForm from "../StepForm/StepForm";
-
+import { MdPersonRemoveAlt1 } from "react-icons/md";
+import { IoMdPersonAdd } from "react-icons/io";
+import { toast } from "sonner";
+import { GrGroup } from "react-icons/gr";
 const AdddTrekMate = () => {
   const dispatch = useDispatch();
+
   const { isLoading, authData } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
   const [isPasswordHidden, setPasswordHidden] = useState(true);
+
+  const [treker, addtrekerData] = useState([]);
+
   const togglePasswordVisibility = () => {
     setPasswordHidden(!isPasswordHidden);
+
     const passwordInput = document.getElementById("hs-toggle-password");
     if (passwordInput) {
       passwordInput.type = isPasswordHidden ? "text" : "password";
@@ -26,15 +34,30 @@ const AdddTrekMate = () => {
     watch,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data) => {
-    console.log("data::", data);
-    dispatch(signUp(data));
+    addtrekerData((prev) => {
+      const isExist = prev.some((item) => {
+        return item.email === data.email;
+      });
+      console.log(isExist);
+      if (isExist) {
+        // alert("Email already exist");
+        console.log("hjhjhjh");
+        toast.error("use diffrent email address", { position: "top-center" });
+        return prev;
+      } else {
+        return [...prev, data];
+      }
+    });
   };
+
+  console.log(treker, "data new");
 
   // Function to generate height options in cm
   const generateHeightOptions = () => {
     const options = [];
-    for (let cm = 120; cm <= 190; cm++) {
+    for (let cm = 140; cm <= 190; cm++) {
       options.push(
         <option key={cm} value={cm}>
           {cm} cm
@@ -43,20 +66,24 @@ const AdddTrekMate = () => {
     }
     return options;
   };
-
+  const removeItem = (id) => {
+    const newtreker = treker.filter((item, filterid) => {
+      return id != filterid;
+    });
+    addtrekerData(newtreker);
+  };
   return (
     <>
       <StepForm className="p-2" />
       <div className="container mx-auto px-8 py-8 max-w-7xl">
         <div className="grid md:grid-cols-2">
-          <div className="max-w-2xl mx-auto shadow-sm rounded-lg overflow-hidden bg-white">
-            <div className="flex items-center justify-center py-4 bg-gray-100 rounded-t-lg">
-              <h1 className="text-xl font-semibold text-gray-700 text-center">
-                Your details have already been added.{" "}
-                <span className="font-bold text-xl">
-                  Add your TrekMate details (if you have TrekMate){" "}
-                </span>
-                ?
+          <div className="max-w-4xl mx-auto border shadow-sm rounded-lg overflow-hidden bg-white">
+            <div className="text-center py-4 bg-gray-100 rounded-t-lg">
+              <h1 className="text-xl  text-gray-700 text-center">
+                Your details have already been added.
+              </h1>
+              <h1 className="font-bold text-xl">
+                Add your TrekMate details (if you have TrekMate){" "}
               </h1>
             </div>
             <div className="px-8 py-4">
@@ -352,12 +379,46 @@ const AdddTrekMate = () => {
               </form>
               <div className="text-center ">
                 <a className="text-white px-2 py-3 bg-gray-500 rounded">
-                  continue{" "}
+                  continue without Trekmate{" "}
                 </a>
               </div>
             </div>
           </div>
-          <div></div>
+
+          <div className="p-2">
+            <div className="flex justify-center  bg-[#F3F4F6] p-5 items-center gap-2">
+              <div>
+                <h1 className="text-xl ">Your TrekMates</h1>
+              </div>
+
+              <div>
+                <GrGroup />
+              </div>
+            </div>
+            {treker.map((el, id) => {
+              return (
+                <>
+                  <div className="flex justify-between items-center border rounded-lg p-5 my-2 bg-gray-100">
+                    <div className="py-2">
+                      <h3>{el.firstName}</h3>
+                    </div>
+
+                    <div>
+                      <MdPersonRemoveAlt1 onClick={() => removeItem(id)} />
+                    </div>
+                  </div>
+                </>
+              );
+            })}
+
+            <div className="text-center py-2">
+              {treker.length >= 1 ? (
+                <a className="text-white px-5 py-3 bg-gray-800 rounded">
+                  Next{" "}
+                </a>
+              ) : null}
+            </div>
+          </div>
         </div>
       </div>
     </>
