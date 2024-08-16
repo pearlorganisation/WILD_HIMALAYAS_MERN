@@ -1,5 +1,5 @@
 import { signUp } from "@/features/actions/authActions";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -29,28 +29,27 @@ const SignUp = () => {
     console.log("data::", data);
     dispatch(signUp(data));
   };
-  // Function to generate height options
+
+  // Function to generate height options in cm
   const generateHeightOptions = () => {
     const options = [];
-    for (let feet = 3; feet <= 7; feet++) {
-      for (let inches = 0; inches <= 11; inches++) {
-        options.push(
-          <option key={`${feet}-${inches}`} value={`${feet}-${inches}`}>
-            {`${feet} ' ${inches}''`}
-          </option>
-        );
-      }
+    for (let cm = 120; cm <= 190; cm++) {
+      options.push(
+        <option key={cm} value={cm}>
+          {cm} cm
+        </option>
+      );
     }
     return options;
   };
 
   return (
-    <div className="container mx-auto px-8 py-8 max-w-4xl ">
+    <div className="container mx-auto px-8 py-8 max-w-4xl">
       <div className="max-w-2xl mx-auto shadow-sm rounded-lg overflow-hidden bg-white">
         <div className="flex items-center justify-center py-4 bg-gray-100 rounded-t-lg">
           <h1 className="text-xl font-semibold text-gray-700">
             New to{" "}
-            <span className="font-bold text-2xl">Into Wild Himalaya </span> ?
+            <span className="font-bold text-2xl">Into Wild Himalaya</span>?
           </h1>
         </div>
         <div className="px-8 py-4">
@@ -89,11 +88,11 @@ const SignUp = () => {
                 type="text"
                 id="lastName"
                 {...register("lastName", { required: true })}
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outnpm run devfline-none focus:ring-blue-500 focus:ring-1"
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1"
               />
               {errors.lastName && (
-                <span className="text-red-600 text-sm font-medium ">
-                  This field is required{" "}
+                <span className="text-red-600 text-sm font-medium">
+                  This field is required
                 </span>
               )}
             </div>
@@ -112,7 +111,7 @@ const SignUp = () => {
                 className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1"
               />
               {errors.email && (
-                <span className="text-red-600 text-sm font-medium ">
+                <span className="text-red-600 text-sm font-medium">
                   This field is required
                 </span>
               )}
@@ -121,7 +120,7 @@ const SignUp = () => {
               <label className="block text-lg font-medium text-gray-700">
                 Password
               </label>
-              <div className="flex items-center justify-end   ">
+              <div className="flex items-center justify-end relative">
                 <input
                   {...register("password", { required: true })}
                   type="password"
@@ -129,7 +128,7 @@ const SignUp = () => {
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1"
                 />
                 <button
-                  className="text-gray-400 absolute pe-2  active:text-gray-600"
+                  className="text-gray-400 absolute right-2"
                   type="button"
                   onClick={togglePasswordVisibility}
                 >
@@ -196,7 +195,7 @@ const SignUp = () => {
               </select>
               {errors.gender && (
                 <span className="text-red-600 text-sm font-medium">
-                  This field is required{" "}
+                  This field is required
                 </span>
               )}
             </div>
@@ -234,7 +233,9 @@ const SignUp = () => {
                 {generateHeightOptions()}
               </select>
               {errors.height && (
-                <span className="text-red-600">This field is requird</span>
+                <span className="text-red-600 text-sm font-medium">
+                  This field is required
+                </span>
               )}
             </div>
             <div className="mb-6">
@@ -248,7 +249,7 @@ const SignUp = () => {
                 {...register("weight", { required: true })}
                 type="number"
                 id="weight"
-                className="w-full  px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1"
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1"
               />
               {errors.weight && (
                 <span className="text-red-600 text-sm font-medium">
@@ -307,16 +308,15 @@ const SignUp = () => {
             </div>
             <div className="col-span-2 mb-6">
               {isLoading ? (
-                <div className="flex justify-center items-center ">
-                  <div className="w-full ">
-                    {" "}
+                <div className="flex justify-center items-center">
+                  <div className="w-full">
                     <button
                       type="submit"
-                      className="w-full py-3 px-6 bg-black text-white font-medium rounded-md  "
+                      className="w-full py-3 px-6 bg-black text-white font-medium rounded-md"
                     >
                       <svg
                         aria-hidden="true"
-                        class="w-full h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                        className="w-full h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
                         viewBox="0 0 100 101"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -336,7 +336,7 @@ const SignUp = () => {
               ) : (
                 <button
                   type="submit"
-                  className="w-full py-3 px-6 bg-black text-white font-medium rounded-md  "
+                  className="w-full py-3 px-6 bg-black text-white font-medium rounded-md"
                 >
                   Register
                 </button>
