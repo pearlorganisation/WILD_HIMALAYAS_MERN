@@ -4,7 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Footer from "./components/layout/Footer";
-import Checkout from "./pages/Checkout/Checkout";
+import Checkout from "./pages/Booking/Checkout/Checkout";
 import Climbing from "./pages/Climbing/Climbing";
 import Contact from "./pages/Contact/Contact";
 import ForgotPassword from "./pages/Auth/ForgotPassword/ForgotPassword";
@@ -32,6 +32,7 @@ import MoterBikeMemory from "./pages/Memory/MoterBikeTourMemory";
 import Eligibility from "./pages/Booking/Eligibility";
 import TermsAndCondition from "./pages/Booking/TermsAndCondition/TermsAndCondition";
 import AdddTrekMate from "./pages/Booking/AddTrekMate/AddTrekMate";
+import PaymentFailed from "./pages/Payment/PaymentFailed";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const About = lazy(() => import("./pages/About/Aboutus"));
@@ -163,6 +164,10 @@ function App() {
         {
           path: "/terms",
           element: <TermsAndCondition />,
+        },
+        {
+          path: "/paymentfailed",
+          element: <PaymentFailed />,
         },
         {
           path: "/terms/addtrekmate",

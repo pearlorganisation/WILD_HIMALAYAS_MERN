@@ -1,10 +1,16 @@
 import React from "react";
 import StepForm from "../StepForm/StepForm";
+import { useNavigate } from "react-router-dom";
 
 const TermsAndCondition = () => {
+  const navigate = useNavigate();
+  const handelNavigate = () => {
+    navigate("/terms/addtrekmate");
+  };
   return (
     <>
-      <StepForm />
+      {/* <StepForm /> */}
+      <StepForm activeStep={1} />
       <div className="bg-gray-100 text-gray-800 font-sans leading-relaxed p-5">
         <header className="bg-gray-600 text-white py-4">
           <div className="container mx-auto text-center">
@@ -161,6 +167,7 @@ const TermsAndCondition = () => {
                   </div>
                   <button
                     type="submit"
+                    onClick={handelNavigate}
                     className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
                   >
                     Next

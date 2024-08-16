@@ -13,6 +13,7 @@ const AdddTrekMate = () => {
   const dispatch = useDispatch();
 
   const { isLoading, authData } = useSelector((state) => state.auth);
+
   const navigate = useNavigate();
 
   const [isPasswordHidden, setPasswordHidden] = useState(true);
@@ -72,9 +73,14 @@ const AdddTrekMate = () => {
     });
     addtrekerData(newtreker);
   };
+  const handelNavigate = () => {
+    navigate("/checkout");
+  };
   return (
     <>
-      <StepForm className="p-2" />
+      {/* <StepForm className="p-2" /> */}
+      <StepForm activeStep={2} />
+
       <div className="container mx-auto px-8 py-8 max-w-7xl">
         <div className="grid md:grid-cols-2">
           <div className="max-w-4xl mx-auto border shadow-sm rounded-lg overflow-hidden bg-white">
@@ -378,9 +384,12 @@ const AdddTrekMate = () => {
                 </div>
               </form>
               <div className="text-center ">
-                <a className="text-white px-2 py-3 bg-gray-500 rounded">
+                <button
+                  className="text-white px-2 py-3 bg-gray-500 rounded"
+                  onClick={handelNavigate}
+                >
                   continue without Trekmate{" "}
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -413,9 +422,12 @@ const AdddTrekMate = () => {
 
             <div className="text-center py-2">
               {treker.length >= 1 ? (
-                <a className="text-white px-5 py-3 bg-gray-800 rounded">
+                <button
+                  className="text-white px-5 py-3 bg-gray-800 rounded"
+                  onClick={handelNavigate}
+                >
                   Next{" "}
-                </a>
+                </button>
               ) : null}
             </div>
           </div>
