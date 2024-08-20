@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const PaymentFailed = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white shadow-lg rounded-lg p-8 max-w-lg w-full text-center">
+    <div className="flex items-center justify-center bg-gray-100">
+      <div className="bg-white shadow-lg rounded-lg p-20 md:m-20 max-w-lg w-full text-center">
         {/* Motion Icon */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
