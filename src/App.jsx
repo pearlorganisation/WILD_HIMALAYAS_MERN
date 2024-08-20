@@ -33,6 +33,8 @@ import Eligibility from "./pages/Booking/Eligibility";
 import TermsAndCondition from "./pages/Booking/TermsAndCondition/TermsAndCondition";
 import AdddTrekMate from "./pages/Booking/AddTrekMate/AddTrekMate";
 import PaymentFailed from "./pages/Payment/PaymentFailed";
+import TrekkingProducts from "./components/Products/TrekkingProducts";
+import ProductDeatils from "./components/Products/ProductDeatils";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const About = lazy(() => import("./pages/About/Aboutus"));
@@ -172,6 +174,14 @@ function App() {
         {
           path: "/terms/addtrekmate",
           element: <AdddTrekMate />,
+        },
+        {
+          path: "/trekkingProducts",
+          element: <TrekkingProducts />,
+        },
+        {
+          path: "/productDeatils",
+          element: <ProductDeatils />,
         },
       ],
     },

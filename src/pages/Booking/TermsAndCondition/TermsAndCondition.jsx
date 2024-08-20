@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import StepForm from "../StepForm/StepForm";
 import { useNavigate } from "react-router-dom";
 
 const TermsAndCondition = () => {
+  const [isChecked, setIsChecked] = useState(false);
   const navigate = useNavigate();
-  const handelNavigate = () => {
-    navigate("/terms/addtrekmate");
+
+  const handleCheckboxChange = (e) => {
+    setIsChecked(e.target.checked);
   };
+
+  const handleNavigate = (e) => {
+    e.preventDefault();
+    if (isChecked) {
+      navigate("/terms/addtrekmate");
+    }
+  };
+
   return (
     <>
-      {/* <StepForm /> */}
+      {/* Step form with active step */}
       <StepForm activeStep={1} />
+
       <div className="bg-gray-100 text-gray-800 font-sans leading-relaxed p-5">
         <header className="bg-gray-600 text-white py-4">
           <div className="container mx-auto text-center">
@@ -145,7 +156,7 @@ const TermsAndCondition = () => {
             <div className="mt-8 flex justify-center">
               <div className="w-full max-w-md">
                 <form
-                  action="#"
+                  onSubmit={handleNavigate}
                   method="POST"
                   className="flex flex-col items-center"
                 >
@@ -154,6 +165,8 @@ const TermsAndCondition = () => {
                       type="checkbox"
                       id="acceptTerms"
                       name="acceptTerms"
+                      checked={isChecked}
+                      onChange={handleCheckboxChange}
                       required
                       className="mr-2 h-4 w-4 text-gray-500 focus:ring-gray-500 border-gray-300 rounded"
                     />
@@ -167,8 +180,12 @@ const TermsAndCondition = () => {
                   </div>
                   <button
                     type="submit"
-                    onClick={handelNavigate}
-                    className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                    className={`px-4 py-2 rounded text-white focus:outline-none focus:ring-2 focus:ring-gray-500 ${
+                      isChecked
+                        ? "bg-gray-600 hover:bg-gray-700"
+                        : "bg-gray-300 cursor-not-allowed"
+                    }`}
+                    disabled={!isChecked}
                   >
                     Next
                   </button>
