@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const trekkingProducts = [
   {
@@ -76,6 +77,10 @@ const trekkingProducts = [
 ];
 
 const TrekkingProducts = () => {
+  const navigate = useNavigate();
+  const handelChange = () => {
+    navigate("/productDeatils");
+  };
   return (
     <div className="container mx-auto px-4 py-8">
       {/* All Products Title */}
@@ -86,7 +91,10 @@ const TrekkingProducts = () => {
       </div>
 
       {/* Product Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 "
+        onClick={handelChange}
+      >
         {trekkingProducts.map((product, index) => (
           <div
             key={index}

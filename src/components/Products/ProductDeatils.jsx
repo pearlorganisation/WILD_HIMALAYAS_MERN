@@ -59,7 +59,7 @@ const ProductDeatils = () => {
               <select
                 id="size"
                 name="size"
-                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                class="mt-1 block w-full py-3  px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none  sm:text-sm"
               >
                 <option>Small</option>
                 <option>Medium</option>
@@ -70,7 +70,7 @@ const ProductDeatils = () => {
 
             <p class="text-2xl font-semibold text-gray-800">$129.99</p>
 
-            <button class="w-full py-3 bg-indigo-600 text-white text-lg font-medium rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <button class="w-full py-3 bg-black text-white text-lg font-medium rounded-lg shadow-md  focus:outline-none focus:ring-2 ">
               Add to Cart
             </button>
           </div>
