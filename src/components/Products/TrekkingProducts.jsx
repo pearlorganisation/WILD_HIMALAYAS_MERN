@@ -79,7 +79,7 @@ const trekkingProducts = [
 const TrekkingProducts = () => {
   const navigate = useNavigate();
   const handelChange = () => {
-    navigate("/productDeatils");
+    navigate("/productDetails");
   };
   return (
     <div className="container mx-auto px-4 py-8">

@@ -1,18 +1,15 @@
-import { signUp } from "@/features/actions/authActions";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { ClipLoader } from "react-spinners";
+import {  useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
 import StepForm from "../StepForm/StepForm";
 import { MdPersonRemoveAlt1 } from "react-icons/md";
-import { IoMdPersonAdd } from "react-icons/io";
 import { toast } from "sonner";
 import { GrGroup } from "react-icons/gr";
 const AdddTrekMate = () => {
-  const dispatch = useDispatch();
+  const {state:data} = useLocation()
 
-  const { isLoading, authData } = useSelector((state) => state.auth);
+  const { isLoading} = useSelector((state) => state.auth);
 
   const navigate = useNavigate();
 
@@ -45,7 +42,7 @@ const AdddTrekMate = () => {
       if (isExist) {
         // alert("Email already exist");
         console.log("hjhjhjh");
-        toast.error("use diffrent email address", { position: "top-center" });
+        toast.error("Use different email address", { position: "top-center" });
         return prev;
       } else {
         return [...prev, data];
@@ -74,12 +71,12 @@ const AdddTrekMate = () => {
     addtrekerData(newtreker);
   };
   const handelNavigate = () => {
-    navigate("/checkout");
+    navigate("/checkout",{state:data});
   };
   return (
     <>
       {/* <StepForm className="p-2" /> */}
-      <StepForm activeStep={2} />
+      <StepForm activeStep={2} data={data} />
 
       <div className="container mx-auto px-8 py-8 max-w-7xl">
         <div className="grid md:grid-cols-2">
@@ -388,7 +385,7 @@ const AdddTrekMate = () => {
                   className="text-white px-2 py-3 bg-gray-500 rounded"
                   onClick={handelNavigate}
                 >
-                  continue without Trekmate{" "}
+                  Continue without Trekmate{" "}
                 </button>
               </div>
             </div>

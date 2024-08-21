@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IoIosArrowDropdown } from "react-icons/io";
 import { IoIosArrowDropup } from "react-icons/io";
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
-const formatDateRange = (startDate, endDate) => {
+function formatDateRange (startDate, endDate) {
   const options = { day: 'numeric', month: 'short' };
   const start = new Date(startDate).toLocaleDateString('en-GB', options);
   const end = new Date(endDate).toLocaleDateString('en-GB', options);
@@ -18,7 +19,8 @@ const groupByMonth = (dates) => {
   }, {});
 };
 
-const AvailableDates = ({ availableDates }) => {
+const AvailableDates = ({availableDates ,data}) => {
+  const navigate = useNavigate()
   const datesByMonth = groupByMonth(availableDates);
   const [visibleMonth, setVisibleMonth] = useState(null);
 
@@ -30,6 +32,7 @@ const AvailableDates = ({ availableDates }) => {
   const sortedMonths = Object.keys(datesByMonth).sort((a, b) => {
     return new Date(a) - new Date(b);
   });
+
 
   return (
     <div className="available-dates p-4 border rounded-md">
@@ -47,7 +50,11 @@ const AvailableDates = ({ availableDates }) => {
               {datesByMonth[month].map((date) => (
                 <div key={date._id} className="flex justify-between items-center py-1">
                   <span>{formatDateRange(date.startDate, date.endDate)}</span>
-                  <span className="text-white rounded-md px-1 font-medium bg-green-700 hover:bg-green-600 cursor-pointer">Book Now</span>
+                  <button
+                   onClick={()=>{
+                    navigate("/order", {state: {dates: formatDateRange(date.startDate, date.endDate), ...data}})
+                   }} className="text-white rounded-md px-1 font-medium bg-green-700 hover:bg-green-600 cursor-pointer">Book Now
+                   </button>
                 </div>
               ))}
             </div>

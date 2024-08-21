@@ -1,9 +1,6 @@
-import { Suspense, lazy, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { Suspense, lazy} from "react";
 import "./App.css";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
-import Footer from "./components/layout/Footer";
 import Checkout from "./pages/Booking/Checkout/Checkout";
 import Climbing from "./pages/Climbing/Climbing";
 import Contact from "./pages/Contact/Contact";
@@ -15,7 +12,6 @@ import SignUp from "./pages/Auth/SignUp/SignUp";
 import SendOTP from "./pages/Auth/SendOTP/SendOTP";
 import Trek from "./pages/Trek/Trek";
 import UpcomingTreks from "./pages/UpcomingTreks/UpcomingTreks";
-import HeaderComponent from "./components/layout/Header";
 import Layout from "./components/layout/Layout";
 import Loading from "./components/Loader/Loading";
 import MountainBiking from "./pages/Mountain_Biking/MountainBiking";
@@ -23,7 +19,6 @@ import EmailVerification from "./pages/Auth/EmailVerification/EmailVerification"
 import IndianMoterBiking from "./pages/Indain_MoterBike/IndainMoterbike";
 import ProductList from "./components/Home/ProductList";
 import Tours from "./components/Tours/Tours";
-import { T } from "./components/Tours/T";
 import BookingCondition from "./components/layout/FooterPages/BookingCondition";
 import RefundPolicy from "./components/layout/FooterPages/RefundPolicy";
 import UrResponsibilities from "./components/layout/FooterPages/UrResponsibilities";
@@ -164,7 +159,7 @@ function App() {
           element: <Eligibility />,
         },
         {
-          path: "/terms",
+          path: "/order",
           element: <TermsAndCondition />,
         },
         {
@@ -180,7 +175,7 @@ function App() {
           element: <TrekkingProducts />,
         },
         {
-          path: "/productDeatils",
+          path: "/productDetails",
           element: <ProductDeatils />,
         },
       ],

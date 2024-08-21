@@ -11,10 +11,12 @@ import { Navigation } from "swiper/modules";
 import { useDispatch, useSelector } from "react-redux";
 import { tourAction } from "@/features/actions/toursAction";
 import AvailableDates from "@/components/Tours/AvailableDates";
+import { useNavigate } from "react-router-dom";
 
 const Trek = () => {
   const { isLoading, data } = useSelector((state) => state.tour);
   const dispatch = useDispatch();
+
 
   useEffect(() => {
     dispatch(tourAction());
@@ -187,18 +189,12 @@ const Trek = () => {
                 </div>
               </div>
               <div>
-                <button
-                  type="button"
-                  key={i}
-                  className="my-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-                >
-                  View Details
-                </button>
+                
 
                 <div className="text-lg py-[1rem] mt-1 border-b-2 border-b-gray-600 font-medium text-gray-900">
                   Available Dates
                 </div>
-                <AvailableDates availableDates={el.availableDates} />
+                <AvailableDates availableDates={el.availableDates}  data={el} />
               </div>
             </div>
           </div>

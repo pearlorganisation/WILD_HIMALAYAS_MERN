@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import StepForm from "../StepForm/StepForm";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const TermsAndCondition = () => {
+  const {state:data} = useLocation()
   const [isChecked, setIsChecked] = useState(false);
   const navigate = useNavigate();
+  console.log(data) 
 
   const handleCheckboxChange = (e) => {
     setIsChecked(e.target.checked);
@@ -13,14 +15,18 @@ const TermsAndCondition = () => {
   const handleNavigate = (e) => {
     e.preventDefault();
     if (isChecked) {
-      navigate("/terms/addtrekmate");
+      navigate("/terms/addtrekmate", {state: data});
     }
   };
+
+  useEffect(()=>{
+    window.scroll(0,0)
+  },[])
 
   return (
     <>
       {/* Step form with active step */}
-      <StepForm activeStep={1} />
+      <StepForm activeStep={1} data={data} />
 
       <div className="bg-gray-100 text-gray-800 font-sans leading-relaxed p-5">
         <header className="bg-gray-600 text-white py-4">

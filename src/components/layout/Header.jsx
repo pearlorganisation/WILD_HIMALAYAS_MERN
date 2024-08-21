@@ -124,6 +124,11 @@ const Header = () => {
     },
 
     {
+      title: "Products",
+      path: "/trekkingProducts",
+    },
+
+    {
       title: "About",
       path: "/about",
     },
