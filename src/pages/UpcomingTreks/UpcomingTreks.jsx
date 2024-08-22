@@ -6,7 +6,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
-
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -78,9 +77,12 @@ const UpcomingTreks = () => {
               },
             }}
           >
-            {data.map((item, i) => {
+            {data && data?.map((item, i) => {
               return (
-                <SwiperSlide key={i} className="border-2 border-[#d1cece]">
+                <SwiperSlide
+                  key={i+1}
+                  className="border border-slate-200 rounded-md"
+                >
                   <div className="mx-auto max-w-5xl px-5 py-12 ">
                     <div className="mx-auto flex flex-col items-center w-full  ">
                       <img
@@ -90,8 +92,8 @@ const UpcomingTreks = () => {
                       />
 
                       <div className="mt-6 w-full lg:mt-0">
-                        <h1 className="my-4 text-3xl font-semibold text-black">
-                          {item?.trekTitle}
+                        <h1 className="my-4 text-2xl font-semibold text-black">
+                          {item?.title}
                         </h1>
                         <div className="my-4 flex items-center"></div>
 
@@ -114,7 +116,14 @@ const UpcomingTreks = () => {
                       <div className=" text-lg py-[1rem] mt-1 border-b-2 border-b-gray-600 font-medium text-gray-900">
                         Available Dates
                       </div>
-                      <AvailableDates availableDates={item?.availableDates} />
+                      <>
+                        {
+                          <AvailableDates
+                            availableDates={item.availableDates}
+                            data={item}
+                          />
+                        }
+                      </>
                     </div>
                   </div>
                 </SwiperSlide>

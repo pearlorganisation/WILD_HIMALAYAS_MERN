@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import StepForm from "../StepForm/StepForm";
+import { useLocation } from "react-router-dom";
 
 const Checkout = () => {
+  const {state:data} = useLocation()
   // Sample trek data
   const trek = {
     name: "Shimla",
@@ -33,7 +35,7 @@ const Checkout = () => {
   return (
     <>
       {/* <StepForm className="p-2" /> */}
-      <StepForm activeStep={3} />
+      <StepForm activeStep={3} data={data} />
       <div className="container mx-auto mt-8 px-4 lg:px-0">
         <div className="max-w-6xl mx-auto bg-white shadow-md p-8 rounded-md">
           <h1 className="text-4xl lg:text-3xl font-bold mb-6">

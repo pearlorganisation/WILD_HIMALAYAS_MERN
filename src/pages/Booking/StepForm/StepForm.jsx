@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const StepForm = ({ activeStep }) => {
+const StepForm = ({ activeStep,data }) => {
+  
+  useEffect(()=>{
+    window.scroll(0,0)
+  },[])
+
   return (
     <>
       <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-6xl mx-auto">
         <h2 className="text-2xl font-semibold mb-4 text-center">
-          Complete the steps below to register for your Chandrakhani Pass Trek
-          (August 20 - August 24)
+        Complete the steps below to register for your {data?.title}<br/>
+          ({data?.dates})
         </h2>
         <div className="flex justify-between items-center space-x-4">
           {/* Step 1 */}
