@@ -290,12 +290,12 @@ const AddTrekMate = () => {
                 </div>
               </form>
               <div className="text-center ">
-                <button
+               {trekkersData?.length < 1 && <button
                   className="text-white px-2 py-3 bg-gray-500 rounded"
                   onClick={handelNavigate}
                 >
                   Continue without Trekmate{" "}
-                </button>
+                </button>}
               </div>
             </div>
           </div>
