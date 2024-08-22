@@ -19,7 +19,7 @@ import { data } from "autoprefixer";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { contactAction } from "@/features/actions/contactAction";
-import { Toaster, toast } from "sonner";
+import { toast } from "sonner";
 import "./Spinner.css";
 const Contact = () => {
   const {

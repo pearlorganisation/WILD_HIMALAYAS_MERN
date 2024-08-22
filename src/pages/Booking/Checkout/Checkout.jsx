@@ -6,10 +6,11 @@ import { useSelector } from "react-redux";
 const Checkout = () => {
   const {state:data} = useLocation()
   const {trekkersData} = useSelector((state)=>state.booking)
+  const {authData} = useSelector((state)=>state.auth)
 
   // Function to calculate total bill with GST
   const calculateTotalBill = () => {
-    const totalPrice = data.price * trekkersData?.length;
+    const totalPrice = data.price * (trekkersData?.length+1) || 1 ;
     const gst = totalPrice * 0.18; // 18% GST calculation
     return {
       totalPrice,
@@ -43,10 +44,15 @@ const Checkout = () => {
                 {data?.title}
               </h2>
 
+             { trekkersData.length < 1 ? <div>
+                <p className="text-gray-800 lg:text-lg">Trekker Name :  {authData.firstName} </p>
+   
+              </div>
+              :
               <div>
                 <p className="text-gray-800 lg:text-lg">Total Trekkers : <span className="text-lg lg:text-xl font-semibold"> {trekkersData?.length}</span> ( {trekkersData.map((item)=> item.firstName ).join(" ,")} )</p>
    
-              </div>
+              </div>}
 
               <div>
                 <p className="text-gray-800 lg:text-lg">Dates :</p>

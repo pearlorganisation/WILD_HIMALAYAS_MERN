@@ -1,6 +1,6 @@
-import { Suspense, lazy} from "react";
+import { Suspense, lazy, useEffect} from "react";
 import "./App.css";
-import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import {RouterProvider, createBrowserRouter } from "react-router-dom";
 import Checkout from "./pages/Booking/Checkout/Checkout";
 import Climbing from "./pages/Climbing/Climbing";
 import Contact from "./pages/Contact/Contact";
@@ -30,12 +30,21 @@ import AdddTrekMate from "./pages/Booking/AddTrekMate/AddTrekMate";
 import PaymentFailed from "./pages/Payment/PaymentFailed";
 import TrekkingProducts from "./components/Products/TrekkingProducts";
 import ProductDeatils from "./components/Products/ProductDeatils";
+import { useSelector } from "react-redux";
+
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const About = lazy(() => import("./pages/About/Aboutus"));
 const Activity = lazy(() => import("./pages/Activity/Activity"));
 
+
 function App() {
+  const {isUserLoggedIn} = useSelector((state)=>state.auth)
+
+
+
+
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -67,7 +76,7 @@ function App() {
         },
         {
           path: "/checkout",
-          element: <Checkout />,
+          element: isUserLoggedIn ? <Checkout /> : <Login />,
         },
         {
           path: "/climbing",
@@ -160,7 +169,7 @@ function App() {
         },
         {
           path: "/order",
-          element: <TermsAndCondition />,
+          element: isUserLoggedIn ? <TermsAndCondition /> : <Login />,
         },
         {
           path: "/paymentfailed",
@@ -168,7 +177,7 @@ function App() {
         },
         {
           path: "/terms/addtrekmate",
-          element: <AdddTrekMate />,
+          element: isUserLoggedIn ? <AdddTrekMate /> : <Login /> ,
         },
         {
           path: "/trekkingProducts",
