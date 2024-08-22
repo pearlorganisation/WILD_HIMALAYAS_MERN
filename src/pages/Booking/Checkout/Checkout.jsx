@@ -1,27 +1,15 @@
 import React, { useState } from "react";
 import StepForm from "../StepForm/StepForm";
 import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Checkout = () => {
   const {state:data} = useLocation()
-  // Sample trek data
-  const trek = {
-    name: "Shimla",
-    image: "shimla.jpg", // Replace with actual image URL
-    price: 1000,
-  };
-
-  // State for number of adults and children
-  const [adults, setAdults] = useState(2);
-  const [children, setChildren] = useState(1);
-
-  // State for selected dates
-  const [startDate, setStartDate] = useState("2024-02-14");
-  const [endDate, setEndDate] = useState("2024-02-16");
+  const {trekkersData} = useSelector((state)=>state.booking)
 
   // Function to calculate total bill with GST
   const calculateTotalBill = () => {
-    const totalPrice = trek.price * (adults + children);
+    const totalPrice = data.price * trekkersData?.length;
     const gst = totalPrice * 0.18; // 18% GST calculation
     return {
       totalPrice,
@@ -45,44 +33,41 @@ const Checkout = () => {
           <div className="flex flex-col lg:flex-row items-center justify-between mb-8 space-x-8">
             <div className="w-full lg:w-1/2">
               <img
-                src="https://indiahikes.com/_next/image?url=https%3A%2F%2Fimages.prismic.io%2Findiahike%2Fff9696e9-eb82-4c82-a183-12e1c37e9bf1_Deoriatal%2BChandrashila%2Btrek_Gauri%2BKhamkar_Rhododendron%2BTrail%2Bto%2BRohini%2Bbugyal_%2BDSC_0091.jpg%3Fauto%3Dcompress%2Cformat&w=1920&q=75"
-                alt="Trek Image"
+                src={data?.banners[0]}
                 className="w-full h-auto rounded-md"
               />
             </div>
 
             <div className="w-full lg:w-1/2 space-y-6">
-              <h2 className="text-2xl lg:text-3xl font-semibold mb-2">
-                Deoriatal Chandrashila TREK
+              <h2 className="text-2xl lg:text-3xl font-semibold mt-4 lg:mt-0 mb-2">
+                {data?.title}
               </h2>
 
               <div>
-                <p className="text-gray-800 lg:text-lg">Total Trekkers:</p>
-                <p className="text-xl lg:text-2xl font-semibold">
-                  {adults + children} Trekkers
+                <p className="text-gray-800 lg:text-lg">Total Trekkers : <span className="text-lg lg:text-xl font-semibold"> {trekkersData?.length}</span> ( {trekkersData.map((item)=> item.firstName ).join(" ,")} )</p>
+   
+              </div>
+
+              <div>
+                <p className="text-gray-800 lg:text-lg">Dates :</p>
+                <p className="text-lg lg:text-xl font-medium">
+                 <span className="text-lg"> Check-in :</span> {data?.bookedDates?.startDate}
+                </p>
+                <p className="text-lg lg:text-xl font-medium">
+                <span className="text-lg">Check-out :</span>   {data?.bookedDates?.endDate}
                 </p>
               </div>
 
               <div>
-                <p className="text-gray-800 lg:text-lg">Dates:</p>
-                <p className="text-lg lg:text-xl font-medium">
-                  Check-in: {startDate}
-                </p>
-                <p className="text-lg lg:text-xl font-medium">
-                  Check-out: {endDate}
-                </p>
-              </div>
-
-              <div>
-                <p className="text-gray-800 lg:text-lg">Price Breakdown:</p>
-                <p className="text-lg">Price (Excl. GST): ₹{totalPrice}</p>
-                <p className="text-lg">GST (18%): ₹{gst.toFixed(2)}</p>
+                <p className="text-gray-800 lg:text-lg">Price Breakdown :</p>
+                <p className="text-lg lg:text-xl"><span className="text-lg">Price (excl. GST):</span>  ₹ {totalPrice}</p>
+                <p className="text-lg lg:text-xl"><span className="text-lg"> GST (18%):</span>  ₹ {gst.toFixed(2)}</p>
               </div>
 
               <div>
                 <p className="text-gray-800 lg:text-lg">Total Bill:</p>
                 <p className="text-xl lg:text-2xl font-semibold">
-                  ₹{totalBill.toFixed(2)} (incl. 18% GST)
+                  ₹{totalBill.toFixed(2)} <span className="text-lg font-normal">(incl. 18% GST)</span>
                 </p>
               </div>
 
