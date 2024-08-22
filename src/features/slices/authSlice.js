@@ -15,7 +15,8 @@ const initialState = {
   isUserLoggedIn: false,
   isEmailSent: false,
   isEmailVerified: false,
-  authData: false,
+  authData: {},
+  userData:null,
   isLogInSuccess: false,
   isLogoutSuccess: false,
 };
@@ -24,7 +25,9 @@ const authSlice = createSlice({
   name: "authSlice",
   initialState,
   reducers: {
-    clearAuth: (state, action) => {},
+    clearAuth: (state, action) => {
+    state.authData = initialState.authData
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -57,6 +60,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.errorMessage = "";
         state.isUserLoggedIn = true;
+        state.userData = action.payload.data; 
         state.authData = action.payload;
         toast.success("Login Successful...");
       })
@@ -71,7 +75,6 @@ const authSlice = createSlice({
       .addCase(emailVerification.pending, (state, action) => {
         state.isLoading = true;
         state.errorMessage = "";
-        state.emailVerified = false;
       })
       .addCase(emailVerification.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -97,7 +100,7 @@ const authSlice = createSlice({
         state.isUserLoggedIn = false;
         localStorage.clear();
         sessionStorage.clear();
-        state.authData = action.payload;
+        state.authData = {};
         toast.success("Logout Successful");
       })
       .addCase(logOut.rejected, (state, action) => {

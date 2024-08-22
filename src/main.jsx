@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <PersistGate loading={null} persistor={persistor}>
 
         <App />
-        <Toaster position="top-right" richColors />
+        <Toaster position="top-center" richColors duration={500} />
       </PersistGate>
 
     </Provider>
