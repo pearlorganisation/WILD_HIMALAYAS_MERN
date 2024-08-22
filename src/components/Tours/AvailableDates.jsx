@@ -47,12 +47,12 @@ const AvailableDates = ({availableDates ,data}) => {
           </div>
           {visibleMonth === month && (
             <div>
-              {datesByMonth[month].map((date) => (
+              {datesByMonth[month].map((date,idx) => (
                 <div key={date._id} className="flex justify-between items-center py-1">
                   <span>{formatDateRange(date.startDate, date.endDate)}</span>
                   <button
                    onClick={()=>{
-                    navigate("/order", {state: {dates: formatDateRange(date.startDate, date.endDate), ...data}})
+                    navigate("/order", {state: {dates: formatDateRange(date.startDate, date.endDate),bookedDates:availableDates[idx], ...data}})
                    }} className="text-white rounded-md px-1 font-medium bg-green-700 hover:bg-green-600 cursor-pointer">Book Now
                    </button>
                 </div>

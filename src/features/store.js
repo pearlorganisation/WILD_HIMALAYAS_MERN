@@ -7,6 +7,8 @@ import TrekSlice from "./slices/trekSlice";
 import activitySlice from "./slices/activitySlice";
 import ToursSlice from "./slices/ToursSlice";
 import contactSlice from "./slices/contactSlice";
+import booking from "./slices/booking";
+import { encryptTransform } from 'redux-persist-transform-encrypt';
 
 const reducers = combineReducers({
   auth: authReducer,
@@ -14,11 +16,24 @@ const reducers = combineReducers({
   activity: activitySlice,
   tour: ToursSlice,
   contact: contactSlice,
+  booking
 });
 
+
 const persistConfig = {
-  key: "WildHimalayasClient",
+  key: 'WildHimalayasClient',
+  version: 1,
   storage,
+  transforms: [
+    encryptTransform({
+      secretKey: `${import.meta.env.VITE_APP_REDUX_PERSIST_SECRET_KEY}`,
+      onError: (err) => {
+        console.log('Redux Persist Encryption Failed: ', err);
+      },
+    }),
+  ],
+  // if you do not want to persist this part of the state
+  // blacklist: ["omitedPart"],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
@@ -26,6 +41,10 @@ const persistedReducer = persistReducer(persistConfig, reducers);
 const store = configureStore({
   reducer: persistedReducer,
   devTools: import.meta.env.VITE_WORKING_ENVIRONMENT !== "production",
+  // middleware: (getDefaultMiddleware) =>
+  //   getDefaultMiddleware({
+  //     serializableCheck: false,
+  //   }),
 });
 
 export default store;
