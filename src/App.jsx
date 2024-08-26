@@ -35,6 +35,8 @@ import AdddTrekMate from "./pages/Booking/AddTrekMate/AddTrekMate";
 import PaymentFailed from "./pages/Payment/PaymentFailed";
 import TrekkingProducts from "./components/Products/TrekkingProducts";
 import ProductDeatils from "./components/Products/ProductDeatils";
+import Cart from "./components/Products/Cart";
+import EmptyCart from "./components/Products/EmptyCart";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const About = lazy(() => import("./pages/About/Aboutus"));
@@ -180,8 +182,16 @@ function App() {
           element: <TrekkingProducts />,
         },
         {
-          path: "/productDeatils",
+          path: "/productDetails",
           element: <ProductDeatils />,
+        },
+        {
+          path: "/cart",
+          element: <Cart />,
+        },
+        {
+          path: "/empty",
+          element: <EmptyCart />,
         },
       ],
     },

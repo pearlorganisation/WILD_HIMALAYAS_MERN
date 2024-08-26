@@ -3,7 +3,7 @@ import Logo from "../../assets/images/WildLogo.png";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "@/features/actions/authActions";
-
+import { FaCartShopping } from "react-icons/fa6";
 // Profile Dropdown
 const ProfileDropDown = (props) => {
   const [state, setState] = useState(false);
@@ -92,6 +92,7 @@ const ProfileDropDown = (props) => {
                   SignIn
                 </button>
               </Link>
+
               <Link to="/signUp">
                 <button
                   className="px-5 py-2 active:scale-95 transition-all bg-black hover:bg-black/80 text-white rounded-md"
@@ -100,6 +101,9 @@ const ProfileDropDown = (props) => {
                   SignUp
                 </button>
               </Link>
+              <div className="flex justify-center items-center ">
+                <FaCartShopping size={25} />
+              </div>
             </>
           )}
         </div>
@@ -121,6 +125,10 @@ const Header = () => {
     {
       title: "Activities",
       path: "/activities",
+    },
+    {
+      title: "Products",
+      path: "/trekkingProducts",
     },
 
     {

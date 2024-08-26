@@ -28,12 +28,14 @@ const ProductDeatils = () => {
                 class="w-24 h-24 object-cover rounded-lg cursor-pointer hover:opacity-80"
                 onclick="document.getElementById('mainImage').src=this.src;"
               />
+
               <img
                 src="https://via.placeholder.com/100"
                 alt="Product Image 3"
                 class="w-24 h-24 object-cover rounded-lg cursor-pointer hover:opacity-80"
                 onclick="document.getElementById('mainImage').src=this.src;"
               />
+
               <img
                 src="https://via.placeholder.com/100"
                 alt="Product Image 4"
@@ -44,7 +46,7 @@ const ProductDeatils = () => {
           </div>
 
           <div class="flex flex-col space-y-6">
-            <h1 class="text-3xl font-bold text-gray-800">Product Title</h1>
+            <h1 class="text-3xl font-bold text-gray-800">Trekking camps</h1>
 
             <p class="text-lg text-gray-600">
               This is a detailed description of the trekking product. It

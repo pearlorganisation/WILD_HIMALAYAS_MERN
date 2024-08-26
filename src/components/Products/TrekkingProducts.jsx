@@ -78,12 +78,14 @@ const trekkingProducts = [
 
 const TrekkingProducts = () => {
   const navigate = useNavigate();
+
   const handelChange = () => {
-    navigate("/productDeatils");
+    navigate("/productDetails");
   };
   return (
     <div className="container mx-auto px-4 py-8">
       {/* All Products Title */}
+
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-center">
           All Trekking Products
@@ -91,6 +93,7 @@ const TrekkingProducts = () => {
       </div>
 
       {/* Product Grid */}
+
       <div
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 "
         onClick={handelChange}
@@ -101,7 +104,7 @@ const TrekkingProducts = () => {
             className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
           >
             <img
-              className="w-full h-48 object-cover"
+              className="w-full h-58 object-cover"
               src={product.image}
               alt={product.name}
             />
