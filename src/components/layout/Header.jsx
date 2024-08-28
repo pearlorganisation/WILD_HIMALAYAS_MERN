@@ -39,7 +39,7 @@ const ProfileDropDown = (props) => {
           <div className="flex items-center space-x-4 border border-red-500">
             <button
               ref={profileRef}
-              className="w-10 h-10 outline-none rounded-full ring-offset-2 ring-gray-200 ring-2 lg:focus:ring-indigo-600"
+              className="w-10 h-10 outline-none rounded-full ring-offset-2 ring-gray-200 ring-2 "
               onClick={() => setState(!state)}
             >
               <img
@@ -47,6 +47,7 @@ const ProfileDropDown = (props) => {
                 className="w-full h-full rounded-full"
               />
             </button>
+
             <div className="lg:hidden">
               <span className="block">Micheal John</span>
               <span className="block text-sm text-gray-500">
@@ -63,7 +64,7 @@ const ProfileDropDown = (props) => {
               <li>
                 <a
                   key={idx}
-                  className="block text-gray-600 lg:hover:bg-gray-50 lg:p-2.5"
+                  className="block text-g`ray-600 lg:hover:bg-gray-50 lg:p-2.5"
                   href={item.path}
                 >
                   {item.title}

@@ -14,18 +14,21 @@ const trekkingProducts = [
     image:
       "https://contents.mediadecathlon.com/p2754745/k$a0d492c58b9ab1ac1edba18899c6ac2f/camping-tent-mh100-4-person.jpg?format=auto&quality=70&f=320x0",
   },
+
   {
     name: "Trekking Shoes",
     price: "$79.99",
     image:
       "https://contents.mediadecathlon.com/p1800648/k$d2c7256fd2c4f023334ea71328a520df/men-mid-ankle-waterproof-hiking-shoes-with-non-slip-outsole-black-mh100.jpg?format=auto&quality=70&f=320x0",
   },
+
   {
     name: "Sleeping Bag",
     price: "$49.99",
     image:
       "https://contents.mediadecathlon.com/p2758610/k$cda1430e3bd6eb6d0f53c7fc2af8fa47/trekking-mummy-sleeping-bag-trek-500-0c-wadding-twinnable-khaki.jpg?format=auto&quality=70&f=320x0",
   },
+
   {
     name: "Trekking Pole",
     price: "$29.99",
