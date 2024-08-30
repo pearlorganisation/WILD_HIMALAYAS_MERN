@@ -7,6 +7,7 @@ import TrekSlice from "./slices/trekSlice";
 import activitySlice from "./slices/activitySlice";
 import ToursSlice from "./slices/ToursSlice";
 import contactSlice from "./slices/contactSlice";
+import productSlice from "./slices/productSlice";
 
 const reducers = combineReducers({
   auth: authReducer,
@@ -14,6 +15,7 @@ const reducers = combineReducers({
   activity: activitySlice,
   tour: ToursSlice,
   contact: contactSlice,
+  product: productSlice,
 });
 
 const persistConfig = {

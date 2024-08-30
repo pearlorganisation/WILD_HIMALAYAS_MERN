@@ -142,22 +142,27 @@ const Cart = () => {
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                     Order Summary
                   </h3>
+
                   <div className="flex justify-between text-sm font-medium text-gray-900 dark:text-white">
                     <p>Total Items:</p>
                     <p>{totalItems}</p>
                   </div>
+
                   <div className="flex justify-between text-sm font-medium text-gray-900 dark:text-white">
                     <p>Total Cost:</p>
                     <p>${totalCost.toFixed(2)}</p>
                   </div>
+
                   <div className="flex justify-between text-sm font-medium text-gray-900 dark:text-white">
                     <p>GST (18%):</p>
                     <p>${gst.toFixed(2)}</p>
                   </div>
+
                   <div className="flex justify-between text-sm font-medium text-gray-900 dark:text-white">
                     <p>Total (Including GST):</p>
                     <p>${totalWithGst.toFixed(2)}</p>
                   </div>
+
                   <div className="mt-4 text-center">
                     <a
                       href="#"

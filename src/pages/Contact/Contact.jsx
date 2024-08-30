@@ -102,7 +102,7 @@ const Contact = () => {
       </section>
 
       <section>
-        <div className="container  ">
+        <div className="container">
           <div className="grid md:grid-cols-2 w-[80%] mx-auto my-10 bg-[#F7F7F7]">
             <div className="">
               <div className="md:p-10 p-5   text-[#494C4F] jost">
@@ -198,6 +198,7 @@ const Contact = () => {
                     {...register("name", { required: true })}
                   />
                 </div>
+
                 <div className="flex flex-col">
                   <label className="font-medium" htmlFor="emailAddress">
                     Email Address
