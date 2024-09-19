@@ -13,7 +13,6 @@ const booking = createSlice({
   reducers: {
    storeTrekkers : (state,action) =>{
      state.trekkersData = action.payload
-     console.log(state.trekkersData)
    }
   }
 });
