@@ -61,7 +61,6 @@ const authSlice = createSlice({
         state.errorMessage = "";
         state.isUserLoggedIn = true;
         state.userData = action.payload.data; 
-        state.authData = action.payload;
         toast.success("Login Successful...");
       })
       .addCase(signIn.rejected, (state, action) => {
