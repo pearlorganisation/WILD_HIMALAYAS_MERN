@@ -12,7 +12,6 @@ const Checkout = () => {
 
   const memberNames = [userData,...trekkersData]
 
-  console.log(memberNames)
 
   const handlePayment = async () => {
     setIsLoading(true);
@@ -35,7 +34,8 @@ const Checkout = () => {
           },
           orderById:userData?._id,
           email:userData?.email,
-          memberNames
+          memberNames,
+          tourId:data?._id
         }
       );
       // setOrder(order?.id);
@@ -128,7 +128,7 @@ const Checkout = () => {
               </div>
               :
               <div>
-                <p className="text-gray-800 lg:text-lg">Total Trekkers : <span className="text-lg lg:text-xl font-semibold"> {trekkersData?.length +1}</span> ( You ,{trekkersData.map((item)=> item.firstName).join(" ,")} )</p>
+                <p className="text-gray-800 lg:text-lg">Total Trekkers : <span className="text-lg lg:text-xl font-semibold"> {trekkersData?.length +1}</span> ( You, {trekkersData.map((item)=> item.firstName).join(", ")} )</p>
    
               </div>}
 
