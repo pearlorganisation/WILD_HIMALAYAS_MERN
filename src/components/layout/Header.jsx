@@ -3,11 +3,12 @@ import Logo from "../../assets/images/WildLogo.png";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "@/features/actions/authActions";
-
+import { FaCartShopping } from "react-icons/fa6";
 // Profile Dropdown
 const ProfileDropDown = (props) => {
   const [state, setState] = useState(false);
   const profileRef = useRef();
+
   const { isLoading, authData, isUserLoggedIn } = useSelector(
     (state) => state.auth
   );
@@ -25,7 +26,7 @@ const ProfileDropDown = (props) => {
     };
     document.addEventListener("click", handleDropDown);
   }, []);
-  console.log(isLogIn);
+
   const dispatch = useDispatch();
 
   const handelSubmit = () => {
@@ -39,7 +40,7 @@ const ProfileDropDown = (props) => {
           <div className="flex items-center space-x-4 border border-red-500">
             <button
               ref={profileRef}
-              className="w-10 h-10 outline-none rounded-full ring-offset-2 ring-gray-200 ring-2 lg:focus:ring-indigo-600"
+              className="w-10 h-10 outline-none rounded-full ring-offset-2 ring-gray-200 ring-2 "
               onClick={() => setState(!state)}
             >
               <img
@@ -47,6 +48,7 @@ const ProfileDropDown = (props) => {
                 className="w-full h-full rounded-full"
               />
             </button>
+
             <div className="lg:hidden">
               <span className="block">Micheal John</span>
               <span className="block text-sm text-gray-500">
@@ -63,7 +65,7 @@ const ProfileDropDown = (props) => {
               <li>
                 <a
                   key={idx}
-                  className="block text-gray-600 lg:hover:bg-gray-50 lg:p-2.5"
+                  className="block text-g`ray-600 lg:hover:bg-gray-50 lg:p-2.5"
                   href={item.path}
                 >
                   {item.title}
@@ -86,12 +88,13 @@ const ProfileDropDown = (props) => {
             <>
               <Link to="/signIn">
                 <button
-                  className="px-5 py-2 active:scale-95 transition-all border-2 text-black border-black hover:bg-black/10 rounded-md"
+                  className="px-5 py-2 active:scale-95 transition-all border text-black border-black hover:bg-black/10 rounded-md"
                   type="button"
                 >
                   SignIn
                 </button>
               </Link>
+
               <Link to="/signUp">
                 <button
                   className="px-5 py-2 active:scale-95 transition-all bg-black hover:bg-black/80 text-white rounded-md"
@@ -100,6 +103,7 @@ const ProfileDropDown = (props) => {
                   SignUp
                 </button>
               </Link>
+            
             </>
           )}
         </div>
@@ -110,7 +114,7 @@ const ProfileDropDown = (props) => {
 
 const Header = () => {
   const [menuState, setMenuState] = useState(false);
-
+  const {cartData}= useSelector((state)=>state.cart)
   // Replace javascript:void(0) path with your path
   const navigation = [
     {
@@ -122,11 +126,11 @@ const Header = () => {
       title: "Activities",
       path: "/activities",
     },
-
     {
       title: "Products",
       path: "/trekkingProducts",
     },
+
 
     {
       title: "About",
@@ -169,7 +173,17 @@ const Header = () => {
 
           <div className="flex-1 flex items-center justify-end space-x-2 sm:space-x-6">
             <ProfileDropDown class="hidden lg:block" />
-
+            <Link
+              to="/cart"
+              class="text-white relative z-10  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-lg rounded-lg px-5 py-2.5    focus:outline-none "
+            >
+              <FaCartShopping />{" "}
+              <span className="absolute w-[1.5rem] h-[1.5rem] shadow-md text-xs grid place-items-center bg-white text-blue-500 rounded-full top-[-0.5rem] right-[-0.5rem]">
+                {cartData?.length || 0}
+              </span>
+            </Link>
+              
+            
             <button
               className="outline-none text-gray-400 block lg:hidden"
               onClick={() => setMenuState(!menuState)}

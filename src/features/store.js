@@ -9,6 +9,9 @@ import ToursSlice from "./slices/ToursSlice";
 import contactSlice from "./slices/contactSlice";
 import booking from "./slices/booking";
 import { encryptTransform } from 'redux-persist-transform-encrypt';
+import productSlice from "./slices/productSlice";
+import cart from "./slices/Cart";
+
 
 const reducers = combineReducers({
   auth: authReducer,
@@ -16,7 +19,9 @@ const reducers = combineReducers({
   activity: activitySlice,
   tour: ToursSlice,
   contact: contactSlice,
-  booking
+  booking,
+  product: productSlice,
+  cart
 });
 
 

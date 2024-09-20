@@ -32,6 +32,8 @@ import TrekkingProducts from "./components/Products/TrekkingProducts";
 import ProductDeatils from "./components/Products/ProductDeatils";
 import { useSelector } from "react-redux";
 
+import Cart from "./components/Products/Cart";
+import EmptyCart from "./components/Products/EmptyCart";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const About = lazy(() => import("./pages/About/Aboutus"));
@@ -184,8 +186,16 @@ function App() {
           element: <TrekkingProducts />,
         },
         {
-          path: "/productDetails",
+          path: "/productDetails/:id",
           element: <ProductDeatils />,
+        },
+        {
+          path: "/cart",
+          element: <Cart />,
+        },
+        {
+          path: "/empty",
+          element: <EmptyCart />,
         },
       ],
     },

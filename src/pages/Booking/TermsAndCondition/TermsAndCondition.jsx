@@ -122,6 +122,7 @@ const TermsAndCondition = () => {
               <h3 className="text-lg font-semibold mt-6 mb-2">
                 3. Final Payment
               </h3>
+
               <p>
                 Final payment must be received by the Company 45 days prior to
                 the departure date. Failure to comply with this requirement will
