@@ -36,12 +36,7 @@ const Hero = () => {
             srcset="" />
           <div className="slide-content  content-right ">
             <div className="sub-title1 ">
-              <p
-                className="animated lg:text-lg text-sm md:mb-5 mb-1"
-                style={{ color: "#fff" }}
-              >
-                Get 50% Off
-              </p>
+             
             </div>
             <div className="title-slide">
               <h3
@@ -80,9 +75,7 @@ const Hero = () => {
             srcset="" />
           <div className="slide-content  content-right ">
             <div className="sub-title1 ">
-              <p className="animated text-lg mb-5" style={{ color: "#fff" }}>
-                Get 50% Off
-              </p>
+            
             </div>
             <div className="title-slide">
               <h3

@@ -21,18 +21,18 @@ const ProductList = () => {
 
   return (
     <div className="bg-white mt-10">
-      <SectionHeading mainHeading={"Best Winter Trek of 2024"} />
+      <SectionHeading mainHeading={"Our Treks"} />
       <div className="mx-auto max-w-2xl px-4 py-6 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
         {data.map((item, i) => {
               return (
-                  <div className="mx-auto max-w-5xl px-5 py-12 ">
-                    <div className="mx-auto flex flex-col items-center w-full  ">
+                  <div className="mx-auto max-w-5xl   border rounded-md bg-slate-50 ">
                       <img
                         alt="image"
-                        className="h-64 w-full rounded object-cover"
+                        className="h-64 w-full rounded-t object-cover"
                         src={Array.isArray(item?.banners) && item?.banners[0]}
                       />
+                    <div className="mx-auto px-5 flex flex-col items-center w-full  ">
 
                       <div className="mt-6 w-full lg:mt-0">
                         <h1 className="my-4 text-2xl font-semibold text-black">
@@ -46,12 +46,12 @@ const ProductList = () => {
                       </div>
                     </div>
 
-                    <div>
+                    <div className="flex justify-end">
                       <button
                         type="button"
                         onClick={handelchange}
                         key={i}
-                        class=" my-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                        class=" mt-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
                       >
                         View Details
                       </button>

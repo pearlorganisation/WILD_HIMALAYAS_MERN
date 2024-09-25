@@ -32,9 +32,9 @@ const UpcomingTreks = () => {
       <div>
         <div className="container">
           <div className="text-center text-xl md:text-5xl font-bold py-5 ">
-            <h1>Top treks in 2024</h1>
+            <h1>Our treks</h1>
           </div>
-
+{/* 
           <div className=" grid md:grid-cols-2 place-items-center py-5 border-t-2 border-yellow-400">
             <div className="">
               <h1 className="text-center text-xl md:text-5xl font-medium ">
@@ -51,7 +51,7 @@ const UpcomingTreks = () => {
               rhododendrons are dense, minus the crowds.`}
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div>

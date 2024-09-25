@@ -64,10 +64,7 @@ const Contact = () => {
             <h1 className="text-xl md:text-4xl lg:text-5xl font-medium jost">
               Contact Us
             </h1>
-            <div className="text-center font-medium py-2">
-              <span className="p-2">Home</span> <span>&gt;</span>{" "}
-              <span className="p-2"> Contact Us</span>
-            </div>
+        
           </div>
         </div>
       </section>
@@ -296,50 +293,7 @@ const Contact = () => {
         </form>
       </section>
 
-      <section>
-        <div className="min-h-[400px] bg-[#C6C6C6] flex justify-around items-center flex-col md:flex-row p-5">
-          <div className="flex items-center">
-            <div className="border-r-2 text-white pr-5 ">
-              <SlEnvolopeLetter className="text-white " size={100} />
-            </div>
-            <div className="p-5 text-white">
-              <div>
-                <h1>OUR</h1>
-              </div>
-              <div>
-                <h1 className="font-semibold text-lg md:text-2xl">
-                  NEWSLETTER!
-                </h1>
-              </div>
-              <div className="text-lg md:text-xl">
-                <p>
-                  It only takes a second to be the first to find
-                  <br />
-                  out about our latest news
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div className="flex w-full justify-start items-center">
-              <input
-                className="border p-4 w-full focus:outline-none"
-                type="text"
-                name=""
-                id=""
-              />
-
-              <button
-                type="submit"
-                className="bg-black px-12 py-4  font-medium text-white  sm:w-auto mt-4 md:mt-0"
-              >
-                Submit
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+   
 
       <section className="p-5 ">
         <Swiper

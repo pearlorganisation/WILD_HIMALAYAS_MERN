@@ -60,7 +60,7 @@ const FaqSection = () => {
         <p className="textbase mt-6 text-center text-gray-600">
           Can&apos;t find what you&apos;re looking for?{" "}
           <a
-            href="#"
+            href="/contact"
             title=""
             className="font-semibold text-myStyle hover:underline"
           >

@@ -7,8 +7,21 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="w-full pt-5 bg-black p-3 shadow-full">
-      <div className="mx-auto flex max-w-7xl flex-col items-start space-x-8 md:flex-row">
-        <div className="mt-8 grid grid-cols-2 gap-6 md:mt-0 lg:w-3/4 lg:grid-cols-3">
+      <div className="mx-auto flex max-w-7xl flex-col md:flex-row">
+        <div className="mt-8 grid grid-cols-2 gap-6 md:mt-0 w-full lg:grid-cols-4">
+          <div className="hidden lg:block mb-8 lg:mb-0">
+          <div className="flex items-center lg:flex-initial">
+          <Link onClick={()=>{
+           window.scrollTo({ top: 0, behavior: "smooth" }); // Scrolls to the top smoothly
+        }} to={"/"} className="flex flex-col justify-start items-center" >
+            <img src={Logo} width={100} height={100} alt="Float UI logo" />
+            <span className="font-bold text-lg text-white font-sans pt-5">
+              Into Wild Himalaya
+            </span>
+          </Link>
+        </div>
+           
+          </div>
           <div className="mb-8 lg:mb-0">
             <p className="mb-6 text-lg font-semibold text-white ">
               DESTINATIONS
@@ -54,9 +67,6 @@ const Footer = () => {
                 <li>Refund Policy</li>
               </Link>
               <Link>
-                <li>Your Responsibilities</li>
-              </Link>
-              <Link>
                 <li>F.A.Q.</li>
               </Link>
               <Link>
@@ -72,8 +82,6 @@ const Footer = () => {
 
               <li>+91-9816354380</li>
 
-              <li>Your Responsibilities</li>
-
               <li>info@intowildhimalaya.com</li>
 
               <li>intowildhimalaya@gmail.com</li>
@@ -81,50 +89,31 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="w-full px-4 md:w-1/2 lg:px-0" style={{ margin: "0" }}>
-          <h1 className="max-w-sm text-3xl font-bold text-white">
-            Subscribe to our Newsletter
-          </h1>
-          <form
-            action=""
-            className="mt-4 inline-flex w-full items-center md:w-3/4"
-          >
-            <input
-              className="flex placeholder-white h-10 w-full rounded-md border text-white border-white bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-              type="email"
-              placeholder="Email"
-            ></input>
-            <button
-              type="button"
-              className=" ml-4 rounded-full  px-3 py-3 text-sm font-semibold bg-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              <ChevronRight className="h-4 w-4 " />
-            </button>
-          </form>
-        </div>
+
       </div>
       <hr className="my-4" />
       <div className="mx-auto max-w-7xl items-center justify-between px-4 md:flex lg:px-0 my-3">
         <div className="inline-flex items-center">
-          <img
-            className="mix-blend-multiply"
-            src={Logo}
-            width={100}
-            height={100}
-            alt=""
-          />
+        <Link to={"/"} onClick={()=>{
+           window.scrollTo({ top: 0, behavior: "smooth" }); // Scrolls to the top smoothly
+        }} className="flex items-center justify-center gap-3 lg:hidden">
+  
+       
+            <img src={Logo} width={100} height={100} alt="Float UI logo" />
+            <span className="font-bold text-lg text-white font-sans">
+              Into Wild Himalaya
+            </span>
 
-          <span className="ml-4 text-lg font-bold">Into Wild Himalaya</span>
+           
+          </Link>
         </div>
-        <div>
-          <img src={PayImg} alt="pay" />
-        </div>
-        <div className="mt-4 md:mt-0">
+     
+   
           <p className="text-sm font-medium text-white">
             © 2024 <span className="text-myStyle">Pearl Organisation</span>. All
             rights reserved.
           </p>
-        </div>
+
       </div>
     </footer>
   );

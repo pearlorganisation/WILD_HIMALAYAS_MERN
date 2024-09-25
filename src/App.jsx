@@ -29,11 +29,11 @@ import TermsAndCondition from "./pages/Booking/TermsAndCondition/TermsAndConditi
 import AdddTrekMate from "./pages/Booking/AddTrekMate/AddTrekMate";
 import PaymentFailed from "./pages/Payment/PaymentFailed";
 import TrekkingProducts from "./components/Products/TrekkingProducts";
-import ProductDeatils from "./components/Products/ProductDeatils";
 import { useSelector } from "react-redux";
 
 import Cart from "./components/Products/Cart";
 import EmptyCart from "./components/Products/EmptyCart";
+import ProductCheckout from "./components/Products/ProductCheckout";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const About = lazy(() => import("./pages/About/Aboutus"));
@@ -79,6 +79,10 @@ function App() {
         {
           path: "/checkout",
           element: isUserLoggedIn ? <Checkout /> : <Login />,
+        },
+        {
+          path: "/productCheckout",
+          element: isUserLoggedIn ? <ProductCheckout /> : <Login />,
         },
         {
           path: "/climbing",
@@ -185,10 +189,7 @@ function App() {
           path: "/trekkingProducts",
           element: <TrekkingProducts />,
         },
-        {
-          path: "/productDetails/:id",
-          element: <ProductDeatils />,
-        },
+     
         {
           path: "/cart",
           element: <Cart />,

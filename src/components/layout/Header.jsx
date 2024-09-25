@@ -118,8 +118,8 @@ const Header = () => {
   // Replace javascript:void(0) path with your path
   const navigation = [
     {
-      title: "Home",
-      path: "/",
+      title: "Treks",
+      path: "/upcomingtrek",
     },
 
     {
@@ -133,12 +133,12 @@ const Header = () => {
 
 
     {
-      title: "About",
+      title: "About Us",
       path: "/about",
     },
 
     {
-      title: "Contact",
+      title: "Contact Us",
       path: "/contact",
     },
   ];
@@ -149,7 +149,7 @@ const Header = () => {
         <div className="flex-none lg:flex-initial">
           <Link className="flex justify-start items-center" to="/">
             <img src={Logo} width={100} height={100} alt="Float UI logo" />
-            <span className="font-bold text-lg font-sans">
+            <span className="hidden lg:block font-bold text-lg font-sans">
               Into Wild Himalaya
             </span>
           </Link>

@@ -11,6 +11,7 @@ import booking from "./slices/booking";
 import { encryptTransform } from 'redux-persist-transform-encrypt';
 import productSlice from "./slices/productSlice";
 import cart from "./slices/Cart";
+import mail from "./slices/mail";
 
 
 const reducers = combineReducers({
@@ -21,7 +22,8 @@ const reducers = combineReducers({
   contact: contactSlice,
   booking,
   product: productSlice,
-  cart
+  cart,
+  mail,
 });
 
 

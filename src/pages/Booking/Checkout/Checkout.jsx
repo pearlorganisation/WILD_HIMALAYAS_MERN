@@ -9,6 +9,7 @@ const Checkout = () => {
   const {trekkersData} = useSelector((state)=>state.booking)
   const {userData} = useSelector((state)=>state.auth)
   const [isLoading,setIsLoading] = useState(false)
+  const [order, setOrder] = useState("");
 
   const memberNames = [userData,...trekkersData]
 
@@ -38,7 +39,7 @@ const Checkout = () => {
           tourId:data?._id
         }
       );
-      // setOrder(order?.id);
+      setOrder(order?.id);
       setIsLoading(false);
 
 

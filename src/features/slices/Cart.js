@@ -4,6 +4,7 @@ import { toast } from "sonner";
 const initialState = {
   isLoading: false,
   cartData: [],
+  addressData:{},
   errorMessage: "",
 };
 
@@ -11,6 +12,10 @@ const initialState = {
   name: "cart",
   initialState,
   reducers: {
+    removeCartData:(state,action)=>{
+      state.cartData=[],
+      state.addressData ={}
+    },
     addToCart: (state, action) => {
       const isExist = state.cartData?.some(
         (item) => item?._id === action.payload?._id
@@ -86,9 +91,12 @@ const initialState = {
       );
       state.cartData = newitems;
     },
+    addAddress:(state,action)=>{
+      state.addressData = action.payload
+    }
   },
 });
 
-export const { addToCart, increaseItem, decreaseItem, removeItem } =
+export const { addToCart, increaseItem, decreaseItem, removeItem ,addAddress,removeCartData} =
 cart.actions;
 export default cart.reducer;
