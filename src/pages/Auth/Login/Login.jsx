@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import Logo from "../../../assets/images/WildLogo.png";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signIn } from "@/features/actions/authActions";
 import { RxEyeOpen } from "react-icons/rx";
 import { RiEyeCloseLine } from "react-icons/ri";
 import { trekAction } from "@/features/actions/trekAction";
 const Login = () => {
   const dispatch = useDispatch();
-  const { isLoading, authData } = useSelector((state) => state.auth);
+  const { isLoading, isUserLoggedIn } = useSelector((state) => state.auth);
 
    
  
@@ -26,12 +26,12 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (authData?.status) {
+    if (isUserLoggedIn) {
       navigate("/");
     }
-  }, [authData]);
+  }, [isUserLoggedIn]);
   const [visibilty, setVisibilty] = useState(false);
-  console.log(authData, "data .........");
+
   return (
     <main className="w-full h-screen flex flex-col items-center justify-center px-4">
       <div className="max-w-sm w-full text-gray-600 space-y-5">
@@ -233,9 +233,9 @@ const Login = () => {
         </button>
         <p className="text-center">
           Don't have an account?{" "}
-          <a href="javascript:void(0)" className="font-medium ">
+          <Link href="/signUp" className="font-semibold ">
             Sign up
-          </a>
+          </Link>
         </p>
       </div>
     </main>

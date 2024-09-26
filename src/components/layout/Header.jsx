@@ -4,21 +4,21 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "@/features/actions/authActions";
 import { FaCartShopping } from "react-icons/fa6";
-// Profile Dropdown
+import { FaUserCircle } from "react-icons/fa";
+
+// Profile Dropdown Component
 const ProfileDropDown = (props) => {
   const [state, setState] = useState(false);
   const profileRef = useRef();
 
-  const { isLoading, authData, isUserLoggedIn } = useSelector(
+  const {isUserLoggedIn,userData } = useSelector(
     (state) => state.auth
   );
   const navigation = [
-    { title: "Dashboard", path: "javascript:void(0)" },
-    { title: "Settings", path: "javascript:void(0)" },
+    { title: "Your Bookings", path: "/yourBookings" },
+    { title: "Your Orders", path: "/yourOrders" },
     { title: "Log out", path: "javascript:void(0)" },
   ];
-  const { isLogIn } = useSelector((state) => state.auth);
-  // let isLogIn=true
 
   useEffect(() => {
     const handleDropDown = (e) => {
@@ -33,58 +33,52 @@ const ProfileDropDown = (props) => {
     dispatch(logOut());
   };
 
+
   return (
     <div className={`relative ${props.class}`}>
-      {!true ? (
+      {isUserLoggedIn ? (
         <div>
-          <div className="flex items-center space-x-4 border border-red-500">
+          <div className="flex items-center space-x-4 ">
             <button
               ref={profileRef}
-              className="w-10 h-10 outline-none rounded-full ring-offset-2 ring-gray-200 ring-2 "
+              className=" outline-none rounded-full "
               onClick={() => setState(!state)}
             >
-              <img
-                src="https://randomuser.me/api/portraits/men/46.jpg"
-                className="w-full h-full rounded-full"
-              />
-            </button>
-
-            <div className="lg:hidden">
-              <span className="block">Micheal John</span>
-              <span className="block text-sm text-gray-500">
-                john@gmail.com
-              </span>
+              <div className="flex items-center gap-2 p-1">
+                <FaUserCircle size={25}/>
+              <span className="block text-gray-700 font-semibold text-lg">{userData?.firstName}</span>
+              {/* <span className="block text-sm text-gray-500">
+               {userData?.email}
+              </span> */}
             </div>
+            </button>
           </div>
           <ul
-            className={`bg-white top-12 border-2 border-y-lime-400 right-0 mt-5 space-y-5 lg:absolute lg:border lg:rounded-md lg:text-sm lg:w-52 lg:shadow-md lg:space-y-0 lg:mt-0 ${
-              state ? "" : "lg:hidden"
+            className={`bg-white top-12  z-10 right-0 absolute border rounded-md lg:text-sm p-2 md:p-0 lg:w-52 shadow-md space-y-2 md:space-y-0 mt-0 ${
+              !state && "hidden"
             }`}
           >
             {navigation.map((item, idx) => (
               <li>
-                <a
+                <Link
                   key={idx}
                   className="block text-g`ray-600 lg:hover:bg-gray-50 lg:p-2.5"
-                  href={item.path}
+                  to={item.path}
+                  onClick={()=>{
+                    if(item.title ==="Log out"){
+                     handelSubmit()
+                    }
+                  }}
                 >
                   {item.title}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
         </div>
       ) : (
         <div className="flex gap-2 font-medium">
-          {isUserLoggedIn ? (
-            <button
-              onClick={handelSubmit}
-              className="px-5 py-2 active:scale-95 transition-all border-2 text-black border-black hover:bg-black/10 rounded-md"
-              type="button"
-            >
-              LogOut
-            </button>
-          ) : (
+   
             <>
               <Link to="/signIn">
                 <button
@@ -94,18 +88,9 @@ const ProfileDropDown = (props) => {
                   SignIn
                 </button>
               </Link>
-
-              <Link to="/signUp">
-                <button
-                  className="px-5 py-2 active:scale-95 transition-all bg-black hover:bg-black/80 text-white rounded-md"
-                  type="button"
-                >
-                  SignUp
-                </button>
-              </Link>
             
             </>
-          )}
+ 
         </div>
       )}
     </div>
@@ -115,7 +100,7 @@ const ProfileDropDown = (props) => {
 const Header = () => {
   const [menuState, setMenuState] = useState(false);
   const {cartData}= useSelector((state)=>state.cart)
-  // Replace javascript:void(0) path with your path
+
   const navigation = [
     {
       title: "Treks",
@@ -145,10 +130,11 @@ const Header = () => {
 
   return (
     <nav className="bg-white border-b">
-      <div className="flex items-center space-x-8 px-4 max-w-screen-xl mx-auto md:px-8">
+      <div className="flex items-center space-x-8  max-w-screen-xl mx-auto md:px-8">
         <div className="flex-none lg:flex-initial">
           <Link className="flex justify-start items-center" to="/">
-            <img src={Logo} width={100} height={100} alt="Float UI logo" />
+            <img src={Logo} width={100} height={100} className="hidden lg:block" alt="Float UI logo" />
+            <img src={Logo} width={70} height={50} className=" lg:hidden" alt="Float UI logo" />
             <span className="hidden lg:block font-bold text-lg font-sans">
               Into Wild Himalaya
             </span>
@@ -161,18 +147,17 @@ const Header = () => {
               menuState ? "" : "hidden"
             }`}
           >
-            <ul className="mt-12 space-y-5 lg:flex lg:space-x-6 lg:space-y-0 lg:mt-0">
+            <ul className=" space-y-5 lg:flex lg:space-x-6 lg:space-y-0 ">
               {navigation.map((item, idx) => (
                 <li key={idx} className="text-gray-600 hover:text-gray-900">
                   <Link to={item.path}>{item.title}</Link>
                 </li>
               ))}
             </ul>
-            <ProfileDropDown class="mt-5 pt-5 border-t lg:hidden" />
           </div>
 
-          <div className="flex-1 flex items-center justify-end space-x-2 sm:space-x-6">
-            <ProfileDropDown class="hidden lg:block" />
+          <div className="flex-1 flex gap-1 items-center justify-end space-x-2 sm:space-x-6">
+           <ProfileDropDown class="" />
             <Link
               to="/cart"
               class="text-white relative z-10  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-lg rounded-lg px-5 py-2.5    focus:outline-none "

@@ -34,6 +34,9 @@ import { useSelector } from "react-redux";
 import Cart from "./components/Products/Cart";
 import EmptyCart from "./components/Products/EmptyCart";
 import ProductCheckout from "./components/Products/ProductCheckout";
+import { YourBookings } from "./components/YourBookings";
+import { YourOrders } from "./components/YourOrders/YourOrders";
+import { ViewOrder } from "./components/YourOrders/ViewOrder";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const About = lazy(() => import("./pages/About/Aboutus"));
@@ -184,6 +187,18 @@ function App() {
         {
           path: "/terms/addtrekmate",
           element: isUserLoggedIn ? <AdddTrekMate /> : <Login /> ,
+        },
+        {
+          path: "/yourBookings",
+          element: isUserLoggedIn ? <YourBookings /> : <Login /> ,
+        },
+        {
+          path: "/yourOrders",
+          element: isUserLoggedIn ? <YourOrders /> : <Login /> ,
+        },
+        {
+          path: "/yourOrders/order",
+          element: isUserLoggedIn ? <ViewOrder /> : <Login /> ,
         },
         {
           path: "/trekkingProducts",

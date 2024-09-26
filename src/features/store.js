@@ -12,6 +12,7 @@ import { encryptTransform } from 'redux-persist-transform-encrypt';
 import productSlice from "./slices/productSlice";
 import cart from "./slices/Cart";
 import mail from "./slices/mail";
+import order from "./slices/order";
 
 
 const reducers = combineReducers({
@@ -24,6 +25,8 @@ const reducers = combineReducers({
   product: productSlice,
   cart,
   mail,
+  order,
+  
 });
 
 
