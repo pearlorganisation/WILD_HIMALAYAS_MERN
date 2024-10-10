@@ -63,7 +63,14 @@ const Checkout = () => {
                 : `${
                     import.meta.env.VITE_APP_API_BASE_URL_MAIN_PRODUCTION
                   }/booking/verifyOrder/${bookingId}`,
-              body
+              {...body,  
+                tourDate:{
+                startDate: data?.bookedDates?.startDate,
+                endDate: data?.bookedDates?.endDate},
+                tourId:data?._id,
+                memberNames:memberNames?.length
+
+              }
             );
             var jsonResponse = validateResponse?.data;
             setOnlineData(jsonResponse);

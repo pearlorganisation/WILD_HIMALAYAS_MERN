@@ -171,9 +171,9 @@ const Trek = () => {
               </div>
             </section>
           </div>
-          <div className="max-w-7xl mx-auto py-2 grid grid-cols-2">
-            <div>
-              <section>{parse(el.description)}</section>
+          <div className="hidden max-w-7xl mx-auto py-2 lg:grid grid-cols-2">
+            <div className="">
+              <section>{parse(el.description)}</section> 
             </div>
             <div className="mx-auto max-w-5xl px-5 py-12">
               <div className="mx-auto flex flex-col items-center w-full">
@@ -198,6 +198,30 @@ const Trek = () => {
               </div>
             </div>
           </div>
+        
+            <div className="mx-auto max-w-5xl px-5 py-12">
+              <div className="mx-auto flex flex-col items-center w-full">
+                <img
+                  alt="Trek"
+                  className="h-64 w-full rounded object-cover"
+                  src="https://res.cloudinary.com/dnixhctcf/image/upload/v1715075940/IntoWildHimalaya/s4gcrfdwzozwhfryssz9.webp"
+                />
+                <div className="mt-6 w-full lg:mt-0">
+                  <h1 className="my-4 text-3xl font-semibold text-black"></h1>
+                  <div className="my-4 flex items-center"></div>
+                  <p className="leading-relaxed line-clamp-4">{}</p>
+                </div>
+              </div>
+              <div>
+                
+
+                <div className="text-lg py-[1rem] mt-1 border-b-2 border-b-gray-600 font-medium text-gray-900">
+                  Available Dates
+                </div>
+                <AvailableDates availableDates={el.availableDates}  data={el} />
+              </div>
+            </div>
+   
           <div>
             <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
               <div className="sm:hidden">

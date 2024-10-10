@@ -301,7 +301,7 @@ const AddTrekMate = () => {
           </div>
 
           <div className="p-2">
-            <div className="flex justify-center  bg-[#F3F4F6] p-5 items-center gap-2">
+           {trekkersData?.length> 0 && <div className="flex justify-center  bg-[#F3F4F6] p-5 items-center gap-2">
               <div>
                 <h1 className="text-xl ">Your TrekMates</h1>
               </div>
@@ -309,7 +309,7 @@ const AddTrekMate = () => {
               <div>
                 <GrGroup />
               </div>
-            </div>
+            </div>}
             {Array.isArray(trekkersData) && trekkersData.map((el, idx) => {
               return (
                 <>

@@ -442,10 +442,10 @@ navigate("/trekkingProducts")
               Thank you for your purchase. Your order Id is{" "}
               <span class="font-semibold text-gray-800">{order}</span>.
             </p>
-            <div className="space-x-2">
-              <button class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md mb-4">
+            <div className="flex justify-center items-center gap-4">
+              <Link to={"/yourOrders"} class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md">
                 View Order Details
-              </button>
+              </Link>
               <Link to="/trekkingProducts" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md">
                 Continue Shopping
               </Link>

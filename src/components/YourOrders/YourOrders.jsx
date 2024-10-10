@@ -36,7 +36,7 @@ export const YourOrders = () => {
                                                                                 <div><TbTruckDelivery className="text-xl" /></div>
                                                                                 <div className="flex-grow"><div className="text-yellow-600 font-bold text-[13px] md:text-[14px]">Order Placed</div>
                                                                                         <div className="text-[13px] md:text-[14px]">On {format(new Date(item.createdAt), 'EEE, d MMM yyyy')}</div></div>
-                                                                                <div className="md:hidden "><FaArrowRight className="" /></div>
+                                                                               
                                                                         </div>
 
                                                                         <div className="p-3 flex flex-wrap gap-7 text-[12px] md:text-[14px]">

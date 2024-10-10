@@ -18,7 +18,7 @@ import MountainBiking from "./pages/Mountain_Biking/MountainBiking";
 import EmailVerification from "./pages/Auth/EmailVerification/EmailVerification";
 import IndianMoterBiking from "./pages/Indain_MoterBike/IndainMoterbike";
 import ProductList from "./components/Home/ProductList";
-import Tours from "./components/Tours/Tours";
+// import Tours from "./components/Tours/Tours";
 import BookingCondition from "./components/layout/FooterPages/BookingCondition";
 import RefundPolicy from "./components/layout/FooterPages/RefundPolicy";
 import UrResponsibilities from "./components/layout/FooterPages/UrResponsibilities";
@@ -34,9 +34,10 @@ import { useSelector } from "react-redux";
 import Cart from "./components/Products/Cart";
 import EmptyCart from "./components/Products/EmptyCart";
 import ProductCheckout from "./components/Products/ProductCheckout";
-import { YourBookings } from "./components/YourBookings";
+import { YourBookings } from "./components/YourBookings/YourBookings";
 import { YourOrders } from "./components/YourOrders/YourOrders";
 import { ViewOrder } from "./components/YourOrders/ViewOrder";
+import { ViewBooking } from "./components/YourBookings/ViewBooking";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const About = lazy(() => import("./pages/About/Aboutus"));
@@ -148,10 +149,10 @@ function App() {
           path: "/productlist",
           element: <ProductList />,
         },
-        {
-          path: "/tours",
-          element: <Tours />,
-        },
+        // {
+        //   path: "/tours",
+        //   element: <Tours />,
+        // },
         {
           path: "/bookingcondition",
           element: <BookingCondition />,
@@ -191,6 +192,10 @@ function App() {
         {
           path: "/yourBookings",
           element: isUserLoggedIn ? <YourBookings /> : <Login /> ,
+        },
+        {
+          path: "/yourBookings/booking",
+          element: isUserLoggedIn ? <ViewBooking /> : <Login /> ,
         },
         {
           path: "/yourOrders",
