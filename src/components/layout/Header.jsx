@@ -115,8 +115,6 @@ const Header = () => {
       title: "Products",
       path: "/trekkingProducts",
     },
-
-
     {
       title: "About Us",
       path: "/about",
@@ -150,13 +148,13 @@ const Header = () => {
             <ul className=" space-y-5 lg:flex lg:space-x-6 lg:space-y-0 ">
               {navigation.map((item, idx) => (
                 <li key={idx} className="text-gray-600 hover:text-gray-900">
-                  <Link to={item.path}>{item.title}</Link>
+                  <Link onClick={()=>setMenuState(!menuState)} to={item.path}>{item.title}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="flex-1 flex gap-1 items-center justify-end space-x-2 sm:space-x-6">
+          <div className="flex-1 flex gap-4 items-center justify-end  sm:space-x-6">
            <ProfileDropDown class="" />
             <Link
               to="/cart"
@@ -170,7 +168,7 @@ const Header = () => {
               
             
             <button
-              className="outline-none text-gray-400 block lg:hidden"
+              className="outline-none text-gray-400 block lg:hidden me-3"
               onClick={() => setMenuState(!menuState)}
             >
               {menuState ? (

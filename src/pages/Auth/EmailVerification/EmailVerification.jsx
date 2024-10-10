@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
 const EmailVerification = () => {
-  const { authData, isEmailVerified } = useSelector((state) => state.auth);
+  const { authData, isEmailVerified ,isLoading } = useSelector((state) => state.auth);
   const { token } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const EmailVerification = () => {
 
   return (
     <>
-      <div class="min-h-screen flex items-center justify-center">
+      <div class="h-[50vh] flex items-center justify-center">
         <div class="w-[30rem] h-[25rem] grid place-items-center p-3 bg-white rounded-lg shadow-lg ">
           <div>
             <h2 class="text-2xl font-semibold text-center mb-6">

@@ -8,12 +8,12 @@ const StepForm = ({ activeStep,data }) => {
 
   return (
     <>
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-6xl mx-auto">
+      <div className="bg-white p-2 md:p-6 rounded-lg shadow-lg w-full max-w-6xl mx-auto">
         <h2 className="text-2xl font-semibold mb-4 text-center">
         Complete the steps below to register for your {data?.title}<br/>
           ({data?.dates})
         </h2>
-        <div className="flex justify-between items-center space-x-4">
+        <div className="flex justify-between items-center lg:space-x-4">
           {/* Step 1 */}
           <div className="flex items-center space-x-2">
             <div

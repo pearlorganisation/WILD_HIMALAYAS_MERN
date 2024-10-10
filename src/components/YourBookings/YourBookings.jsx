@@ -29,13 +29,13 @@ export const YourBookings = () => {
                                         bookingData.map((item, idx) =>
                                         (
                                                 <div className="px-5 py-5 space-y-2">
-                                                        <div key={idx} onClick={() => { navigate("/order", { state: item }) }} className=" flex justify-between items-center overflow-hidden rounded-sm border border-gray-300 bg-white  hover:bg-opacity-5 hover:bg-black ">
+                                                        <div key={idx} onClick={() => { navigate("/yourBookings/booking", { state: item }) }} className=" flex justify-between items-center overflow-hidden rounded-sm border border-gray-300 bg-white  hover:bg-opacity-5 hover:bg-black ">
                                                                 <div className="">
                                                                         <div className="flex gap-3  p-3">
                                                                                 <div><FaCalendarCheck className="text-xl" /></div>
                                                                                 <div className="flex-grow"><div className="text-green-700 font-bold text-[13px] md:text-[14px]">Your Trip Booked</div>
                                                                                         <div className="text-[13px] md:text-[14px]">On {format(new Date(item.createdAt), 'EEE, d MMM yyyy')}</div></div>
-                                                                                <div className="md:hidden "><FaArrowRight className="" /></div>
+                                                                           
                                                                         </div>
 
                                                                         <div className="p-3  text-[12px] md:text-[14px]">
@@ -65,7 +65,7 @@ export const YourBookings = () => {
                                                                         </div>
 
                                                                 </div>
-                                                                <div className="hidden md:block mx-4"><FaArrowRight /></div>
+                                                                <div className=" mx-4"><FaArrowRight /></div>
                                                         </div>
                                                         
                                                 </div>
