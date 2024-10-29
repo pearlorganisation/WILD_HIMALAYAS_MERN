@@ -11,12 +11,13 @@ import { Navigation } from "swiper/modules";
 import { useDispatch, useSelector } from "react-redux";
 import { tourAction } from "@/features/actions/toursAction";
 import AvailableDates from "@/components/Tours/AvailableDates";
-import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 
 const Trek = () => {
-  const { isLoading, data } = useSelector((state) => state.tour);
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
+  const {state:el} = useLocation()
 
   useEffect(() => {
     dispatch(tourAction());
@@ -34,10 +35,7 @@ const Trek = () => {
         return (
           <div className="p-4">
             <div className="container max-w-full grid md:grid-cols-[10%_auto]">
-              <div>
-                <FaWalking size={100} />
-              </div>
-              <div>
+                            <div>
                 <div className="border-b-2 p-10">
                   {parse(tabData?.itinerary)}
                 </div>
@@ -49,8 +47,8 @@ const Trek = () => {
         return (
           <div className="p-4">
             <div className="bg-[#323232]">
-              <div>
-                <img src={tabData?.mapLogo} alt="Map" />
+              <div className="flex justify-center">
+                <img src={tabData?.mapLogo?.url} className="w-[600px]" alt="Map" />
               </div>
             </div>
           </div>
@@ -58,35 +56,33 @@ const Trek = () => {
       case "INCLUSIONS_AND_EXCLUSIONS":
         return (
           <div className="pt-4 md:p-4">
-            <div className="container max-w-full grid md:grid-cols-[10%_auto]">
-              <div>
-                <FaWalking size={100} />
-              </div>
-              <div>
-                <div className="border-b-2 pt-8 md:pt-0 md:p-10">
+
+      
+              <div className="container md:flex justify-between gap-8">
+                <div className=" space-y-5">
                   {Array.isArray(tabData?.inclusions) &&
                     tabData?.inclusions.map((item, idx) => (
-                      <div key={idx} className="flex items-center gap-3">
+                      <div key={idx} className="flex  items-center gap-5">
                         <div>
                           <FaCheckCircle size={19} className="text-green-600" />
                         </div>
-                        <div>{parse(item)}</div>
+                        <div>{item}</div>
                       </div>
                     ))}
                 </div>
-                <div className="border-b-2 pt-8 md:pt-0 md:p-10">
+                <div className="mt-10 md:mt-0 space-y-5">
                   {Array.isArray(tabData?.exclusions) &&
                     tabData?.exclusions.map((item, idx) => (
-                      <div key={idx} className="flex items-center gap-3 pt-5">
+                      <div key={idx} className="flex  items-center gap-5">
                         <div>
                           <MdCancel size={19} className="text-red-600" />
                         </div>
-                        <div>{parse(item)}</div>
+                        <div>{item}</div>
                       </div>
                     ))}
                 </div>
               </div>
-            </div>
+         
           </div>
         );
       default:
@@ -95,9 +91,7 @@ const Trek = () => {
   };
 
   return (
-    <>
-      {data.map((el, i) => (
-        <div key={i}>
+        <div>
           <div>
             <section>
               <div>
@@ -106,11 +100,11 @@ const Trek = () => {
                   modules={[Navigation]}
                   className="mySwiper"
                 >
-                  {el.banners.map((item, idx) => (
+                  {el?.banners.map((item, idx) => (
                     <SwiperSlide key={idx}>
                       <div className="relative">
                         <img
-                          src={item}
+                          src={item?.url}
                           className="w-full max-h-[80vh] h-auto"
                           alt="Banner"
                         />
@@ -119,7 +113,7 @@ const Trek = () => {
                             {el.title}
                           </h1>
                           <p className="text-white text-md md:text-lg">
-                            {parse(el.activity.description)}
+                            {el.bannerDescription}
                           </p>
                         </div>
                       </div>
@@ -154,7 +148,7 @@ const Trek = () => {
                     <div className="text-lg text-black font-bold mb-2">
                       <h1>TREK DURATION</h1>
                     </div>
-                    <p className="text-lg">{el.tripDuration} days</p>
+                    <p className="text-lg">{el.tripDuration} {el.tripDuration > 1 ? "days" :"day"}</p>
                   </div>
                 </div>
                 <div className="flex items-center justify-center w-full">
@@ -165,57 +159,29 @@ const Trek = () => {
                     <div className="text-lg text-black font-bold mb-2">
                       <h1>HIGHEST ALTITUDE</h1>
                     </div>
-                    <p className="text-lg">{el.highestPoint}</p>
+                    <p className="text-lg">{el.highestPoint} ft</p>
                   </div>
                 </div>
               </div>
             </section>
           </div>
-          <div className="hidden max-w-7xl mx-auto py-2 lg:grid grid-cols-2">
-            <div className="">
-              <section>{parse(el.description)}</section> 
-            </div>
-            <div className="mx-auto max-w-5xl px-5 py-12">
-              <div className="mx-auto flex flex-col items-center w-full">
-                <img
-                  alt="Trek"
-                  className="h-64 w-full rounded object-cover"
-                  src="https://res.cloudinary.com/dnixhctcf/image/upload/v1715075940/IntoWildHimalaya/s4gcrfdwzozwhfryssz9.webp"
-                />
-                <div className="mt-6 w-full lg:mt-0">
-                  <h1 className="my-4 text-3xl font-semibold text-black"></h1>
-                  <div className="my-4 flex items-center"></div>
-                  <p className="leading-relaxed line-clamp-4">{}</p>
-                </div>
-              </div>
-              <div>
-                
+          <div className=" hidden max-w-7xl mx-auto my-5 md:flex  gap-16">
+              <div className="w-[60%]">{el.description}</div> 
+   
 
-                <div className="text-lg py-[1rem] mt-1 border-b-2 border-b-gray-600 font-medium text-gray-900">
+              <div className="w-[40%] ">
+                <div className="font-bold text-lg py-[1rem] mt-1 border-b-2 border-b-gray-600  text-gray-900">
                   Available Dates
                 </div>
                 <AvailableDates availableDates={el.availableDates}  data={el} />
               </div>
-            </div>
+          
           </div>
         
-            <div className="mx-auto max-w-5xl px-5 py-12">
-              <div className="mx-auto flex flex-col items-center w-full">
-                <img
-                  alt="Trek"
-                  className="h-64 w-full rounded object-cover"
-                  src="https://res.cloudinary.com/dnixhctcf/image/upload/v1715075940/IntoWildHimalaya/s4gcrfdwzozwhfryssz9.webp"
-                />
-                <div className="mt-6 w-full lg:mt-0">
-                  <h1 className="my-4 text-3xl font-semibold text-black"></h1>
-                  <div className="my-4 flex items-center"></div>
-                  <p className="leading-relaxed line-clamp-4">{}</p>
-                </div>
-              </div>
-              <div>
-                
+            <div className="mx-auto max-w-5xl md:hidden px-5 py-12">
 
-                <div className="text-lg py-[1rem] mt-1 border-b-2 border-b-gray-600 font-medium text-gray-900">
+              <div>
+                <div className="text-lg py-[1rem] mt-1 border-b-2 border-b-gray-600 font-bold text-gray-900">
                   Available Dates
                 </div>
                 <AvailableDates availableDates={el.availableDates}  data={el} />
@@ -280,18 +246,18 @@ const Trek = () => {
             </div>
           </div>
           <div>
-            <section className="p-5 py-0 container mx-auto">
-              <div>
+            <section className="pt-3 pb-10 container mx-auto">
+      
                 <h1 className="text-lg md:text-xl lg:text-5xl text-center font-semibold p-5">
                   Photo Gallery
                 </h1>
-              </div>
+          
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {el.gallery.map((item, idx) => (
                   <div key={idx}>
                     <img
                       className="h-auto md:h-[300px] max-w-full rounded hover:scale-95 transition-all cursor-pointer"
-                      src={item}
+                      src={item?.url}
                       alt="Gallery"
                     />
                   </div>
@@ -300,8 +266,7 @@ const Trek = () => {
             </section>
           </div>
         </div>
-      ))}
-    </>
+
   );
 };
 

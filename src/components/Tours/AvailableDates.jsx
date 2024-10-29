@@ -35,7 +35,7 @@ const AvailableDates = ({availableDates ,data}) => {
 
 
   return (
-    <div className="available-dates p-4 border rounded-md">
+    <div className="available-dates px-4 pb-4 border rounded-md">
       {sortedMonths.map((month) => (
         <div key={month}>
           <div 

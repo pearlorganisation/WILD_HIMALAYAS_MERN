@@ -30,38 +30,19 @@ const UpcomingTreks = () => {
   return (
     <>
       <div>
-        <div className="container">
           <div className="text-center text-xl md:text-5xl font-bold py-5 ">
-            <h1>Our treks</h1>
+            <h1>Our Treks</h1>
           </div>
-{/* 
-          <div className=" grid md:grid-cols-2 place-items-center py-5 border-t-2 border-yellow-400">
-            <div className="">
-              <h1 className="text-center text-xl md:text-5xl font-medium ">
-                Best Treks in spring
-              </h1>
-            </div>
-            <div className=" text-lg font-medium">
-              <p>
-                {`Spring is when the mountains come alive. Not only do blooming
-              rhododendrons blaze up the forests with bursts of colours, but
-              it's also a time to witness a good mix of snow greenery. Most of
-              our treks get heavy bookings this time of the year. If you want to
-              avoid the crowds, choose the Ranthan Kharak trek in Kumaon. The
-              rhododendrons are dense, minus the crowds.`}
-              </p>
-            </div>
-          </div> */}
-        </div>
 
-        <div>
+
+        <div className="mb-10">
           <Swiper
             spaceBetween={30}
             pagination={{
               clickable: true,
             }}
             modules={[Pagination]}
-            className="mySwiper"
+            className="mySwiper "
             breakpoints={{
               // When window width is <= 768px (Mobile)
               540: {
@@ -81,29 +62,30 @@ const UpcomingTreks = () => {
               return (
                 <SwiperSlide
                   key={i+1}
-                  className="border border-slate-200 rounded-md"
+                  className="px-2 sm:px-10"
                 >
-                  <div className="mx-auto max-w-5xl px-5 py-12 ">
+                  <div className="border rounded-lg max-w-5xl">
                     <div className="mx-auto flex flex-col items-center w-full  ">
                       <img
                         alt="image"
-                        className="h-64 w-full rounded object-cover"
-                        src={Array.isArray(item?.banners) && item?.banners[0]}
+                        className="h-64 w-full rounded-t-md object-cover"
+                        src={Array.isArray(item?.banners) && item?.banners[0]?.url}
                       />
 
-                      <div className="mt-6 w-full lg:mt-0">
-                        <h1 className="my-4 text-2xl font-semibold text-black">
+                      <div className="mt-6 px-2 w-full lg:mt-0">
+                        <h1 className="mt-2 text-2xl font-medium text-black">
                           {item?.title}
                         </h1>
-                        <div className="my-4 flex items-center"></div>
+                        <div className=" flex items-center"></div>
 
-                        <p className="leading-relaxed line-clamp-4">
-                          {parse(item?.description)}
+                        <p className="leading-relaxed line-clamp-2">
+                         {item?.description}
                         </p>
                       </div>
                     </div>
 
                     <div>
+                      <div className="flex justify-end">
                       <button
                         type="button"
                         onClick={handelchange}
@@ -112,18 +94,19 @@ const UpcomingTreks = () => {
                       >
                         View Details
                       </button>
+                      </div>
 
-                      <div className=" text-lg py-[1rem] mt-1 border-b-2 border-b-gray-600 font-medium text-gray-900">
+                      <div className="px-2 pb-1 text-blue-700   font-medium ">
                         Available Dates
                       </div>
-                      <>
-                        {
+                      <div>
+                        
                           <AvailableDates
                             availableDates={item.availableDates}
                             data={item}
                           />
-                        }
-                      </>
+
+                      </div>
                     </div>
                   </div>
                 </SwiperSlide>
