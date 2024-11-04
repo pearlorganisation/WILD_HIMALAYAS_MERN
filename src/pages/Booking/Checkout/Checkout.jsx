@@ -120,7 +120,7 @@ const Checkout = () => {
           <div className="flex flex-col lg:flex-row items-center justify-between mb-8 space-x-8">
             <div className="w-full lg:w-1/2">
               <img
-                src={data?.banners[0]}
+                src={data?.banners[0]?.url}
                 className="w-full h-auto rounded-md"
               />
             </div>

@@ -16,12 +16,7 @@ import { useLocation } from "react-router-dom";
 
 const Trek = () => {
 
-  const dispatch = useDispatch();
   const {state:el} = useLocation()
-
-  useEffect(() => {
-    dispatch(tourAction());
-  }, [dispatch]);
 
   const [activeTab, setActiveTab] = useState("ITINERARY");
 

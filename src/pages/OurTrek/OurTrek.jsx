@@ -1,85 +1,68 @@
-import React, { useRef, useState } from "react";
+import React, { useDebugValue, useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-
-// import required modules
 import { Navigation } from "swiper/modules";
 import "swiper/css/pagination";
-
-// import required modules
 import { Pagination } from "swiper/modules";
 import { IoLocationSharp } from "react-icons/io5";
 import { GiMountainClimbing } from "react-icons/gi";
 import { ImBasecamp } from "react-icons/im";
-import OurTrekI from "../../assets/images/ourtrek1.jpg";
+import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { specificTour } from "@/features/actions/toursAction";
+
+
 const OurTrek = () => {
+
+  const {state:el} = useLocation()
+  const dispatch= useDispatch()
+  const {activityTourData} = useSelector((state)=>state.activity)
+
+  useEffect(()=>{
+dispatch(specificTour({id:el?._id}))
+console.log(activityTourData)
+  },[])
+
   return (
     <>
-      <section className=" min-h-screen relative">
-        <Swiper
-          navigation={true}
-          modules={[Navigation]}
-          className="mySwiper h-[100vh]"
-        >
-          <SwiperSlide>
-            <div class="relative">
-              <img src={OurTrekI} class="w-full" alt="Your Image" />
-              <div class="absolute inset-0 bg-black bg-opacity-30 flex justify-center items-center">
-                <p class="text-white text-lg font-bold">
-                  EXPEDITIONS OFCLIMBING THE HIMALAYAS
-                </p>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div class="relative">
-              <img
-                src="http://www.intowildhimalaya.com/slideshow_img/per_9174-min.JPG"
-                class="w-full"
-                alt="Your Image"
-              />
-              <div class="absolute inset-0 bg-black bg-opacity-30 flex justify-center items-center">
-                <p class="text-white text-lg font-bold">
-                  RIDE INDIA'S HIGHESTMOTORABLE PASSES
-                </p>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div class="relative">
-              <img
-                src="http://www.intowildhimalaya.com/slideshow_img/climb1.jpeg"
-                class="w-full"
-                alt="Your Image"
-              />
-              <div class="absolute inset-0 bg-black bg-opacity-30 flex justify-center items-center">
-                <p class="text-white text-lg font-bold">
-                  CONQUER HIMALAYANMOUNTAINS BY BICYCLE
-                </p>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div class="relative">
-              <img src={OurTrekI} class="w-full" alt="Your Image" />
-              <div class="absolute inset-0 bg-black bg-opacity-30 flex justify-center items-center">
-                <p class="text-white text-lg font-bold">
-                  EXPEDITIONS OFCLIMBING THE HIMALAYAS
-                </p>
-              </div>
-            </div>
-          </SwiperSlide>
-        </Swiper>
-      </section>
 
-      <section className="p-5">
+<Swiper
+                  navigation={true}
+                  modules={[Navigation]}
+                  className="mySwiper"
+                >
+                  {el?.banners.map((item, idx) => (
+                    <SwiperSlide key={idx}>
+                      <div className="relative">
+                        <img
+                          src={item?.url}
+                          className="w-full max-h-[80vh] h-auto"
+                          alt="Banner"
+                        />
+                        <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
+                          <h1 className="text-white text-xl md:text-4xl font-bold">
+                            {el.title}
+                          </h1>
+                          <p className="text-white text-md md:text-lg">
+                            {el.bannerDescription}
+                          </p>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+    
+   
+
+
+      <section className="">
         <div>
-          <h1 className="text text-center text-4xl font-medium p-5">
-            POPULAR TOURS
+          <h1 className="text text-center uppercase  text-3xl md:text-4xl md:pt-10 font-medium">
+            {el?.title} TOURS
           </h1>
         </div>
-        <div className="text text-center text-lg font-medium p-5">
+        <div className="text text-center text-lg font-medium">
           <p>We have a unique way of meeting your adventurous expectations!</p>
         </div>
       </section>
@@ -108,64 +91,7 @@ const OurTrek = () => {
           }}
         >
           <SwiperSlide>
-            {/* <div className="felx justify-center">
-              <div className="relative w-[350px] h-[350px] ">
-                <img
-                  alt="Camping Programme "
-                  className="w-full h-full object-cover"
-                  height="350"
-                  src="http://www.intowildhimalaya.com/tour_packages_img/markha-valley-overview.jpg"
-                  style={{
-                    aspectRatio: "350/350",
-                    objectFit: "cover",
-                  }}
-                  width="350"
-                />
 
-                <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-between p-4 bg-black bg-opacity-20">
-                  <div className="flex justify-between items-start">
-                    <div className="bg-white py-1 px-3">
-                      <p className="text-xs font-bold">From</p>
-                      <p className="text-lg font-bold">€ 94/-</p>
-                    </div>
-                    <div className="bg-orange-600 text-white rounded-full px-4 py-2">
-                      <p className="text-xs font-bold">6 Days</p>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      MONASTERIES AND ARYANS OF LADAKH TREK
-                    </h3>
-                    <ul className="text-white">
-                      <li className="flex items-center mb-1">
-                        <IoLocationSharp
-                          className="text-white mr-2 "
-                          size={25}
-                        />
-                        Ladakh Zanskar
-                      </li>
-                      <li className="flex items-center mb-1">
-                        <GiMountainClimbing
-                          className="text-white mr-2 "
-                          size={25}
-                        />
-                        Moderate
-                      </li>
-                      <li className="flex items-center">
-                        <ImBasecamp className="text-white  mr-2" size={25} />
-                        Trekking
-                      </li>
-                    </ul>
-                    <button
-                      type="button"
-                      className="mt-4 bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded-lg"
-                    >
-                      Explore
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div> */}
             <div className="flex justify-center py-10">
               <div className="relative w-[350px] h-[350px] overflow-hidden rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105">
                 <img

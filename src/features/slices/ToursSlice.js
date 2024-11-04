@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { tourAction } from "../actions/toursAction";
-import { toast } from "sonner";
+import { specificTour, tourAction } from "../actions/toursAction";
 
 const initialState = {
   isLoading: false,
   errorMessage: "",
   data: [],
+  activityTourData: []
 };
 
 const toursSlice = createSlice({
@@ -15,9 +15,6 @@ const toursSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-
-      //  user signUp
-
       .addCase(tourAction.pending, (state, action) => {
         state.isLoading = true;
         state.errorMessage = "";
@@ -30,6 +27,21 @@ const toursSlice = createSlice({
       })
 
       .addCase(tourAction.rejected, (state, action) => {
+        state.isLoading = false;
+        state.errorMessage = action.payload;
+      })
+      .addCase(specificTour.pending, (state, action) => {
+        state.isLoading = true;
+        state.errorMessage = "";
+      })
+
+      .addCase(specificTour.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.errorMessage = "";
+        state.activityTourData = action.payload;
+      })
+
+      .addCase(specificTour.rejected, (state, action) => {
         state.isLoading = false;
         state.errorMessage = action.payload;
       });
