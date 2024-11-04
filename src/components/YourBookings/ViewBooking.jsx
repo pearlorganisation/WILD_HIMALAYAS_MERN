@@ -27,7 +27,7 @@ export const ViewBooking = () => {
                       <div className="flex-shrink-0">
                         <img
                           className="h-20 w-20 rounded-lg border border-gray-200 object-cover"
-                          src={item?.tourId?.banners[0]}
+                          src={item?.tourId?.banners[0]?.url}
                           
                         />
                       </div>

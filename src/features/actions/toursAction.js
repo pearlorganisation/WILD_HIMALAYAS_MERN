@@ -17,3 +17,20 @@ export const tourAction = createAsyncThunk(
     }
   }
 );
+
+export const specificTour = createAsyncThunk(
+  "api/v1/tour/specific",
+
+  async (payload, { rejectWithValue }) => {
+    try {
+      const { data } = await instance.get(`/tour/${payload?.id}`, {
+        withCredentials: true,
+      });
+
+      return data?.data;
+    } catch (error) {
+      console.log(error.message);
+      return rejectWithValue(error.message);
+    }
+  }
+);

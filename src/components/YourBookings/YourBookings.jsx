@@ -42,7 +42,7 @@ export const YourBookings = () => {
 
                                                         
                                                                                         <div className="shadow-md rounded-lg flex gap-5 items-center p-2 ">
-                                                                                                <img src={item?.tourId?.banners[0]} className="rounded-lg w-24 h-20" />
+                                                                                                <img src={item?.tourId?.banners[0]?.url} className="rounded-lg w-24 h-20" />
                                                                                                 <div>
                                                                                                         <div className="font-semibold">
                                                                                                                 {item?.tourId?.title}

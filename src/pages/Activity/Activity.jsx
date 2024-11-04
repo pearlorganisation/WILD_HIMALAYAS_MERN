@@ -1,73 +1,64 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { activityAction } from "@/features/actions/activityAction";
+import { useNavigate } from "react-router-dom";
 // import Trekking from "../../assets/images/trekking.jpg";
 
 const Activity = () => {
   const { isLoading, activityData } = useSelector((state) => state.activity);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(activityAction());
   }, []);
 
-  console.log(activityData, "chiimkanda");
-
   return (
-    <div className="container mx-auto">
-      <div className="grid md:grid-cols-3 grid-rows-2 gap-6  place-items-center py-10 ">
-        {Array.isArray(activityData) &&
-          // data?.data &&
-          activityData.map((el, id) => (
-            <div
-              key={id}
-              className="max-w-lg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-full"
-            >
-              <a href="/ourtrek">
-                <img
-                  src={el?.logo}
-                  alt="Trekking"
-                  className="h-[284px] object-cover"
-                />
-              </a>
+    <div className="mx-auto max-w-2xl px-4 py-6 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+    <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
+    {Array.isArray(activityData) &&
+          activityData.map((item, id) => {
+          return (
+              <div className="mx-auto border rounded-md bg-slate-50 ">
+                  <img
+                    alt="image"
+                    className="h-64 w-full rounded-t object-cover"
+                    src={Array.isArray(item?.banners) && item?.banners[0]?.url}
+                  />
+                <div className="h-40 mx-auto px-2 flex flex-col w-full">
 
-              <div className="p-5">
-                <a href="#">
-                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900  dark:text-white">
-                    {el?.title}
-                  </h5>
-                </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-3">
-                  {el?.description}
-                </p>
+                    <div className=" flex flex-col ">
+                    <h1 className="my-4 text-2xl font-semibold text-black">
+                      {item?.title}
+                    </h1>
+                    <p className="line-clamp-3">
+                      {item?.description}
+                    </p>
 
-                <a
-                  href="/ourtrek"
-                  className="inline-flex  items-center  px-3  py-2 text-sm font-medium text-center  text-white  bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                >
-                  Read more
-                  <svg
-                    className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 14 10"
+                    </div>
+
+            
+                </div>
+
+                <div className="flex justify-end">
+                  <button
+                    type="button"
+                    onClick={()=>navigate("/ourtrek",{state:item})}
+                    
+                    class=" mt-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
                   >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9"
-                    />
-                  </svg>
-                </a>
+                    View Details
+                  </button>
+
+              
+                </div>
               </div>
-            </div>
-          ))}
-      </div>
+      
+          );
+        })}
     </div>
+  </div>
   );
 };
 
