@@ -104,7 +104,7 @@ const Header = () => {
   const navigation = [
     {
       title: "Treks",
-      path: "/upcomingtrek",
+      path: "/treks",
     },
 
     {

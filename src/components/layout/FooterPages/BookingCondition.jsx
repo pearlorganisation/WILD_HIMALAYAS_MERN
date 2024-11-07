@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import image from "../../../assets/images/camp2.jpg";
 const BookingCondition = () => {
+  
+  useEffect(()=>{
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  })
   return (
     <>
       <section className="">

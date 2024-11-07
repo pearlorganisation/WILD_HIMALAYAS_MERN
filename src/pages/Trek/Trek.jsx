@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { GiMountainClimbing, GiMountaintop } from "react-icons/gi";
-import { FaCheckCircle, FaWalking } from "react-icons/fa";
+import { FaCheckCircle} from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 import { IoIosTimer } from "react-icons/io";
 import "swiper/css";
 import "swiper/css/navigation";
 import parse from "html-react-parser";
 import { Navigation } from "swiper/modules";
-import { useDispatch, useSelector } from "react-redux";
-import { tourAction } from "@/features/actions/toursAction";
 import AvailableDates from "@/components/Tours/AvailableDates";
 import { useLocation } from "react-router-dom";
 
@@ -28,10 +26,10 @@ const Trek = () => {
     switch (activeTab) {
       case "ITINERARY":
         return (
-          <div className="p-4">
-            <div className="container max-w-full grid md:grid-cols-[10%_auto]">
+          <div className="p-2">
+            <div className="container max-w-full grid ">
                             <div>
-                <div className="border-b-2 p-10">
+                <div className="border-b-2 ">
                   {parse(tabData?.itinerary)}
                 </div>
               </div>
@@ -41,11 +39,11 @@ const Trek = () => {
       case "MAP":
         return (
           <div className="p-4">
-            <div className="bg-[#323232]">
+       <div className="bg-[#323232]">
               <div className="flex justify-center">
                 <img src={tabData?.mapLogo?.url} className="w-[600px]" alt="Map" />
               </div>
-            </div>
+            </div> 
           </div>
         );
       case "INCLUSIONS_AND_EXCLUSIONS":
@@ -84,6 +82,10 @@ const Trek = () => {
         return null;
     }
   };
+
+  useEffect(()=>{
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  })
 
   return (
         <div>
@@ -130,7 +132,7 @@ const Trek = () => {
                   </div>
                   <div className="flex flex-col">
                     <div className="text-lg text-black font-bold mb-2">
-                      <h1>TREK DIFFICULTY</h1>
+                      <h1>TOUR DIFFICULTY</h1>
                     </div>
                     <p className="text-lg">{el.difficulty}</p>
                   </div>
@@ -141,7 +143,7 @@ const Trek = () => {
                   </div>
                   <div className="flex flex-col">
                     <div className="text-lg text-black font-bold mb-2">
-                      <h1>TREK DURATION</h1>
+                      <h1>TOUR DURATION</h1>
                     </div>
                     <p className="text-lg">{el.tripDuration} {el.tripDuration > 1 ? "days" :"day"}</p>
                   </div>
@@ -154,7 +156,7 @@ const Trek = () => {
                     <div className="text-lg text-black font-bold mb-2">
                       <h1>HIGHEST ALTITUDE</h1>
                     </div>
-                    <p className="text-lg">{el.highestPoint} ft</p>
+                    <p className="text-lg">{el.highestPoint} m</p>
                   </div>
                 </div>
               </div>
@@ -212,7 +214,7 @@ const Trek = () => {
                     >
                       ITINERARY
                     </button>
-                    <button
+                   { el?.mapLogo && <button
                       onClick={() => handleTabClick("MAP")}
                       className={`whitespace-nowrap ml-8 py-4 px-1 border-b-2 border-transparent font-medium text-gray-500 ${
                         activeTab === "MAP"
@@ -221,7 +223,7 @@ const Trek = () => {
                       }`}
                     >
                       MAP
-                    </button>
+                    </button>}
                     <button
                       onClick={() =>
                         handleTabClick("INCLUSIONS_AND_EXCLUSIONS")

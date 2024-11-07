@@ -2,7 +2,6 @@ import { Suspense, lazy, useEffect} from "react";
 import "./App.css";
 import {RouterProvider, createBrowserRouter } from "react-router-dom";
 import Checkout from "./pages/Booking/Checkout/Checkout";
-import Climbing from "./pages/Climbing/Climbing";
 import Contact from "./pages/Contact/Contact";
 import ForgotPassword from "./pages/Auth/ForgotPassword/ForgotPassword";
 import Login from "./pages/Auth/Login/Login";
@@ -89,10 +88,6 @@ function App() {
           element: isUserLoggedIn ? <ProductCheckout /> : <Login />,
         },
         {
-          path: "/climbing",
-          element: <Climbing />,
-        },
-        {
           path: "/contact",
           element: <Contact />,
         },
@@ -109,7 +104,7 @@ function App() {
           element: <OurCamp />,
         },
         {
-          path: "/ourTrek",
+          path: "/ourTour",
           element: <OurTrek />,
         },
         {
@@ -121,11 +116,15 @@ function App() {
           element: <SendOTP />,
         },
         {
-          path: "/trek",
+          path: "/tour",
           element: <Trek />,
         },
         {
-          path: "/upcomingTrek",
+          path: "/treks",
+          element: <UpcomingTreks />,
+        },
+        {
+          path: "/treks/:region",
           element: <UpcomingTreks />,
         },
 

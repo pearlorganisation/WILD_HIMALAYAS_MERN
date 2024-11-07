@@ -1,13 +1,15 @@
 import { instance } from "@/services/instance";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-export const trekAction = createAsyncThunk(
-  "api/v1/trek",
+export const getAllRegions = createAsyncThunk(
+  "getAllRegions",
+
   async (payload, { rejectWithValue }) => {
     try {
-      const { data } = await instance.get("/trek", {
+      const { data } = await instance.get("/region", {
         withCredentials: true,
       });
+
       return data?.data;
     } catch (error) {
       console.log(error.message);
@@ -15,3 +17,4 @@ export const trekAction = createAsyncThunk(
     }
   }
 );
+

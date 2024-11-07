@@ -18,7 +18,7 @@ const ProductList = () => {
 
   return (
     <div className="bg-white mt-10">
-      <SectionHeading mainHeading={"Our Treks"} />
+      <SectionHeading mainHeading={"Our Tours"} />
       <div className="mx-auto max-w-2xl px-4 py-6 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
         {data.map((item, i) => {
@@ -47,7 +47,7 @@ const ProductList = () => {
                     <div className="flex justify-end">
                       <button
                         type="button"
-                        onClick={()=>navigate("/trek",{state:item})}
+                        onClick={()=>navigate("/tour",{state:item})}
                         key={i}
                         class=" mt-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
                       >

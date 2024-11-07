@@ -34,3 +34,20 @@ export const specificTour = createAsyncThunk(
     }
   }
 );
+
+export const specificRegionTours = createAsyncThunk(
+  "api/v1/tour/region",
+
+  async (payload, { rejectWithValue }) => {
+    try {
+      const { data } = await instance.get(`/tour/region/${payload?.id}`, {
+        withCredentials: true,
+      });
+
+      return data?.data;
+    } catch (error) {
+      console.log(error.message);
+      return rejectWithValue(error.message);
+    }
+  }
+);

@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { specificTour, tourAction } from "../actions/toursAction";
+import { specificRegionTours, specificTour, tourAction } from "../actions/toursAction";
 
 const initialState = {
   isLoading: false,
   errorMessage: "",
   data: [],
-  activityTourData: []
+  activityTourData: [],
+  regionTourData:[]
 };
 
 const toursSlice = createSlice({
@@ -42,6 +43,21 @@ const toursSlice = createSlice({
       })
 
       .addCase(specificTour.rejected, (state, action) => {
+        state.isLoading = false;
+        state.errorMessage = action.payload;
+      })
+      .addCase(specificRegionTours.pending, (state, action) => {
+        state.isLoading = true;
+        state.errorMessage = "";
+      })
+
+      .addCase(specificRegionTours.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.errorMessage = "";
+        state.regionTourData = action.payload;
+      })
+
+      .addCase(specificRegionTours.rejected, (state, action) => {
         state.isLoading = false;
         state.errorMessage = action.payload;
       });
