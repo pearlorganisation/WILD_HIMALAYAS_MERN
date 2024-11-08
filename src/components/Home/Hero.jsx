@@ -43,7 +43,7 @@ const Hero = () => {
                 className="animated lg:text-6xl text-4xl lg:my-10 my-5 font-semibold"
                 style={{ color: "#fff" }}
               >
-                Mountain Climbing
+               Adventure Awaits
               </h3>
             </div>
             <div className="desc-slide">
@@ -51,23 +51,22 @@ const Hero = () => {
                 className="animated lg:tracking-wider tracking-wide lg:leading-7 leading-5"
                 style={{ color: "#fff" }}
               >
-                20,000+ Trust Our Transformative Trek Experience and
+                Your Next Summit Awaits with Trusted Wilderness Expertise and
                 <br />
                 Pioneering Safety Standards Each Year
               </p>
             </div>
-            <Link to="/upcomingtrek" className="box-btn">
+            <Link to="/treks" className="box-btn">
               <button
                 className="button-main1 animated  btn-slide-16626053952fca8f53-0 bg-white w-[250px] px-8 py-4  mt-10 text-black font-semibold uppercase"
                 tabIndex={0}
               >
-                Upcoming Treks
+                View Treks
               </button>
             </Link>
           </div>
         </SwiperSlide>
         <SwiperSlide className="relative">
-          {" "}
           <img
             src={Hero2}
             alt="technology"
@@ -75,14 +74,14 @@ const Hero = () => {
             srcset="" />
           <div className="slide-content  content-right ">
             <div className="sub-title1 ">
-            
+             
             </div>
             <div className="title-slide">
               <h3
                 className="animated lg:text-6xl text-4xl lg:my-10 my-5 font-semibold"
                 style={{ color: "#fff" }}
               >
-                Mountain Climbing
+               Conquer Peaks
               </h3>
             </div>
             <div className="desc-slide">
@@ -90,21 +89,22 @@ const Hero = () => {
                 className="animated lg:tracking-wider tracking-wide lg:leading-7 leading-5"
                 style={{ color: "#fff" }}
               >
-                20,000+ Trust Our Transformative Trek Experience and
+                Join 10,000+ Explorers Who Seek the Untamed Each Year and
                 <br />
-                Pioneering Safety Standards Each Year
+                Chart New Paths with Our Trusted Adventure Guides
               </p>
             </div>
-            <Link to="/upcomingtrek" className="box-btn">
+            <Link to="/treks" className="box-btn">
               <button
                 className="button-main1 animated  btn-slide-16626053952fca8f53-0 bg-white w-[250px] px-8 py-4  mt-10 text-black font-semibold uppercase"
                 tabIndex={0}
               >
-                Upcoming Treks
+                View Treks
               </button>
             </Link>
           </div>
         </SwiperSlide>
+  
       </Swiper>
     </>
   );

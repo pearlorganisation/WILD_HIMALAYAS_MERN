@@ -1,33 +1,41 @@
-import React, { useDebugValue, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
-
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
-import parse from "html-react-parser";
 import AvailableDates from "@/components/Tours/AvailableDates";
-import { tourAction } from "@/features/actions/toursAction";
+import { specificRegionTours, specificTour } from "@/features/actions/toursAction";
 
 const UpcomingTreks = () => {
-  const { isLoading, data } = useSelector((state) => state.tour);
-
+  const { isLoading, activityTourData,regionTourData } = useSelector((state) => state.tour);
+const {region} = useParams()
+const {state:id} = useLocation()
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(tourAction());
-  }, []);
-  console.log(data, "updata");
+console.log(location)
+const [data,setData] = useState([])
 
+  useEffect(() => {
+    if(region){
+dispatch(specificRegionTours({id:id}))
+    }
+    else {
+       dispatch(specificTour({id:"67286919001fb65c89b5dfe7"}));
+  }
+  }, [region]);
+
+  useEffect(()=>{
+    setData(()=>region ? regionTourData: activityTourData)
+  },[regionTourData,activityTourData])
+
+console.log(data)
   return (
     <>
       <div>
           <div className="text-center text-xl md:text-5xl font-bold py-5 ">
-            <h1>Our Treks</h1>
+            <h1>{ region ? `${region} Treks` : "Our Treks"}</h1>
           </div>
 
 
@@ -54,7 +62,7 @@ const UpcomingTreks = () => {
               },
             }}
           >
-            {data && data?.map((item, i) => {
+            {Array.isArray(data) && data?.map((item, i) => {
               return (
                 <SwiperSlide
                   key={i+1}
@@ -84,7 +92,7 @@ const UpcomingTreks = () => {
                       <div className="flex justify-end">
                       <button
                         type="button"
-                        onClick={()=>navigate("/trek",{state:item})}
+                        onClick={()=>navigate("/tour",{state:item})}
                         key={i}
                         class=" my-2 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
                       >

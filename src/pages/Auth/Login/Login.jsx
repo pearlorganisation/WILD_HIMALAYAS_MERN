@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { signIn } from "@/features/actions/authActions";
 import { RxEyeOpen } from "react-icons/rx";
 import { RiEyeCloseLine } from "react-icons/ri";
-import { trekAction } from "@/features/actions/trekAction";
+
 const Login = () => {
   const dispatch = useDispatch();
   const { isLoading, isUserLoggedIn } = useSelector((state) => state.auth);

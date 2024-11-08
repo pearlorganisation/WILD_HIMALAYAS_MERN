@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import image from "../../../assets/images/camp3.jpg";
 const RefundPolicy = () => {
+
+  useEffect(()=>{
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  })
   return (
     <>
       <section className="">

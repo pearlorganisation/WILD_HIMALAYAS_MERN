@@ -1,10 +1,16 @@
-import { ChevronRight } from "lucide-react";
-import React from "react";
-import PayImg from "../../assets/images/pay_copyright.webp";
+import React, { useEffect } from "react";
 import Logo from "../../assets/images/WildLogo.png";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllRegions } from "@/features/actions/region";
 
 const Footer = () => {
+  const dispatch = useDispatch();
+  const {regionData} = useSelector((state)=>state.region)
+
+  useEffect(()=>{
+dispatch(getAllRegions())
+  },[])
   return (
     <footer className="w-full pt-5 bg-black p-3 shadow-full">
       <div className="mx-auto flex max-w-7xl flex-col md:flex-row">
@@ -24,35 +30,15 @@ const Footer = () => {
           </div>
           <div className="mb-8 lg:mb-0">
             <p className="mb-6 text-lg font-semibold text-white ">
-              DESTINATIONS
+              REGIONS
             </p>
             <ul className="flex flex-col space-y-4 text-[14px] font-medium text-white">
-              <Link>
-                <li>Himachal Pradesh</li>
-              </Link>
-              <Link>
-                <li>Ladakh Zanskar</li>
-              </Link>
-              <Link>
-                <li>Garhwal</li>
-              </Link>
-              <Link>
-                <li>Sikkim</li>
-              </Link>
-              <Link>
-                <li>Rajasthan</li>
-              </Link>
-              <Link>
-                {" "}
-                <li>South India</li>
-              </Link>
-              <Link>
-                <li>Nepal</li>
-              </Link>
-              <Link>
-                <li>Tibet</li>
-              </Link>
-            </ul>
+             { Array.isArray(regionData) && regionData.map((item,idx)=> 
+             <Link state={item?._id} to={`/treks/${item?.name}`}>
+                <li>{item?.name}</li>
+              </Link>) 
+             }
+              </ul>
           </div>
 
           <div className="mb-8 lg:mb-0">
@@ -66,12 +52,12 @@ const Footer = () => {
               <Link to="/refundpolicy">
                 <li>Refund Policy</li>
               </Link>
-              <Link>
+              {/* <Link>
                 <li>F.A.Q.</li>
               </Link>
               <Link>
                 <li>Latest update</li>
-              </Link>
+              </Link> */}
             </ul>
           </div>
 
