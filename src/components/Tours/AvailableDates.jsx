@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { IoIosArrowDropdown } from "react-icons/io";
 import { IoIosArrowDropup } from "react-icons/io";
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 function formatDateRange (startDate, endDate) {
   const options = { day: 'numeric', month: 'short' };
@@ -50,11 +50,16 @@ const AvailableDates = ({availableDates ,data}) => {
               {datesByMonth[month].map((date,idx) => (
                 <div key={date._id} className="flex justify-between items-center py-1">
                   <span>{formatDateRange(date.startDate, date.endDate)}</span>
-                  <button
+                  
+                  <div className='flex gap-3'>
+                    <div className='text-white rounded-md px-1 font-medium bg-red-700'>
+                     {date.vacantSeats} Left
+                    </div>
+                    <button
                    onClick={()=>{
                     navigate("/order", {state: {dates: formatDateRange(date.startDate, date.endDate),bookedDates:availableDates[idx], ...data}})
                    }} className="text-white rounded-md px-1 font-medium bg-green-700 hover:bg-green-600 cursor-pointer">Book Now
-                   </button>
+                   </button></div>
                 </div>
               ))}
             </div>

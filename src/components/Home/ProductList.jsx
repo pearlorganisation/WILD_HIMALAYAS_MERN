@@ -32,10 +32,10 @@ const ProductList = () => {
                     <div className="h-40 mx-auto px-2 flex flex-col w-full">
 
                         <div className=" flex flex-col ">
-                        <h1 className="my-4 text-2xl font-semibold text-black">
+                        <h1 className="my-4 line-clamp-2 text-2xl font-semibold text-black">
                           {item?.title}
                         </h1>
-                        <p className="line-clamp-3">
+                        <p className={`${ item?.title?.length > 30 ? 'line-clamp-2' : 'line-clamp-3'} `}>
                           {item?.description}
                         </p>
 
@@ -44,7 +44,15 @@ const ProductList = () => {
                 
                     </div>
 
-                    <div className="flex justify-end">
+                    <div className="flex justify-between items-center">
+                      <div
+                        type="button"
+                        onClick={()=>navigate("/tour",{state:item})}
+                        key={i}
+                        class="px-2 text-blue-700 font-semibold"
+                      >
+                        {item?.activity?.title}
+                      </div>
                       <button
                         type="button"
                         onClick={()=>navigate("/tour",{state:item})}
