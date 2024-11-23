@@ -16,7 +16,7 @@ const Trek = () => {
 
   const {state:el} = useLocation()
 
-  const [activeTab, setActiveTab] = useState("ITINERARY");
+  const [activeTab, setActiveTab] = useState(el?.itinerary ? "ITINERARY": el?.mapLogo ? "MAP" :INCLUSIONS_AND_EXCLUSIONS);
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
@@ -85,7 +85,7 @@ const Trek = () => {
 
   useEffect(()=>{
     window.scrollTo({ top: 0, behavior: "smooth" });
-  })
+  },[])
 
   return (
         <div>
@@ -204,7 +204,7 @@ const Trek = () => {
               <div className="hidden sm:block">
                 <div className="border-b border-gray-200">
                   <nav className="-mb-px flex">
-                    <button
+                { el?.itinerary &&   <button
                       onClick={() => handleTabClick("ITINERARY")}
                       className={`whitespace-nowrap py-4 px-1 border-b-2 border-transparent font-medium text-gray-500 ${
                         activeTab === "ITINERARY"
@@ -213,7 +213,7 @@ const Trek = () => {
                       }`}
                     >
                       ITINERARY
-                    </button>
+                    </button>}
                    { el?.mapLogo && <button
                       onClick={() => handleTabClick("MAP")}
                       className={`whitespace-nowrap ml-8 py-4 px-1 border-b-2 border-transparent font-medium text-gray-500 ${
