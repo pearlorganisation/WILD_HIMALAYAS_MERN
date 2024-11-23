@@ -16,7 +16,6 @@ const AddTrekMate = () => {
   const { isLoading} = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
-
   const {
     register,
     handleSubmit,
@@ -58,8 +57,13 @@ const AddTrekMate = () => {
     dispatch(storeTrekkers(newtreker))
   };
   const handelNavigate = () => {
-    navigate("/checkout",{state:data});
+    if(data?.bookedDates?.vacantSeats -1  >=trekkersData?.length)
+    {navigate("/checkout",{state:data});}
+    else{
+      toast.error(`Only ${data?.bookedDates?.vacantSeats} ${data?.bookedDates?.vacantSeats===1 ?"seat is": "seats are"} left`)
+    }
   };
+
   return (
     <>
       <StepForm activeStep={2} data={data} />

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import StepForm from "../StepForm/StepForm";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { toast } from "sonner";
 
 const Checkout = () => {
   const {state:data} = useLocation()
@@ -10,6 +11,7 @@ const Checkout = () => {
   const {userData} = useSelector((state)=>state.auth)
   const [isLoading,setIsLoading] = useState(false)
   const [order, setOrder] = useState("");
+  const navigate = useNavigate()
 
   const memberNames = [userData,...trekkersData]
 
@@ -73,11 +75,10 @@ const Checkout = () => {
               }
             );
             var jsonResponse = validateResponse?.data;
-            setOnlineData(jsonResponse);
             if (jsonResponse.status) {
-              setStep(3);
-              toast.success(jsonResponse?.message, { position: "top-center" });
+              toast.success("Your booking is successful", { position: "top-center" });
             }
+            navigate("/")
           } catch (error) {
             console.error("Error verifying payment:", error);
             toast.error("Error verifying payment", { position: "top-center" });

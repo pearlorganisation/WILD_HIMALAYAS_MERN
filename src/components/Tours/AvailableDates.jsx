@@ -53,13 +53,13 @@ const AvailableDates = ({availableDates ,data}) => {
                   
                   <div className='flex gap-3'>
                     <div className='text-white rounded-md px-1 font-medium bg-red-700'>
-                     {date.vacantSeats} Left
+                     {date.vacantSeats >0 ?`${date.vacantSeats} Left`: "No Seats Left"}
                     </div>
-                    <button
+              {date.vacantSeats >0 &&       <button
                    onClick={()=>{
                     navigate("/order", {state: {dates: formatDateRange(date.startDate, date.endDate),bookedDates:availableDates[idx], ...data}})
                    }} className="text-white rounded-md px-1 font-medium bg-green-700 hover:bg-green-600 cursor-pointer">Book Now
-                   </button></div>
+                   </button>}</div>
                 </div>
               ))}
             </div>
